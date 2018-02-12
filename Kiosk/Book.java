@@ -103,6 +103,16 @@ public class Book
     }
     
     /**
+     * gets the author of the book.
+     * 
+     * @return the name of the author.
+     */
+    public String getAuthor()
+    {
+        return author;
+    }
+    
+    /**
      * Prints the name of the author to the terminal.
      * 
      */

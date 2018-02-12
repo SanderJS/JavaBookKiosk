@@ -8,11 +8,11 @@ import java.util.ArrayList;
  */
 public class Storage
 {
-    // instance variables - replace the example below with your own
     private ArrayList<Book> listOfBooks;
 
     /**
-     * Constructor for objects of class ListOfStock
+     * Initiates the list of all the books.
+     * 
      */
     public Storage()
     {
@@ -20,23 +20,42 @@ public class Storage
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Add an already excisting book to the list.
+     * 
+     * @param book is the name of the object that hold the book.
      */
     public void addBook(Book book)
     {
         this.listOfBooks.add(book);
     }
     
+    /**
+     * Adds a new book object and adds it to the list.
+     * 
+     * @param bookAuthor author of the book.
+     * @param bookTitle title of the book.
+     * @param bookPublisher the publisher of the book.
+     * @param bookEdition the edition of the book.
+     * @param bookPages total pages in the book.
+     * @param bookPrice the price of the book in NOK.
+     * @param bookGenre the genre of the book.
+     * @param bookReleaseDate the release date of the book.
+     * @param isBookASeries denotes if the book is part of a series or not.
+     */
     public void addNewBook(String bookAuthor, String bookTitle, String bookPublisher, 
     String bookEdition, String bookGenre, String bookReleaseDate, 
     int bookPages, int bookPrice, boolean isBookASeries)
     {
-        listOfBooks.add( new Book(bookAuthor, bookTitle, bookPublisher, bookEdition, bookGenre, bookReleaseDate, bookPages, bookPrice, isBookASeries));
+        listOfBooks.add( new Book(bookAuthor, bookTitle, bookPublisher, 
+            bookEdition, bookGenre, bookReleaseDate, 
+            bookPages, bookPrice, isBookASeries));
     }
     
+    /**
+     * Removes a book from the list based on its position in the list.
+     * 
+     * @param index is the position in the list.
+     */
     public void removeBookFromList(int index)
     {
         listOfBooks.remove(index);
@@ -46,7 +65,7 @@ public class Storage
      * Removes the selected book from the list.
      * 
      * @param book is the name of the book that you search for to delete.
-     */
+    
     public void removeFromListByName(Book book)
     {
         if (this.listOfBooks.equals(book))
@@ -54,14 +73,24 @@ public class Storage
         else
             System.out.println("The book does not exist!");
     }
-    
-    public void searchForBook(Book book)
+    */
+   
+    /**
+     * gets a book with the same author name as the input.
+     * 
+     * @param author is the name of the author.
+     * @return foundBook is the return with same author.
+     */
+    public Book getBookByAuthor(String author)
     {
-        if (this.listOfBooks.equals(book))
-            System.out.println(book);
-        else
-            System.out.println("The book does not exist!");
+        Book foundBook = null;
+        for (Book b : this.listOfBooks)
+        {
+            if (b.getAuthor().equals(author))
+            {
+                foundBook = b;
+            }
+        }
+        return foundBook;
     }
-    
-    
 }

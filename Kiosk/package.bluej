@@ -2,10 +2,10 @@
 dependency1.from=Storage
 dependency1.to=Book
 dependency1.type=UsesDependency
-editor.fx.0.height=818
-editor.fx.0.width=1052
-editor.fx.0.x=521
-editor.fx.0.y=114
+editor.fx.0.height=1096
+editor.fx.0.width=1874
+editor.fx.0.x=-8
+editor.fx.0.y=-8
 objectbench.height=98
 objectbench.width=522
 package.divider.horizontal=0.5832414553472988
