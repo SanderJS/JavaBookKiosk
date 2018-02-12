@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Storage
+comment0.text=\r\n\ The\ list\ that\ holds\ the\ different\ books,\ papers\ and\ newspapers\ \r\n\ that\ is\ in\ the\ kiosks\ stock.\r\n\r\n\ @author\ Jan\ Anton,\ Sander\ Joachim\r\n\ @version\ 0.1\r\n
+comment1.params=
+comment1.target=Storage()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ ListOfStock\r\n
+comment2.params=book
+comment2.target=void\ addBook(Book)
+comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
+comment3.params=bookAuthor\ bookTitle\ bookPublisher\ bookEdition\ bookGenre\ bookReleaseDate\ bookPages\ bookPrice\ isBookASeries
+comment3.target=void\ addNewBook(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int,\ boolean)
+comment4.params=index
+comment4.target=void\ removeBookFromList(int)
+comment5.params=book
+comment5.target=void\ removeFromListByName(Book)
+comment6.params=book
+comment6.target=void\ searchForBook(Book)
+numComments=7
