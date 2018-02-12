@@ -41,7 +41,12 @@ public class Storage
     {
         listOfBooks.remove(index);
     }
-        
+    
+    /**
+     * Removes the selected book from the list.
+     * 
+     * @param book is the name of the book that you search for to delete.
+     */
     public void removeFromListByName(Book book)
     {
         if (this.listOfBooks.equals(book))

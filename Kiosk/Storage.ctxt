@@ -13,6 +13,7 @@ comment4.params=index
 comment4.target=void\ removeBookFromList(int)
 comment5.params=book
 comment5.target=void\ removeFromListByName(Book)
+comment5.text=\r\n\ Removes\ the\ selected\ book\ from\ the\ list.\r\n\ \r\n\ @param\ book\ is\ the\ name\ of\ the\ book\ that\ you\ search\ for\ to\ delete.\r\n
 comment6.params=book
 comment6.target=void\ searchForBook(Book)
 numComments=7
