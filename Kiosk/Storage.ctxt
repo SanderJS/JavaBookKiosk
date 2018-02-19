@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Storage
-comment0.text=\r\n\ The\ list\ that\ holds\ the\ different\ books,\ papers\ and\ newspapers\ \r\n\ that\ is\ in\ the\ kiosks\ stock.\r\n\r\n\ @author\ Jan\ Anton,\ Sander\ Joachim\r\n\ @version\ 0.1\r\n
+comment0.text=\r\n\ The\ list\ that\ holds\ the\ different\ books,\ papers\ and\ newspapers\ \r\n\ that\ is\ in\ the\ kiosks\ stock.\r\n\r\n\ @author\ Jan\ Anton,\ Sander\ Joachim,\ Karl\ Kristian\r\n\ @version\ 0.2\r\n
 comment1.params=
 comment1.target=Storage()
 comment1.text=\r\n\ Initiates\ the\ list\ of\ all\ the\ books.\r\n\ \r\n
@@ -15,14 +15,14 @@ comment4.target=void\ removeBookFromList(int)
 comment4.text=\r\n\ Removes\ a\ book\ from\ the\ list\ based\ on\ its\ position\ in\ the\ list.\r\n\ \r\n\ @param\ index\ is\ the\ position\ in\ the\ list.\r\n
 comment5.params=author
 comment5.target=void\ getBookByAuthor(java.lang.String)
-comment5.text=\r\n\ gets\ a\ book\ with\ the\ same\ author\ name\ as\ the\ input.\r\n\ \r\n\ @param\ author\ is\ the\ name\ of\ the\ author.\r\n\ @return\ foundBook\ is\ the\ return\ with\ same\ author.\r\n
+comment5.text=\r\n\ Prints\ a\ book\ with\ the\ same\ author\ name\ as\ the\ input.\r\n\ \r\n\ @param\ author\ is\ the\ name\ of\ the\ author.\r\n
 comment6.params=publisher
 comment6.target=void\ getBookByPublisher(java.lang.String)
-comment6.text=\r\n\ gets\ a\ book\ with\ the\ same\ author\ name\ as\ the\ input.\r\n\ \r\n\ @param\ author\ is\ the\ name\ of\ the\ author.\r\n\ @return\ foundBook\ is\ the\ return\ with\ same\ author.\r\n
+comment6.text=\r\n\ Prints\ a\ book\ with\ the\ same\ publisher\ as\ the\ input.\r\n\ \r\n\ @param\ publisher\ is\ the\ name\ of\ the\ publisher.\r\n\ \r\n
 comment7.params=title\ publisher
 comment7.target=void\ getBookByTitleAndPublisher(java.lang.String,\ java.lang.String)
-comment7.text=\r\n\ gets\ a\ book\ with\ the\ same\ author\ name\ as\ the\ input.\r\n\ \r\n\ @param\ author\ is\ the\ name\ of\ the\ author.\r\n\ @return\ foundBook\ is\ the\ return\ with\ same\ author.\r\n
+comment7.text=\r\n\ Prints\ a\ book\ with\ the\ same\ title\ and\ publisher\ as\ the\ input.\r\n\ \r\n\ @param\ title\ is\ the\ name\ of\ the\ title.\r\n\ @param\ publisher\ is\ the\ name\ of\ the\ publisher.\r\n
 comment8.params=
 comment8.target=void\ listAllBooks()
-comment8.text=\r\n\ gets\ a\ book\ with\ the\ same\ author\ name\ as\ the\ input.\r\n\ \r\n\ @param\ author\ is\ the\ name\ of\ the\ author.\r\n\ @return\ foundBook\ is\ the\ return\ with\ same\ author.\r\n
+comment8.text=\r\n\ Prints\ all\ the\ books\ stored.\r\n
 numComments=9
