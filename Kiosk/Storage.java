@@ -3,8 +3,8 @@ import java.util.ArrayList;
  * The list that holds the different books, papers and newspapers 
  * that is in the kiosks stock.
  *
- * @author Jan Anton, Sander Joachim
- * @version 0.1
+ * @author Jan Anton, Sander Joachim, Karl Kristian
+ * @version 0.2
  */
 public class Storage
 {
@@ -60,37 +60,69 @@ public class Storage
     {
         listOfBooks.remove(index);
     }
-    
+       
     /**
-     * Removes the selected book from the list.
-     * 
-     * @param book is the name of the book that you search for to delete.
-    
-    public void removeFromListByName(Book book)
-    {
-        if (this.listOfBooks.equals(book))
-            listOfBooks.remove(book);
-        else
-            System.out.println("The book does not exist!");
-    }
-    */
-   
-    /**
-     * gets a book with the same author name as the input.
+     * Prints a book with the same author name as the input.
      * 
      * @param author is the name of the author.
-     * @return foundBook is the return with same author.
      */
-    public Book getBookByAuthor(String author)
+    public void getBookByAuthor(String author)
     {
         Book foundBook = null;
         for (Book b : this.listOfBooks)
         {
             if (b.getAuthor().equals(author))
             {
-                foundBook = b;
+                b.printDetails();
             }
         }
-        return foundBook;
+    }
+    
+    /**
+     * Prints a book with the same publisher as the input.
+     * 
+     * @param publisher is the name of the publisher.
+     * 
+     */
+    public void getBookByPublisher(String publisher)
+    {
+        Book foundBook = null;
+        for (Book b : this.listOfBooks)
+        {
+            if (b.getPublisher().equals(publisher))
+            {
+                b.printDetails();
+            }
+        }
+    }
+
+    /**
+     * Prints a book with the same title and publisher as the input.
+     * 
+     * @param title is the name of the title.
+     * @param publisher is the name of the publisher.
+     */
+    public void getBookByTitleAndPublisher(String title, String publisher)
+    {
+        Book foundBook = null;
+        for (Book b : this.listOfBooks)
+        {
+            if ((b.getTitle().equals(title)) && (b.getPublisher().equals(publisher)))
+            {
+                b.printDetails();
+            }
+        }
+    }
+
+    /**
+     * Prints all the books stored.
+     */
+    public void listAllBooks()
+    {
+        Book foundBook = null;
+        for (Book b : this.listOfBooks)
+        {
+            b.printDetails();
+        }
     }
 }

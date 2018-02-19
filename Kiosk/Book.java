@@ -102,6 +102,26 @@ public class Book
         return refNumber;
     }
     
+        /**
+     * Returns the title of the book.
+     * 
+     * @return the title of the book.
+     */
+    public String getTitle()
+    {
+        return title;
+    }
+    
+        /**
+     * Returns the publisher for the book.
+     * 
+     * @return the publisher of the book.
+     */
+    public String getPublisher()
+    {
+        return publisher;
+    }
+    
     /**
      * gets the author of the book.
      * 
@@ -145,10 +165,12 @@ public class Book
      */
     public void printDetails()
     {
+        System.out.println("################################################");
         System.out.println("Title: " + title + ", Author: " + author);
         System.out.println("Genre: " + genre + ", Pages: " + pages);
         System.out.println("Price: " + price + " NOK");
         System.out.println("Release date: " + releaseDate);
+        System.out.println("Publisher: " + publisher);
         if (isSeries)
             if (series.equals(""))
                 System.out.println("Series not yet set");
