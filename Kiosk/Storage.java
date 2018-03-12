@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author Jan Anton, Sander Joachim, Karl Kristian
  * @version 0.2
  */
-public class Storage
+public class BookStorage
 {
     private ArrayList<Book> listOfBooks;
 
@@ -14,7 +14,7 @@ public class Storage
      * Initiates the list of all the books.
      * 
      */
-    public Storage()
+    public BookStorage()
     {
         this.listOfBooks = new ArrayList<Book>();
     }
