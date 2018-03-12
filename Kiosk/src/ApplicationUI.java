@@ -164,11 +164,16 @@ public class ApplicationUI {
                     int pages = reader.next();
                     System.out.println("Please type the price of the Book in USD ");
                     int pages = reader.next();
-                    System.out.println("Please type true or false based on if the book is in a series");
-                    System.out.println("for instance:");
-                    System.out.println("if the book is in a series: type true");
-                    System.out.println("if the book is not in a series: type false");
-                    boolean isSeries = reader.next(<)
+                    System.out.println("Please type yes or no based on if the book is in a series");
+                    if (reader.next().equals "yes") {
+                        boolean isSeries = true;
+                    }
+                    else if (reader.next().equals "no") {
+                        boolean isSeres = false;
+                    }
+                    else if {
+                        System.out.println("yes or no");
+                    }
                     bookStorage.addNewBook(title, author, publisher,  edition, refNumber, series, genre, realeaseDate, pages, price, isSeries);
                         quit = true;
                         break;
