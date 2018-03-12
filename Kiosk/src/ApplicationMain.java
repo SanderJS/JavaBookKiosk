@@ -5,15 +5,15 @@
  * @author asty
  * @version 1.0
  */
-public class Main 
+public class ApplicationMain
 {
     /**
      * The main entry for the application.
      * @param args arguments provided during startup of the application
      */
-    public static void main(String[] args)
+    public static void main (String[] args)
     {
-        ApplicationUI appUI = new ApplicationUI();
-        appUI.start();
+        ApplicationUI applUI = new ApplicationUI();
+        applUI.start();
     }
 }
