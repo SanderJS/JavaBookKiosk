@@ -22,41 +22,75 @@ public class Book {
     private int price;
     private boolean isSeries;
     /**
-     * Set the author and title fields when ths object is constructed.
-     * Author and title are strings while pages is a number.
-     *
-     * @param bookAuthor      author of the book.
-     * @param bookTitle       title of the book.
-     * @param bookPublisher   the publisher of the book.
-     * @param bookEdition     the edition of the book.
-     * @param bookPages       total pages in the book.
-     * @param bookPrice       the price of the book in NOK.
-     * @param bookGenre       the genre of the book.
-     * @param bookReleaseDate the release date of the book.
-     * @param isBookASeries   denotes if the book is part of a series or not.
+     * A new book. No information has been set yet.
      */
-    public Book(String bookAuthor, String bookTitle, String bookPublisher,
-                String bookEdition, String bookGenre, String bookReleaseDate,
-                int bookPages, int bookPrice, boolean isBookASeries) {
-        author = bookAuthor;
-        title = bookTitle;
-        publisher = bookPublisher;
-        edition = bookEdition;
-        pages = bookPages;
-        genre = bookGenre;
-        releaseDate = bookReleaseDate;
-        price = bookPrice;
-        isSeries = isBookASeries;
-        series = "";
-        refNumber = "";
+    public Book() {
     }
 
     /**
+     * A new book filled with information
+     * @param author is the author.
+     * @param title is the title.
+     * @param publisher is the publisher.
+     * @param edition is the publishing edition.
+     * @param genre is the genre.
+     * @param releaseDate is the initial release date.
+     * @param pages is the number of pages
+     * @param price is the price in USD.
+     * @param series if the book is part of a series or not.
+     */
+    public Book(String author, String title, String publisher, String edition, String genre,
+                String releaseDate, int pages, int price, boolean series) {
+        this.author = author;
+        this.title = title;
+        this.publisher = publisher;
+        this.edition = edition;
+        this.genre = genre;
+        this.releaseDate = releaseDate;
+        this.pages = pages;
+        this.price = price;
+        this.isSeries = series;
+    }
+
+    /**
+     * Sets the author of the book.
      *
      * @param author is the author.
      */
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public void setEdition(String edition) {
+        this.edition = edition;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setSeries(boolean series) {
+        this.isSeries = series;
     }
 
     /**
