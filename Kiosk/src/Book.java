@@ -21,7 +21,6 @@ public class Book {
     private int pages;
     private int price;
     private boolean isSeries;
-
     /**
      * Set the author and title fields when ths object is constructed.
      * Author and title are strings while pages is a number.

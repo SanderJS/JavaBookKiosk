@@ -144,7 +144,37 @@ public class ApplicationUI {
             try {
                 switch (menuSelection) {
                     case 1:
-                        bookStorage.addNewBook(reader.next(),reader.next(),reader.next(),reader.next(),reader.next(),reader.next(),reader.nextInt(),reader.nextInt(),reader.nextBoolean());
+                    System.out.println("Please type the author of the book: ");
+                    String title = reader.next();
+                    System.out.println("Please type the title of the book: ");
+                    String author = rader.next();
+                    System.out.println("Please type the publisher of the book: ");
+                    String publisher = reader.next();
+                    System.out.println("Please type the edition of the book: ");
+                    String edition = reader.next();
+                    System.out.println("Please type the reference number of the book: ");
+                    String refNumber = reader.next();
+                    System.out.println("Please type the series of the book: ");
+                    String series = reader.next(); 
+                    System.out.println("Please type the genre of the book: ");
+                    String genre = reader.next();
+                    System.out.println("Please type the release date of the book:");
+                    String realeaseDate = reader.next();
+                    System.out.println("Please type the number of pages of the book: ");
+                    int pages = reader.next();
+                    System.out.println("Please type the price of the Book in USD ");
+                    int pages = reader.next();
+                    System.out.println("Please type yes or no based on if the book is in a series");
+                    if (reader.next().equals "yes") {
+                        boolean isSeries = true;
+                    }
+                    else if (reader.next().equals "no") {
+                        boolean isSeres = false;
+                    }
+                    else if {
+                        System.out.println("yes or no");
+                    }
+                    bookStorage.addNewBook(title, author, publisher,  edition, refNumber, series, genre, realeaseDate, pages, price, isSeries);
                         quit = true;
                         break;
 
