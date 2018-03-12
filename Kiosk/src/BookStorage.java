@@ -73,7 +73,7 @@ public class BookStorage
         {
             if (b.getAuthor().equals(author))
             {
-                b.printDetails();
+                b.printDetailsAsString();
             }
         }
     }
@@ -91,7 +91,7 @@ public class BookStorage
         {
             if (b.getPublisher().equals(publisher))
             {
-                b.printDetails();
+                b.printDetailsAsString();
             }
         }
     }
@@ -109,7 +109,7 @@ public class BookStorage
         {
             if ((b.getTitle().equals(title)) && (b.getPublisher().equals(publisher)))
             {
-                b.printDetails();
+                b.printDetailsAsString();
             }
         }
     }
@@ -122,7 +122,7 @@ public class BookStorage
         Book foundBook = null;
         for (Book b : this.listOfBooks)
         {
-            b.printDetails();
+            b.printDetailsAsString();
         }
     }
 }
