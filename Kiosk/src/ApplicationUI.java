@@ -6,47 +6,43 @@ import java.util.Scanner;
  * Makes up the user interface (text based) of the application.
  * Responsible for all user interaction, like displaying the menu
  * and receiving input from the user.
- * 
+ *
  * @author asty
  * @version 1.0
  */
-public class ApplicationUI 
-{
+public class ApplicationUI {
 
-   
+    private BookStorage bookStorage;
+
     // The menu tha will be displayed. Please edit/alter the menu
     // to fit your application (i.e. replace "prodct" with "litterature"
     // etc.
     private String[] menuItems = {
-        "1. List all products",
-        "2. Add new product",
-        "3. Find a product by name",
+            "1. List all products",
+            "2. Add new product",
+            "3. Find a product by name",
     };
 
     /**
-     * Creates an instance of the ApplicationUI User interface. 
+     * Creates an instance of the ApplicationUI User interface and a new book storage.
      */
-    public ApplicationUI() 
-    {
+    public ApplicationUI() {
+        this.bookStorage = new BookStorage();
     }
 
     /**
      * Starts the application by showing the menu and retrieving input from the
      * user.
      */
-    public void start() 
-    {
+    public void start() {
         this.init();
 
         boolean quit = false;
 
-        while (!quit) 
-        {
-            try 
-            {
+        while (!quit) {
+            try {
                 int menuSelection = this.showMenu();
-                switch (menuSelection) 
-                {
+                switch (menuSelection) {
                     case 1:
                         this.listAllProducts();
                         break;
@@ -65,31 +61,28 @@ public class ApplicationUI
                         break;
 
                     default:
+                        System.out.println("Command not recognized");
                 }
-            } 
-            catch (InputMismatchException ime) 
-            {
+            } catch (InputMismatchException ime) {
                 System.out.println("\nERROR: Please provide a number between 1 and " + this.menuItems.length + "..\n");
             }
-        }        
-        
+        }
+
     }
 
     /**
      * Displays the menu to the user, and waits for the users input. The user is
-     * expected to input an integer between 1 and the max number of menu items. 
-     * If the user inputs anything else, an InputMismatchException is thrown. 
+     * expected to input an integer between 1 and the max number of menu items.
+     * If the user inputs anything else, an InputMismatchException is thrown.
      * The method returns the valid input from the user.
      *
      * @return the menu number (between 1 and max menu item number) provided by the user.
      * @throws InputMismatchException if user enters an invalid number/menu choice
      */
-    private int showMenu() throws InputMismatchException 
-    {
+    private int showMenu() throws InputMismatchException {
         System.out.println("\n**** Application v0.1 ****\n");
         // Display the menu
-        for ( String menuItem : menuItems )
-        {
+        for (String menuItem : menuItems) {
             System.out.println(menuItem);
         }
         int maxMenuItemNumber = menuItems.length + 1;
@@ -99,48 +92,69 @@ public class ApplicationUI
         // Read input from user
         Scanner reader = new Scanner(System.in);
         int menuSelection = reader.nextInt();
-        if ((menuSelection < 1) || (menuSelection > maxMenuItemNumber)) 
-        {
+        if ((menuSelection < 1) || (menuSelection > maxMenuItemNumber)) {
             throw new InputMismatchException();
         }
         return menuSelection;
     }
-    
+
     // ------ The methods below this line are "helper"-methods, used from the menu ----
     // ------ All these methods are made privat, since they are only used by the menu ---
-    
+
     /**
      * Initializes the application.
      * Typically you would create the LiteratureRegistrer-instance here
      */
-    private void init()
-    {
+    private void init() {
         System.out.println("init() was called");
     }
 
     /**
      * Lists all the products/literature in the register
      */
-    void listAllProducts()
-    {
+    void listAllProducts() {
         System.out.println("listAllProducts() was called");
     }
 
-    
+
     /**
      * Add a new product/literature to the register.
      * In this method you have to add code to ask the
-     * user for the necessary information you need to 
+     * user for the necessary information you need to
      * create an instance of the product, which you
      * then send as a parameter to the addNewspaper()-
      * method of the register.
      * Remember to also handle invalid input from the
      * user!!
      */
-    void addNewProduct()
-    {
-        System.out.println("addNewProduct() was called");
-        
+    void addNewProduct() throws InputMismatchException {
+        int numberOfProducts = 1;
+        System.out.println("Which product");
+        System.out.println("1: Book");
+
+        boolean quit = false;
+
+        Scanner reader = new Scanner(System.in);
+        int menuSelection = reader.nextInt();
+        if ((menuSelection < 1) || (menuSelection > numberOfProducts)) {
+            throw new InputMismatchException();
+        }
+
+        while (!quit) {
+            try {
+                switch (menuSelection) {
+                    case 1:
+                        bookStorage.addNewBook(reader.next(),reader.next(),reader.next(),reader.next(),reader.next(),reader.next(),reader.nextInt(),reader.nextInt(),reader.nextBoolean());
+                        quit = true;
+                        break;
+
+                    default:
+                        System.out.println("Please input a valid numeral");
+                }
+            } catch (InputMismatchException ime) {
+                System.out.println("\nERROR: Please provide a number between 1 and X..\n");
+            }
+        }
     }
 
     /**
@@ -152,9 +166,8 @@ public class ApplicationUI
      * Then, upon return from the register, you need
      * to print the details of the found item.
      */
-    void findProductByName()
-    {
+    void findProductByName() {
         System.out.println("findProductByName() was called");
     }
-    
+
 }
