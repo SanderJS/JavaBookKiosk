@@ -1,4 +1,3 @@
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -21,6 +20,7 @@ public class ApplicationUI {
             "1. List all products",
             "2. Add new product",
             "3. Find a product by name",
+
     };
 
     /**
@@ -112,10 +112,13 @@ public class ApplicationUI {
     /**
      * Lists all the products/literature in the register
      */
-    void listAllProducts() {
-        System.out.println("listAllProducts() was called");
+    public void listAllProducts() {
+        if (this.bookStorage.listSize() > 0) {
+            System.out.println(bookStorage.listAllBooks());
+        } else {
+            System.out.println("There are no books stored.");
+        }
     }
-
 
     /**
      * Add a new product/literature to the register.
@@ -127,7 +130,7 @@ public class ApplicationUI {
      * Remember to also handle invalid input from the
      * user!!
      */
-    void addNewProduct() throws InputMismatchException {
+    private void addNewProduct() throws InputMismatchException {
         int numberOfProducts = 1;
         System.out.println("Which product");
         System.out.println("1: Book");
@@ -144,37 +147,72 @@ public class ApplicationUI {
             try {
                 switch (menuSelection) {
                     case 1:
-                    System.out.println("Please type the author of the book: ");
-                    String title = reader.next();
-                    System.out.println("Please type the title of the book: ");
-                    String author = rader.next();
-                    System.out.println("Please type the publisher of the book: ");
-                    String publisher = reader.next();
-                    System.out.println("Please type the edition of the book: ");
-                    String edition = reader.next();
-                    System.out.println("Please type the reference number of the book: ");
-                    String refNumber = reader.next();
-                    System.out.println("Please type the series of the book: ");
-                    String series = reader.next(); 
-                    System.out.println("Please type the genre of the book: ");
-                    String genre = reader.next();
-                    System.out.println("Please type the release date of the book:");
-                    String realeaseDate = reader.next();
-                    System.out.println("Please type the number of pages of the book: ");
-                    int pages = reader.next();
-                    System.out.println("Please type the price of the Book in USD ");
-                    int pages = reader.next();
-                    System.out.println("Please type yes or no based on if the book is in a series");
-                    if (reader.next().equals "yes") {
-                        boolean isSeries = true;
-                    }
-                    else if (reader.next().equals "no") {
-                        boolean isSeres = false;
-                    }
-                    else if {
-                        System.out.println("yes or no");
-                    }
-                    bookStorage.addNewBook(title, author, publisher,  edition, refNumber, series, genre, realeaseDate, pages, price, isSeries);
+                        String doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later.
+
+                        System.out.println("Please type the title of the book: ");
+                        String title = reader.nextLine();
+
+                        System.out.println("Please type the author of the book: ");
+                        String author = reader.nextLine();
+
+                        System.out.println("Please type the publisher of the book: ");
+                        String publisher = reader.nextLine();
+
+                        System.out.println("Please type the edition of the book: ");
+                        String edition = reader.nextLine();
+
+                        System.out.println("Please type the reference number of the book");
+                        System.out.println("This should be at least 3 characters long:");
+                        String refNumber = reader.nextLine();
+
+                        System.out.println("Please type the genre of the book: ");
+                        String genre = reader.nextLine();
+
+                        System.out.println("Please type the release date of the book:");
+                        String releaseDate = reader.nextLine();
+
+                        System.out.println("Please type the number of pages of the book: ");
+                        int pages = reader.nextInt();
+
+                        System.out.println("Please type the price of the Book in USD ");
+                        int price = reader.nextInt();
+
+                        System.out.println("Please type yes or no based on if the book is in a series");
+                        boolean isSeries = false;
+                        boolean isSeriesSet = false;
+                        String seriesName = "";
+
+                        String readerResponse = reader.nextLine().toLowerCase().trim();
+
+                        /* while (!isSeriesSet) {
+                            if (readerResponse.equals("yes")) {
+                                isSeries = true;
+                                System.out.println("Please type the series name:");
+                                seriesName = reader.nextLine();
+                                isSeriesSet = true;
+                            } else if (readerResponse.equals("no")) {
+                                isSeriesSet = true;
+                            } else {
+                                System.out.println("yes or no");
+                            }
+                        }
+                        */
+
+                        if (reader.nextLine().toLowerCase().trim().equals("yes")) {
+                            isSeries = true;
+                            System.out.println("Please type the series name:");
+                            seriesName = reader.nextLine();
+                        } else if (reader.nextLine().toLowerCase().trim().equals("no")) {
+                            System.out.println("too bad, maybe in the future?");
+                        } else {
+                            System.out.println("yes or no");
+                        }
+
+                        if (refNumber.length() >= 3) {
+                            bookStorage.addNewBook(title, author, publisher, edition, refNumber, genre, releaseDate, pages, price, isSeries, seriesName);
+                        } else {
+                            System.out.println("Ref number too short. Book not added");
+                        }
                         quit = true;
                         break;
 
@@ -196,8 +234,37 @@ public class ApplicationUI {
      * Then, upon return from the register, you need
      * to print the details of the found item.
      */
-    void findProductByName() {
-        System.out.println("findProductByName() was called");
-    }
+    private void findProductByName() throws InputMismatchException {
+        System.out.println("What kind of product are you looking for?\n");
+        System.out.println("1. Book");
 
+        int numberOfProducts = 1;
+        Scanner reader = new Scanner(System.in);
+
+        boolean quit = false;
+
+        int menuSelection = reader.nextInt();
+        if ((menuSelection < 1) || (menuSelection > numberOfProducts)) {
+            throw new InputMismatchException();
+        }
+
+        while (!quit) {
+            try {
+                switch (menuSelection) {
+                    case 1:
+                        String author = reader.nextLine();
+                        System.out.println("What is the authors name? This search is case sensitive:");
+                        System.out.println(bookStorage.getBookByAuthor(author));
+                        quit = true;
+                        break;
+
+                    default:
+                        System.out.println("That isn't a choice.");
+                        break;
+                }
+            } catch (InputMismatchException ime) {
+                System.out.println("\nERROR: Please provide a number between 1 and X..\n");
+            }
+        }
+    }
 }

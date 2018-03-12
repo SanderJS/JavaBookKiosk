@@ -172,7 +172,7 @@ public class Book {
         returnString += "################################################\n";
         returnString += "Title: " + title + ", Author: " + author + "\n";
         returnString += "Genre: " + genre + ", Pages: " + pages + "\n";
-        returnString += "Price: " + price + " NOK" + "\n";
+        returnString += "Price: " + price + " USD" + "\n";
         returnString += "Release date: " + releaseDate + "\n";
         returnString += "Publisher: " + publisher + "\n";
         if (isSeries) {

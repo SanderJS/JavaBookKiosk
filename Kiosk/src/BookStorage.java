@@ -21,13 +21,14 @@ public class BookStorage {
     /**
      * Creates a new, empty book and fills it.
      */
-    public void addNewBook(String author, String title, String publisher, String edition, String genre,
-                           String releaseDate, int pages, int price, boolean series, String seriesName) {
+    public void addNewBook(String title, String author, String publisher, String edition, String refNumber,
+                           String genre, String releaseDate, int pages, int price, boolean series, String seriesName) {
         this.book = new Book();
         this.book.setTitle(title);
         this.book.setAuthor(author);
         this.book.setPublisher(publisher);
         this.book.setEdition(edition);
+        this.book.setRefNumber(refNumber);
         this.book.setGenre(genre);
         this.book.setReleaseDate(releaseDate);
         this.book.setPages(pages);
@@ -60,13 +61,15 @@ public class BookStorage {
      *
      * @param author is the name of the author.
      */
-    public void getBookByAuthor(String author) {
+    public String getBookByAuthor(String author) {
         Book foundBook = null;
+        String returnString = "";
         for (Book b : this.listOfBooks) {
             if (b.getAuthor().equals(author)) {
-                b.printDetailsAsString();
+                returnString +=                 b.printDetailsAsString();
             }
         }
+        return returnString;
     }
 
     /**
@@ -74,13 +77,16 @@ public class BookStorage {
      *
      * @param publisher is the name of the publisher.
      */
-    public void getBookByPublisher(String publisher) {
+    public String getBookByPublisher(String publisher) {
         Book foundBook = null;
+        String returnString = "";
         for (Book b : this.listOfBooks) {
             if (b.getPublisher().equals(publisher)) {
-                b.printDetailsAsString();
+                returnString += b.printDetailsAsString();
             }
         }
+        return returnString;
+
     }
 
     /**
@@ -89,22 +95,31 @@ public class BookStorage {
      * @param title     is the name of the title.
      * @param publisher is the name of the publisher.
      */
-    public void getBookByTitleAndPublisher(String title, String publisher) {
+    public String getBookByTitleAndPublisher(String title, String publisher) {
         Book foundBook = null;
+        String returnString = "";
         for (Book b : this.listOfBooks) {
             if ((b.getTitle().equals(title)) && (b.getPublisher().equals(publisher))) {
-                b.printDetailsAsString();
+                returnString += b.printDetailsAsString();
             }
         }
+        return returnString;
     }
 
     /**
      * Prints all the books stored.
      */
-    public void listAllBooks() {
-        Book foundBook = null;
+    public String listAllBooks() {
+        String returnString = "";
         for (Book b : this.listOfBooks) {
-            b.printDetailsAsString();
+            returnString += b.printDetailsAsString();
         }
+        return returnString;
+    }
+
+    public int listSize() {
+        int size;
+        size = listOfBooks.size();
+        return size;
     }
 }
