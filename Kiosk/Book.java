@@ -42,17 +42,17 @@ public class Book
     String bookEdition, String bookGenre, String bookReleaseDate, 
     int bookPages, int bookPrice, boolean isBookASeries)
     {
-        author = bookAuthor;
-        title = bookTitle;
-        publisher = bookPublisher;
-        edition = bookEdition;
-        pages = bookPages;
-        genre = bookGenre;
-        releaseDate = bookReleaseDate;
-        price = bookPrice;
-        isSeries = isBookASeries;
-        series = "";
-        refNumber = "";
+        this.author = bookAuthor;
+        this.title = bookTitle;
+        this.publisher = bookPublisher;
+        this.edition = bookEdition;
+        this.pages = bookPages;
+        this.genre = bookGenre;
+        this.releaseDate = bookReleaseDate;
+        this.price = bookPrice;
+        this.isSeries = isBookASeries;
+        this.series = "";
+        this.refNumber = "";
     }
 
     /**
