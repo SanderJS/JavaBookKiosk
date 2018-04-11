@@ -9,7 +9,7 @@
  * @author Jan Anton, Sander Joachim
  * @version 0.1
  */
-public class Book {
+public class Book extends BookStorage {
     private String author;
     private String title;
     private String publisher;
@@ -60,19 +60,37 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-
+    
+    /**
+     * Sets the title of the book
+     * 
+     * @param title is the book title
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+    /**
+     * sets the publisher of the book
+     * 
+     * @param publisher sets the book's publisher
+     */
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
 
+    /**
+     * sets the edition of the book
+     * 
+     * @param edition is the book's edition
+     */
     public void setEdition(String edition) {
         this.edition = edition;
     }
 
+    /**
+     * 
+     */
     public void setGenre(String genre) {
         this.genre = genre;
     }

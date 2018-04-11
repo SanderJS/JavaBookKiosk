@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Jan Anton, Sander Joachim, Karl Kristian
  * @version 0.2
  */
-public class BookStorage {
+public class BookStorage extends ApplicationMain {
     private ArrayList<Book> listOfBooks;
     private Book book;
 
@@ -116,6 +116,11 @@ public class BookStorage {
         }
         return returnString;
     }
+    
+    /*private void premadeBook()
+    {
+        set
+    }*/
 
     public int listSize() {
         int size;
