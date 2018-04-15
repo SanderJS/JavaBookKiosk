@@ -9,47 +9,30 @@
  * @author Jan Anton, Sander Joachim
  * @version 0.1
  */
-public class Book extends BookStorage {
-    private String author;
-    private String title;
-    private String publisher;
+public class Book extends Text {
     private String edition;
     private String refNumber;
     private String series;
     private String genre;
-    private String releaseDate;
-    private int pages;
-    private int price;
     private boolean isSeries;
     /**
      * A new book. No information has been set yet.
      */
     public Book() {
+        super(author, title, publisher, releaseDate, pages, price);
     }
 
     /**
      * A new book filled with information
-     * @param author is the author.
-     * @param title is the title.
-     * @param publisher is the publisher.
      * @param edition is the publishing edition.
      * @param genre is the genre.
-     * @param releaseDate is the initial release date.
-     * @param pages is the number of pages
-     * @param price is the price in USD.
      * @param series if the book is part of a series or not.
      */
-    public Book(String author, String title, String publisher, String edition, String genre,
-                String releaseDate, int pages, int price, boolean series) {
-        this.author = author;
-        this.title = title;
-        this.publisher = publisher;
+    public Book(String edition, String genre, boolean series) {
+        super(author, title, publisher, releaseDate, pages, price);
         this.edition = edition;
         this.genre = genre;
-        this.releaseDate = releaseDate;
-        this.pages = pages;
-        this.price = price;
-        this.isSeries = series;
+        this.isSeries = series; 
     }
 
     /**
