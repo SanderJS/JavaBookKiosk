@@ -1,3 +1,5 @@
+import sun.swing.StringUIClientPropertyKey;
+
 import java.util.ArrayList;
 
 /**
@@ -16,7 +18,6 @@ public class TextStorage {
      */
     public TextStorage() {
         this.listOfText = new ArrayList<>();
-        this.
     }
 
     /**
@@ -35,13 +36,55 @@ public class TextStorage {
     public void addNewBook(String title, String author, String publisher,
                            String edition, String genre, String releaseDate,
                            int pages, int price, boolean isSeries) {
-    this.text = new Book(title, author, publisher, edition,
+        this.text = new Book(title, author, publisher, edition,
             genre, releaseDate, pages, price, isSeries);
-    addText(text);
+        addText(text);
     }
 
-    public void addNewWiki(String title, String author, String publisher,
-                           String )
+    /**
+     *
+     * @param project
+     * @param title
+     * @param author
+     * @param publisher
+     * @param releaseDate
+     */
+    public void addNewWiki(String project, String title, String author,
+                           String publisher, String releaseDate){
+        this.text = new Wiki(project, author, title, publisher, releaseDate);
+        addText(text);
+    }
+
+    /**
+     * Adds a new magazine to the collection
+     * @param author
+     * @param title
+     * @param publisher
+     * @param releaseDate
+     * @param pages
+     * @param price
+     */
+    public void addNewMagazine(String author, String title, String publisher,
+                               String releaseDate, int pages, int price){
+        this.text = new Magazine(author, title, publisher, releaseDate, pages,price);
+        addText(text);
+    }
+
+    /**
+     * Adds a new newspaper to the collection
+     *
+     * @param author the author of the newspaper
+     * @param title of the newspaper
+     * @param publisher of the newspaper
+     * @param releaseDate of the newspaper
+     * @param pages of the newspaper
+     * @param price of the newspaper
+     */
+    public void addNewNewspaper(String author, String title, String publisher,
+                                String releaseDate, int pages, int price){
+        this.text = new Newspaper(author, title, publisher, releaseDate, pages, price);
+        addText(text);
+    }
 
     /**
      * The currently selected book to the list.

@@ -1,3 +1,5 @@
+import sun.swing.StringUIClientPropertyKey;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -131,9 +133,24 @@ public class ApplicationUI {
      * user!!
      */
     private void addNewProduct() throws InputMismatchException {
-        int numberOfProducts = 1;
+        int numberOfProducts = 5;
+        String doNotUse = "";
+        String title = "";
+        String author = "";
+        String publisher = "";
+        String edition = "";
+        String refNumber = "";
+        String genre = "";
+        String releaseDate = "";
+        int pages;
+        int price;
+
         System.out.println("Which product");
         System.out.println("1: Book");
+        System.out.println("2: Magazine");
+        System.out.println("3: Newspaper");
+        System.out.println("4: wiki");
+        System.out.println("5: 3 pre generated books");
 
         boolean quit = false;
 
@@ -147,35 +164,35 @@ public class ApplicationUI {
             try {
                 switch (menuSelection) {
                     case 1:
-                        String doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later.
+                        doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later.
 
                         System.out.println("Please type the title of the book: ");
-                        String title = reader.nextLine();
+                        title = reader.nextLine();
 
                         System.out.println("Please type the author of the book: ");
-                        String author = reader.nextLine();
+                        author = reader.nextLine();
 
                         System.out.println("Please type the publisher of the book: ");
-                        String publisher = reader.nextLine();
+                        publisher = reader.nextLine();
 
                         System.out.println("Please type the edition of the book: ");
-                        String edition = reader.nextLine();
+                        edition = reader.nextLine();
 
                         System.out.println("Please type the reference number of the book");
                         System.out.println("This should be at least 3 characters long:");
-                        String refNumber = reader.nextLine();
+                        refNumber = reader.nextLine();
 
                         System.out.println("Please type the genre of the book: ");
-                        String genre = reader.nextLine();
+                        genre = reader.nextLine();
 
                         System.out.println("Please type the release date of the book:");
-                        String releaseDate = reader.nextLine();
+                        releaseDate = reader.nextLine();
 
                         System.out.println("Please type the number of pages of the book: ");
-                        int pages = reader.nextInt();
+                        pages = reader.nextInt();
 
                         System.out.println("Please type the price of the Book in USD ");
-                        int price = reader.nextInt();
+                        price = reader.nextInt();
 
                         System.out.println("Please type yes or no based on if the book is in a series");
                         boolean isSeries = false;
@@ -215,6 +232,37 @@ public class ApplicationUI {
                         }
                         quit = true;
                         break;
+
+                    case 2:
+                        String doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later.
+
+                        System.out.println("Please type the title of the book: ");
+                        String title = reader.nextLine();
+
+                        System.out.println("Please type the author of the book: ");
+                        String author = reader.nextLine();
+
+                        System.out.println("Please type the publisher of the book: ");
+                        String publisher = reader.nextLine();
+
+                        System.out.println("Please type the edition of the book: ");
+                        String edition = reader.nextLine();
+
+                        System.out.println("Please type the reference number of the book");
+                        System.out.println("This should be at least 3 characters long:");
+                        String refNumber = reader.nextLine();
+
+                        System.out.println("Please type the genre of the book: ");
+                        String genre = reader.nextLine();
+
+                        System.out.println("Please type the release date of the book:");
+                        String releaseDate = reader.nextLine();
+
+                        System.out.println("Please type the number of pages of the book: ");
+                        int pages = reader.nextInt();
+
+                        System.out.println("Please type the price of the Book in USD ");
+                        int price = reader.nextInt();
 
                     default:
                         System.out.println("Please input a valid numeral");

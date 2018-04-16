@@ -13,6 +13,8 @@ public class Magazine extends Text {
     private ArrayList<String> pictures;
     private ArrayList<String> articles;
     private ArrayList<String> authors;
+    private int pages;
+    private int price;
 
     /**
      * Constructor for objects of subclass Magazine
@@ -25,7 +27,9 @@ public class Magazine extends Text {
     public Magazine(String author, String title, String publisher, String releaseDate, int pages, int price)
     {
         // error author has private access in text!
-        super(author, title, publisher, releaseDate, pages, price);
+        super(author, title, publisher, releaseDate);
+        this.pages = pages;
+        this.price = price;
         this.pictures = new ArrayList<>();
         this.articles = new ArrayList<>();
         this.authors = new ArrayList<>();
