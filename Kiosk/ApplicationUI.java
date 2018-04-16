@@ -114,7 +114,7 @@ public class ApplicationUI {
      */
     public void listAllProducts() {
         if (this.bookStorage.listSize() > 0) {
-            System.out.println(bookStorage.listAllBooks());
+            System.out.println(bookStorage.listAllTexts());
         } else {
             System.out.println("There are no books stored.");
         }
@@ -254,7 +254,7 @@ public class ApplicationUI {
                     case 1:
                         String author = reader.nextLine();
                         System.out.println("What is the authors name? This search is case sensitive:");
-                        System.out.println(bookStorage.getBookByAuthor(author));
+                        System.out.println(bookStorage.getTextByAuthor(author));
                         quit = true;
                         break;
 

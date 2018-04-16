@@ -9,45 +9,59 @@
  * @author Jan Anton, Sander Joachim
  * @version 0.1
  */
-public class Book extends Text {
+public class Book {
+    private String author;
+    private String title;
+    private String publisher;
     private String edition;
     private String refNumber;
     private String series;
     private String genre;
+    private String releaseDate;
+    private int pages;
+    private int price;
     private boolean isSeries;
     /**
      * A new book. No information has been set yet.
      */
     public Book() {
-        super(author, title, publisher, releaseDate, pages, price);
     }
 
     /**
      * A new book filled with information
+     * @param author is the author.
+     * @param title is the title.
+     * @param publisher is the publisher.
      * @param edition is the publishing edition.
      * @param genre is the genre.
-     * @param series if the book is part of a series or not.
+     * @param releaseDate is the initial release date.
      */
-    public Book(String edition, String genre, boolean series) {
-        super(author, title, publisher, releaseDate, pages, price);
+    public Book(String author, String title, String publisher, String edition, String genre,
+                String releaseDate, int pages, int price, boolean series) {
+        this.author = author;
+        this.title = title;
+        this.publisher = publisher;
         this.edition = edition;
         this.genre = genre;
-        this.isSeries = series; 
+        this.releaseDate = releaseDate;
+        this.pages = pages;
+        this.price = price;
+        this.isSeries = series;
     }
 
     /**
      * Sets the author of the book.
      *
-     * @param author is the author.
+     * @param author is the author of the book
      */
     public void setAuthor(String author) {
         this.author = author;
     }
-    
+
     /**
-     * Sets the title of the book
+     * sets the title of the book
      * 
-     * @param title is the book title
+     * @param title the title of the book
      */
     public void setTitle(String title) {
         this.title = title;
@@ -56,7 +70,7 @@ public class Book extends Text {
     /**
      * sets the publisher of the book
      * 
-     * @param publisher sets the book's publisher
+     * @param publisher the publisher of the book
      */
     public void setPublisher(String publisher) {
         this.publisher = publisher;
@@ -65,31 +79,55 @@ public class Book extends Text {
     /**
      * sets the edition of the book
      * 
-     * @param edition is the book's edition
+     * @param edition the edition of the book
      */
     public void setEdition(String edition) {
         this.edition = edition;
     }
 
     /**
+     * sets the genre of the book
      * 
+     * @param genre the genre of the book
      */
     public void setGenre(String genre) {
         this.genre = genre;
     }
 
+    /**
+     * sets the release date of the book
+     * 
+     * @param releaseDate the release date of the book
+     */
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 
+    /**
+     * sets the number of pages on the book
+     * 
+     * @param pages the number of pages in the book
+     */
     public void setPages(int pages) {
         this.pages = pages;
     }
 
+    /**
+     * sets the price of the book
+     * 
+     * @param price the price of the book
+     */
     public void setPrice(int price) {
         this.price = price;
     }
 
+    /**
+     * is the book a series?
+     * yes --> True
+     * no --> False
+     * 
+     * @param series is the book a part of a series
+     */
     public void setSeries(boolean series) {
         this.isSeries = series;
     }
