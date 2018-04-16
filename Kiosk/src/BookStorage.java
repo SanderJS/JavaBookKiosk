@@ -125,18 +125,18 @@ public class BookStorage {
 
     public void addPremadeBooks() {
         this.book = new Book();
-        this.book.setTitle("");
-        this.book.setAuthor("");
-        this.book.setPublisher("");
-        this.book.setEdition("");
-        this.book.setRefNumber("");
-        this.book.setGenre("");
-        this.book.setReleaseDate("");
+        this.book.setTitle("titleMan");
+        this.book.setAuthor("AuthorMan");
+        this.book.setPublisher("Gyldendal");
+        this.book.setEdition("5.th");
+        this.book.setRefNumber("1337");
+        this.book.setGenre("sci-fi");
+        this.book.setReleaseDate("1999");
         this.book.setPages(54);
         this.book.setPrice(45);
         this.book.setSeries(true);
         if (series) {
-            this.book.setSeriesName(seriesName);
+            this.book.setSeriesName("a book series");
         }
         addBook();
     }
