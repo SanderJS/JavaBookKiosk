@@ -1,3 +1,14 @@
+import java.util.ArrayList;
+
+/**
+ * a superclass that holds different forms of text (based media)
+ * Text based medias such as books, magazines, newspapers and wikis.
+ * 
+ * every text has a author, title, publisher, release date, pages anda price
+ * 
+ * @author Jan Anton og Joachim
+ * @version 1.0
+ */
 public class Text {
     private String author;
     private String title;
@@ -6,8 +17,18 @@ public class Text {
     private int pages;
     private int price;
 
-
-public Text (String author, String title, String publisher, String releaseDate, int pages, int price) {
+/**
+ * constructor of the text superclass
+ * 
+ * @param author is the author of the text
+ * @param title is the title of the text
+ * @param publisher is the publisher of the text
+ * @param releasdeDate is the release date of the text
+ * @param pages is the number of pages of text
+ * @param price is the price of the text
+ */
+public Text (String author, String title, String publisher, String releaseDate,
+ int pages, int price) {
     this.author = author;
     this.title = title;
     this.publisher = publisher;
@@ -90,6 +111,24 @@ public String getPublisher() {
 */
 public String getAuthor() {
     return author;
+}
+
+/**
+ * gets the number of pages of the text
+ * 
+ * @return the number of pages
+ */
+public void getPages() {
+    return pages
+}
+
+/**
+ * gets the price of the text
+ * 
+ * @return the price of the text
+ */
+public void getPrice() {
+    return price;
 }
 
 /**
