@@ -15,7 +15,7 @@ public class BookStorage {
      * Initiates the list of all the books.
      */
     public BookStorage() {
-        this.listOfBooks = new ArrayList<Book>();
+        this.listOfBooks = new ArrayList<>();
     }
 
     /**
@@ -124,6 +124,8 @@ public class BookStorage {
     }
 
     public void addPremadeBooks() {
+        //The first of three pre made books.
+        boolean series = true;
         this.book = new Book();
         this.book.setTitle("titleMan");
         this.book.setAuthor("AuthorMan");
@@ -134,7 +136,39 @@ public class BookStorage {
         this.book.setReleaseDate("1999");
         this.book.setPages(54);
         this.book.setPrice(45);
-        this.book.setSeries(true);
+        this.book.setSeries(series);
+        if (series) {
+            this.book.setSeriesName("a book series");
+        }
+        addBook();
+        //The second of three pre made books.
+        this.book = new Book();
+        this.book.setTitle("ManTitle");
+        this.book.setAuthor("ManAuthor");
+        this.book.setPublisher("Gyldendal");
+        this.book.setEdition("9.th");
+        this.book.setRefNumber("1227");
+        this.book.setGenre("Low-Fi");
+        this.book.setReleaseDate("1956");
+        this.book.setPages(90);
+        this.book.setPrice(100);
+        this.book.setSeries(series = false);
+        if (series) {
+            this.book.setSeriesName("");
+        }
+        addBook();
+        //The final pre made book.
+        this.book = new Book();
+        this.book.setTitle("Sander");
+        this.book.setAuthor("Joachim");
+        this.book.setPublisher("Skarmyr");
+        this.book.setEdition("1st");
+        this.book.setRefNumber("1997");
+        this.book.setGenre("Blind");
+        this.book.setReleaseDate("2001");
+        this.book.setPages(100);
+        this.book.setPrice(001);
+        this.book.setSeries(series = true);
         if (series) {
             this.book.setSeriesName("a book series");
         }
