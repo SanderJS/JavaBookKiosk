@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Wiki extends Text {
-    private ArrayList<String> contributers;
+    private ArrayList<String> contributors;
     private ArrayList<String> projects;
     private String project;
 
@@ -21,7 +21,7 @@ public class Wiki extends Text {
     public Wiki(String project, String author, String title, String publisher, String releaseDate) {
         // pls fix!
         super(author, title, publisher, releaseDate);
-        this.contributers = new ArrayList<>();
+        this.contributors = new ArrayList<>();
         this.projects = new ArrayList<>();
         this.project = project;
     }
@@ -57,5 +57,17 @@ public class Wiki extends Text {
         // iterate through the list and find the 
         // name that mathces with the given parametre
         return name;
+    }
+
+    /**
+     * Prints all the details of the book.
+     */
+    public String printDetailsAsString() {
+        String returnString = "";
+        returnString += "################################################\n";
+        returnString += "Title: " + super.getTitle() + ", Author: " + super.getAuthor() + "\n";
+        returnString += "Release date: " + super.getReleaseDate() + "\n";
+        returnString += "Project: " + project + "\n";
+        return returnString;
     }
 }

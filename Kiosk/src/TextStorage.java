@@ -21,7 +21,7 @@ public class TextStorage {
     }
 
     /**
-     * Creates and fills a text as a book.
+     * Creates a text as a book and adds it to the collection
      *
      * @param title
      * @param author
@@ -34,15 +34,15 @@ public class TextStorage {
      * @param isSeries
      */
     public void addNewBook(String title, String author, String publisher,
-                           String edition, String genre, String releaseDate,
-                           int pages, int price, boolean isSeries) {
-        this.text = new Book(title, author, publisher, edition,
+                                  String edition, String genre, String releaseDate,
+                                  int pages, int price, boolean isSeries) {
+        Text text = new Book(title, author, publisher, edition,
             genre, releaseDate, pages, price, isSeries);
         addText(text);
     }
 
     /**
-     *
+     * Creates a new wiki and adds it to the collection
      * @param project
      * @param title
      * @param author
@@ -51,7 +51,7 @@ public class TextStorage {
      */
     public void addNewWiki(String project, String title, String author,
                            String publisher, String releaseDate){
-        this.text = new Wiki(project, author, title, publisher, releaseDate);
+        Text text = new Wiki(project, author, title, publisher, releaseDate);
         addText(text);
     }
 
@@ -66,7 +66,7 @@ public class TextStorage {
      */
     public void addNewMagazine(String author, String title, String publisher,
                                String releaseDate, int pages, int price){
-        this.text = new Magazine(author, title, publisher, releaseDate, pages,price);
+        this.text = new Magazine(author, title, publisher, releaseDate, pages, price);
         addText(text);
     }
 
@@ -170,60 +170,20 @@ public class TextStorage {
     }
 
     /**
-     * adds a premade book
-     * use this to skip filling out author, title...
-     * 
-     * @
+     *
      */
     public void addPremadeBooks() {
         //The first of three pre made books.
-        boolean series = true;
-        Book book = new Book();
-        book.setTitle("titleMan");
-        book.setAuthor("AuthorMan");
-        book.setPublisher("Gyldendal");
-        book.setEdition("5.th");
-        book.setRefNumber("1337");
-        book.setGenre("sci-fi");
-        book.setReleaseDate("1999");
-        book.setPages(54);
-        book.setPrice(45);
-        book.setSeries(series);
-        if (series) {
-            book.setSeriesName("a book series");
-        }
-        addText(text);
+        Text book = new Book("AuthorMan", "TitleMan", "Gyldendal", "5th"
+        , "sci-fi", "19-12-1999", 20, 200, true);
+        addText(book);
         //The second of three pre made books.
-        Book book2 = new Book();
-        book2.setTitle("ManTitle");
-        book2.setAuthor("ManAuthor");
-        book2.setPublisher("Gyldendal");
-        book2.setEdition("9.th");
-        book2.setRefNumber("1227");
-        book2.setGenre("Low-Fi");
-        book2.setReleaseDate("1956");
-        book2.setPages(90);
-        book2.setPrice(100);
-        book2.setSeries(series = false);
-        if (series) {
-            book2.setSeriesName("");
-        }
-        addText(text);
+        Text book2 = new Book("ManTitle", "ManAuthor", "Gyldendal", "9.th",
+                "Low-Fi", "20-04-1920", 200, 20, false);
+        addText(book2);
         //The final pre made book.
-        Book book3 = new Book();
-        book3.setTitle("Sander");
-        book3.setAuthor("Joachim");
-        book3.setPublisher("Skarmyr");
-        book3.setEdition("1st");
-        book3.setRefNumber("1997");
-        book3.setGenre("Blind");
-        book3.setReleaseDate("2001");
-        book3.setPages(100);
-        book3.setPrice(001);
-        book3.setSeries(series = true);
-        if (series) {
-            book3.setSeriesName("a book series");
-        }
-        addText(text);
+        Book book3 = new Book("Sander", "Joachim", "Skarmyr", "1st",
+                "Dead-High", "20-01-1285", 2001, 20123, true);
+        addText(book3);
     }
 }
