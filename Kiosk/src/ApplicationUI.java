@@ -208,12 +208,13 @@ public class ApplicationUI {
                             seriesName = reader.nextLine();
                         } else if (reader.nextLine().toLowerCase().trim().equals("no")) {
                             System.out.println("too bad, maybe in the future?");
+                            seriesName =" asd";
                         } else {
                             System.out.println("yes or no");
                         }
 
                         if (refNumber.length() >= 3) {
-                            textStorage.addNewBook(title, author, publisher, edition, genre, releaseDate, pages, price, isSeries);
+                            textStorage.addNewBook(title, author, publisher, edition, genre, releaseDate, pages, price, isSeries, seriesName);
                         } else {
                             System.out.println("Ref number too short, book not added.");
                         }

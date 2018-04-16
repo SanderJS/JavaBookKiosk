@@ -28,13 +28,16 @@ public class Book  extends Text {
      * @param releaseDate is the initial release date.
      */
     public Book(String author, String title, String publisher, String edition, String genre,
-                String releaseDate, int pages, int price, boolean series) {
+                String releaseDate, int pages, int price, boolean series, String seriesName) {
         super(author, title, publisher, releaseDate);
         this.edition = edition;
         this.genre = genre;
         this.pages = pages;
         this.price = price;
         this.isSeries = series;
+        if (series) {
+            this.series=seriesName;
+        }
     }
 
     /**

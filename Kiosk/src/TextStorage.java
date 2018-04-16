@@ -35,9 +35,9 @@ public class TextStorage {
      */
     public void addNewBook(String title, String author, String publisher,
                                   String edition, String genre, String releaseDate,
-                                  int pages, int price, boolean isSeries) {
+                                  int pages, int price, boolean isSeries, String seriesName) {
         Text text = new Book(title, author, publisher, edition,
-            genre, releaseDate, pages, price, isSeries);
+            genre, releaseDate, pages, price, isSeries, seriesName);
         addText(text);
     }
 
@@ -175,15 +175,15 @@ public class TextStorage {
     public void addPremadeBooks() {
         //The first of three pre made books.
         Text book = new Book("AuthorMan", "TitleMan", "Gyldendal", "5th"
-        , "sci-fi", "19-12-1999", 20, 200, true);
+        , "sci-fi", "19-12-1999", 20, 200, true, "periodical");
         addText(book);
         //The second of three pre made books.
         Text book2 = new Book("ManTitle", "ManAuthor", "Gyldendal", "9.th",
-                "Low-Fi", "20-04-1920", 200, 20, false);
+                "Low-Fi", "20-04-1920", 200, 20, false, "nan");
         addText(book2);
         //The final pre made book.
         Book book3 = new Book("Sander", "Joachim", "Skarmyr", "1st",
-                "Dead-High", "20-01-1285", 2001, 20123, true);
+                "Dead-High", "20-01-1285", 2001, 20123, true, "nan");
         addText(book3);
     }
 }
