@@ -55,40 +55,82 @@ public class Book {
     /**
      * Sets the author of the book.
      *
-     * @param author is the author.
+     * @param author is the author of the book
      */
     public void setAuthor(String author) {
         this.author = author;
     }
 
+    /**
+     * sets the title of the book
+     * 
+     * @param title the title of the book
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+    /**
+     * sets the publisher of the book
+     * 
+     * @param publisher the publisher of the book
+     */
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
 
+    /**
+     * sets the edition of the book
+     * 
+     * @param edition the edition of the book
+     */
     public void setEdition(String edition) {
         this.edition = edition;
     }
 
+    /**
+     * sets the genre of the book
+     * 
+     * @param genre the genre of the book
+     */
     public void setGenre(String genre) {
         this.genre = genre;
     }
 
+    /**
+     * sets the release date of the book
+     * 
+     * @param releaseDate the release date of the book
+     */
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 
+    /**
+     * sets the number of pages on the book
+     * 
+     * @param pages the number of pages in the book
+     */
     public void setPages(int pages) {
         this.pages = pages;
     }
 
+    /**
+     * sets the price of the book
+     * 
+     * @param price the price of the book
+     */
     public void setPrice(int price) {
         this.price = price;
     }
 
+    /**
+     * is the book a series?
+     * yes --> True
+     * no --> False
+     * 
+     * @param series is the book a part of a series
+     */
     public void setSeries(boolean series) {
         this.isSeries = series;
     }
