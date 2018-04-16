@@ -65,6 +65,11 @@ public class Magazine extends Text {
         authors.add(author);
     }
 
+    /**
+     * returns the details of the magazine
+     *
+     * @return 
+     */
     public String printDetailsAsString() {
         String returnString = "";
         returnString += "################################################\n";

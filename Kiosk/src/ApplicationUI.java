@@ -1,3 +1,4 @@
+import jdk.nashorn.internal.ir.IfNode;
 import sun.swing.StringUIClientPropertyKey;
 
 import java.util.InputMismatchException;
@@ -118,7 +119,7 @@ public class ApplicationUI {
         if (this.textStorage.listSize() > 0) {
             System.out.println(textStorage.listAllTexts());
         } else {
-            System.out.println("There are no books stored.");
+            System.out.println("There are nothing stored at the moment.");
         }
     }
 
@@ -143,8 +144,12 @@ public class ApplicationUI {
         String genre = "";
         String releaseDate = "";
         String project = "";
+        String seriesName = "";
+
         int pages;
         int price;
+
+        boolean isSeries = false;
 
         System.out.println("Which product");
         System.out.println("1: Book");
@@ -182,6 +187,9 @@ public class ApplicationUI {
                         System.out.println("Please type the reference number of the book");
                         System.out.println("This should be at least 3 characters long:");
                         refNumber = reader.nextLine();
+                        if (refNumber.length() < 3) {
+                            System.out.println("This book will fail due to user error. Not Sorry.");
+                        }
 
                         System.out.println("Please type the genre of the book: ");
                         genre = reader.nextLine();
@@ -189,34 +197,30 @@ public class ApplicationUI {
                         System.out.println("Please type the release date of the book:");
                         releaseDate = reader.nextLine();
 
+                        System.out.println("Is the book part of a series? [Y/n]");
+                        if (reader.nextLine().equals("Y")) {
+                            isSeries = true;
+                        }
+                        if (isSeries) {
+                            System.out.println("What is the name of the series?");
+                            seriesName = reader.nextLine();
+                        }
+
                         System.out.println("Please type the number of pages of the book: ");
                         pages = reader.nextInt();
 
                         System.out.println("Please type the price of the Book in USD ");
                         price = reader.nextInt();
 
-                        System.out.println("Please type yes or no based on if the book is in a series");
-                        boolean isSeries = false;
-                        boolean isSeriesSet = false;
-                        String seriesName = "";
-
-                        String readerResponse = reader.nextLine().toLowerCase().trim();
-
-                        if (reader.nextLine().toLowerCase().trim().equals("yes")) {
-                            isSeries = true;
-                            System.out.println("Please type the series name:");
-                            seriesName = reader.nextLine();
-                        } else if (reader.nextLine().toLowerCase().trim().equals("no")) {
-                            System.out.println("too bad, maybe in the future?");
-                            seriesName =" asd";
+                       if (refNumber.length() >= 3 && isSeries) {
+                            System.out.println("Book Added");
+                            textStorage.addNewBookSeries(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price, seriesName);
                         } else {
-                            System.out.println("yes or no");
-                        }
-
-                        if (refNumber.length() >= 3) {
-                            textStorage.addNewBook(title, author, publisher, edition, genre, releaseDate, pages, price, isSeries, seriesName);
-                        } else {
-                            System.out.println("Ref number too short, book not added.");
+                            if (refNumber.length() >= 3) {
+                                textStorage.addNewBook(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price);
+                            } else {
+                                System.out.println("Referance number too short");
+                            }
                         }
                         quit = true;
                         break;
