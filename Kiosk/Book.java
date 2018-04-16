@@ -19,12 +19,6 @@ public class Book  extends Text {
     private boolean isSeries;
 
     /**
-     * A new book. No information has been set yet.
-     */
-    public Book() {
-    }
-
-    /**
      * A new book filled with information
      * @param author is the author.
      * @param title is the title.
@@ -34,13 +28,17 @@ public class Book  extends Text {
      * @param releaseDate is the initial release date.
      */
     public Book(String author, String title, String publisher, String edition, String genre,
-                String releaseDate, int pages, int price, boolean series) {
+               String refNumber, String releaseDate, int pages, int price, boolean series, String seriesName) {
         super(author, title, publisher, releaseDate);
         this.edition = edition;
         this.genre = genre;
+        this.refNumber = refNumber;
         this.pages = pages;
         this.price = price;
         this.isSeries = series;
+        if (series) {
+            this.series=seriesName;
+        }
     }
 
     /**
@@ -54,7 +52,7 @@ public class Book  extends Text {
 
     /**
      * sets the title of the book
-     * 
+     *
      * @param title the title of the book
      */
     public void setTitle(String title) {
@@ -63,7 +61,7 @@ public class Book  extends Text {
 
     /**
      * sets the publisher of the book
-     * 
+     *
      * @param publisher the publisher of the book
      */
     public void setPublisher(String publisher) {
@@ -72,7 +70,7 @@ public class Book  extends Text {
 
     /**
      * sets the edition of the book
-     * 
+     *
      * @param edition the edition of the book
      */
     public void setEdition(String edition) {
@@ -81,7 +79,7 @@ public class Book  extends Text {
 
     /**
      * sets the genre of the book
-     * 
+     *
      * @param genre the genre of the book
      */
     public void setGenre(String genre) {
@@ -90,7 +88,7 @@ public class Book  extends Text {
 
     /**
      * sets the release date of the book
-     * 
+     *
      * @param releaseDate the release date of the book
      */
     public void setReleaseDate(String releaseDate) {
@@ -99,7 +97,7 @@ public class Book  extends Text {
 
     /**
      * sets the number of pages on the book
-     * 
+     *
      * @param pages the number of pages in the book
      */
     public void setPages(int pages) {
@@ -108,7 +106,7 @@ public class Book  extends Text {
 
     /**
      * sets the price of the book
-     * 
+     *
      * @param price the price of the book
      */
     public void setPrice(int price) {
@@ -119,7 +117,7 @@ public class Book  extends Text {
      * is the book a series?
      * yes --> True
      * no --> False
-     * 
+     *
      * @param series is the book a part of a series
      */
     public void setSeries(boolean series) {

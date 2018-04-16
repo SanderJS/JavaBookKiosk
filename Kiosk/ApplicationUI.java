@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class ApplicationUI {
 
-    private TextStorage bookStorage;
+    private TextStorage textStorage;
 
     // The menu tha will be displayed. Please edit/alter the menu
     // to fit your application (i.e. replace "prodct" with "litterature"
@@ -29,7 +29,7 @@ public class ApplicationUI {
      * Creates an instance of the ApplicationUI User interface and a new book storage.
      */
     public ApplicationUI() {
-        this.bookStorage = new TextStorage();
+        this.textStorage = new TextStorage();
     }
 
     /**
@@ -115,8 +115,8 @@ public class ApplicationUI {
      * Lists all the products/literature in the register
      */
     public void listAllProducts() {
-        if (this.bookStorage.listSize() > 0) {
-            System.out.println(bookStorage.listAllTexts());
+        if (this.textStorage.listSize() > 0) {
+            System.out.println(textStorage.listAllTexts());
         } else {
             System.out.println("There are no books stored.");
         }
@@ -142,6 +142,7 @@ public class ApplicationUI {
         String refNumber = "";
         String genre = "";
         String releaseDate = "";
+        String project = "";
         int pages;
         int price;
 
@@ -201,68 +202,110 @@ public class ApplicationUI {
 
                         String readerResponse = reader.nextLine().toLowerCase().trim();
 
-                        /* while (!isSeriesSet) {
-                            if (readerResponse.equals("yes")) {
-                                isSeries = true;
-                                System.out.println("Please type the series name:");
-                                seriesName = reader.nextLine();
-                                isSeriesSet = true;
-                            } else if (readerResponse.equals("no")) {
-                                isSeriesSet = true;
-                            } else {
-                                System.out.println("yes or no");
-                            }
-                        }
-                        */
-
                         if (reader.nextLine().toLowerCase().trim().equals("yes")) {
                             isSeries = true;
                             System.out.println("Please type the series name:");
                             seriesName = reader.nextLine();
                         } else if (reader.nextLine().toLowerCase().trim().equals("no")) {
                             System.out.println("too bad, maybe in the future?");
+                            seriesName =" asd";
                         } else {
                             System.out.println("yes or no");
                         }
 
                         if (refNumber.length() >= 3) {
-                            bookStorage.addNewBook(title, author, publisher, edition, genre, releaseDate, pages, price, isSeries);
+                            textStorage.addNewBook(title, author, publisher, edition, genre, refNumber, releaseDate, pages, price, isSeries, seriesName);
                         } else {
-                            System.out.println("Ref number too short. Book not added");
+                            System.out.println("Ref number too short, book not added.");
                         }
                         quit = true;
                         break;
 
                     case 2:
-                        String doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later.
+                        doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later.
 
-                        System.out.println("Please type the title of the book: ");
-                        String title = reader.nextLine();
+                        System.out.println("Please type the title of the magazine: ");
+                        title = reader.nextLine();
 
-                        System.out.println("Please type the author of the book: ");
-                        String author = reader.nextLine();
+                        System.out.println("Please type the main editor/author of the magazine: ");
+                        author = reader.nextLine();
 
-                        System.out.println("Please type the publisher of the book: ");
-                        String publisher = reader.nextLine();
+                        System.out.println("Please type the publisher of the magazine: ");
+                        publisher = reader.nextLine();
 
-                        System.out.println("Please type the edition of the book: ");
-                        String edition = reader.nextLine();
-
-                        System.out.println("Please type the reference number of the book");
+                        System.out.println("Please type the reference number of the magazine.");
                         System.out.println("This should be at least 3 characters long:");
-                        String refNumber = reader.nextLine();
+                        refNumber = reader.nextLine();
 
-                        System.out.println("Please type the genre of the book: ");
-                        String genre = reader.nextLine();
+                        System.out.println("Please type the release date of the magazine: ");
+                        releaseDate = reader.nextLine();
 
-                        System.out.println("Please type the release date of the book:");
-                        String releaseDate = reader.nextLine();
+                        System.out.println("Please type the number of pages of the magazine: ");
+                        pages = reader.nextInt();
 
-                        System.out.println("Please type the number of pages of the book: ");
-                        int pages = reader.nextInt();
+                        System.out.println("Please type the price of the magazine in USD ");
+                        price = reader.nextInt();
 
-                        System.out.println("Please type the price of the Book in USD ");
-                        int price = reader.nextInt();
+                        if (refNumber.length() >= 3) {
+                            textStorage.addNewMagazine(author, title, publisher, releaseDate, pages, price);
+                        } else {
+                            System.out.println("Ref number too short, magazine not added.");
+                        }
+                        quit = true;
+                        break;
+
+                    case 3:
+                        doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later. //No >:(
+
+                        System.out.println("Please type the title of the newspaper: ");
+                        title = reader.nextLine();
+
+                        System.out.println("Please type the editor/author of the newspaper: ");
+                        author = reader.nextLine();
+
+                        System.out.println("Please type the publisher of the newspaper: ");
+                        publisher = reader.nextLine();
+
+                        System.out.println("Please type the release date of the newspaper:");
+                        releaseDate = reader.nextLine();
+
+                        System.out.println("Please type the number of pages of the newspaper: ");
+                        pages = reader.nextInt();
+
+                        System.out.println("Please type the price of the newspaper in USD ");
+                        price = reader.nextInt();
+
+                        textStorage.addNewNewspaper(author, title, publisher, releaseDate, pages, price);
+                        quit = true;
+                        break;
+
+                    case 4:
+                        doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later.
+
+                        System.out.println("Please type the title of the wiki: ");
+                        title = reader.nextLine();
+
+                        System.out.println("Please type the main author of the wiki: ");
+                        author = reader.nextLine();
+
+                        System.out.println("Please type the website of the wiki: ");
+                        publisher = reader.nextLine();
+
+                        System.out.println("Please type the release date of the wiki:");
+                        releaseDate = reader.nextLine();
+
+                        System.out.println("Please type the project for this wiki: ");
+                        project = reader.nextLine();
+
+                        textStorage.addNewWiki(project, author, title, publisher, releaseDate);
+                        quit = true;
+                        break;
+
+                    case 5:
+                        System.out.println("All the pre-generated books has been added");
+                        textStorage.addPremadeBooks();
+                        quit = true;
+                        break;
 
                     default:
                         System.out.println("Please input a valid numeral");
@@ -302,7 +345,7 @@ public class ApplicationUI {
                     case 1:
                         String author = reader.nextLine();
                         System.out.println("What is the authors name? This search is case sensitive:");
-                        System.out.println(bookStorage.getTextByAuthor(author));
+                        System.out.println(textStorage.getTextByAuthor(author));
                         quit = true;
                         break;
 
