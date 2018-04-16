@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class ApplicationUI {
 
-    private BookStorage bookStorage;
+    private TextStorage bookStorage;
 
     // The menu tha will be displayed. Please edit/alter the menu
     // to fit your application (i.e. replace "prodct" with "litterature"
@@ -27,7 +27,7 @@ public class ApplicationUI {
      * Creates an instance of the ApplicationUI User interface and a new book storage.
      */
     public ApplicationUI() {
-        this.bookStorage = new BookStorage();
+        this.bookStorage = new TextStorage();
     }
 
     /**
@@ -209,7 +209,7 @@ public class ApplicationUI {
                         }
 
                         if (refNumber.length() >= 3) {
-                            bookStorage.addNewBook(title, author, publisher, edition, refNumber, genre, releaseDate, pages, price, isSeries, seriesName);
+                            bookStorage.addNewBook(title, author, publisher, edition, genre, releaseDate, pages, price, isSeries);
                         } else {
                             System.out.println("Ref number too short. Book not added");
                         }

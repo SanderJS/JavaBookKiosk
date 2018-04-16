@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=BookStorage
+comment0.target=TextStorage
 comment0.text=\r\n\ The\ list\ that\ holds\ the\ different\ books,\ papers\ and\ newspapers\r\n\ that\ is\ in\ the\ kiosks\ stock.\r\n\r\n\ @author\ Jan\ Anton,\ Sander\ Joachim,\ Karl\ Kristian\r\n\ @version\ 0.2\r\n
 comment1.params=
-comment1.target=BookStorage()
+comment1.target=TextStorage()
 comment1.text=\r\n\ Initiates\ the\ list\ of\ all\ the\ books.\r\n
 comment2.params=title\ author\ publisher\ edition\ refNumber\ genre\ releaseDate\ pages\ price\ series\ seriesName
 comment2.target=void\ addNewBook(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int,\ boolean,\ java.lang.String)

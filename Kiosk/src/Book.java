@@ -9,18 +9,15 @@
  * @author Jan Anton, Sander Joachim
  * @version 0.1
  */
-public class Book {
-    private String author;
-    private String title;
-    private String publisher;
+public class Book  extends Text {
     private String edition;
     private String refNumber;
     private String series;
     private String genre;
-    private String releaseDate;
     private int pages;
     private int price;
     private boolean isSeries;
+
     /**
      * A new book. No information has been set yet.
      */
@@ -38,12 +35,9 @@ public class Book {
      */
     public Book(String author, String title, String publisher, String edition, String genre,
                 String releaseDate, int pages, int price, boolean series) {
-        this.author = author;
-        this.title = title;
-        this.publisher = publisher;
+        super(author, title, publisher, releaseDate);
         this.edition = edition;
         this.genre = genre;
-        this.releaseDate = releaseDate;
         this.pages = pages;
         this.price = price;
         this.isSeries = series;
@@ -55,7 +49,7 @@ public class Book {
      * @param author is the author of the book
      */
     public void setAuthor(String author) {
-        this.author = author;
+        super.setAuthor(author);
     }
 
     /**
@@ -64,7 +58,7 @@ public class Book {
      * @param title the title of the book
      */
     public void setTitle(String title) {
-        this.title = title;
+        super.setTitle(title);
     }
 
     /**
@@ -73,7 +67,7 @@ public class Book {
      * @param publisher the publisher of the book
      */
     public void setPublisher(String publisher) {
-        this.publisher = publisher;
+        super.setPublisher(publisher);
     }
 
     /**
@@ -100,7 +94,7 @@ public class Book {
      * @param releaseDate the release date of the book
      */
     public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+        super.setReleaseDate(releaseDate);
     }
 
     /**
@@ -175,33 +169,9 @@ public class Book {
         return refNumber;
     }
 
-    /**
-     * Returns the title of the book.
-     *
-     * @return the title of the book.
-     */
-    public String getTitle() {
-        return title;
+    public String getEdition() {
+        return edition;
     }
-
-    /**
-     * Returns the publisher for the book.
-     *
-     * @return the publisher of the book.
-     */
-    public String getPublisher() {
-        return publisher;
-    }
-
-    /**
-     * gets the author of the book.
-     *
-     * @return the name of the author.
-     */
-    public String getAuthor() {
-        return author;
-    }
-
 
     /**
      * Prints all the details of the book.
@@ -209,11 +179,11 @@ public class Book {
     public String printDetailsAsString() {
         String returnString = "";
         returnString += "################################################\n";
-        returnString += "Title: " + title + ", Author: " + author + "\n";
+        returnString += "Title: " + super.getTitle() + ", Author: " + super.getAuthor() + "\n";
         returnString += "Genre: " + genre + ", Pages: " + pages + "\n";
         returnString += "Price: " + price + " USD" + "\n";
-        returnString += "Release date: " + releaseDate + "\n";
-        returnString += "Publisher: " + publisher + "\n";
+        returnString += "Release date: " + super.getReleaseDate() + "\n";
+        returnString += "Publisher: " + super.getPublisher() + "\n";
         if (isSeries) {
             if (series.equals("")) {
                 returnString += "Series not yet set" + "\n";

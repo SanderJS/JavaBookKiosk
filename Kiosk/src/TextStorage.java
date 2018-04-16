@@ -7,15 +7,16 @@ import java.util.ArrayList;
  * @author Jan Anton, Sander Joachim, Karl Kristian
  * @version 0.2
  */
-public class BookStorage {
+public class TextStorage {
     private ArrayList<Text> listOfText;
     private Text text;
 
     /**
      * Initiates the list of all the texts.
      */
-    public BookStorage() {
+    public TextStorage() {
         this.listOfText = new ArrayList<>();
+        this.
     }
 
     /**
@@ -34,15 +35,20 @@ public class BookStorage {
     public void addNewBook(String title, String author, String publisher,
                            String edition, String genre, String releaseDate,
                            int pages, int price, boolean isSeries) {
-    Book book = new Book(title, author, publisher, edition,
+    this.text = new Book(title, author, publisher, edition,
             genre, releaseDate, pages, price, isSeries);
-    addText(book);
+    addText(text);
     }
+
+    public void addNewWiki(String title, String author, String publisher,
+                           String )
+
     /**
      * The currently selected book to the list.
+     * @param text
      */
-    public void addText() {
-        this.listOfText.add(this.text);
+    public void addText(Text text){
+        this.listOfText.add(text);
     }
 
     /**
@@ -143,7 +149,7 @@ public class BookStorage {
         if (series) {
             book.setSeriesName("a book series");
         }
-        addText();
+        addText(text);
         //The second of three pre made books.
         Book book2 = new Book();
         book2.setTitle("ManTitle");
@@ -159,7 +165,7 @@ public class BookStorage {
         if (series) {
             book2.setSeriesName("");
         }
-        addText();
+        addText(text);
         //The final pre made book.
         Book book3 = new Book();
         book3.setTitle("Sander");
@@ -175,6 +181,6 @@ public class BookStorage {
         if (series) {
             book3.setSeriesName("a book series");
         }
-        addText();
+        addText(text);
     }
 }
