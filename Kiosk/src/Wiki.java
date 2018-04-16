@@ -16,7 +16,7 @@ public class Wiki extends Text {
     /**
      * constructor for class Wiki
      * 
-     * @param the project's name
+     * @param project the wiki project's name
      */
     public Wiki(String project, String author, String title, String publisher, String releaseDate, int pages, int price) {
         // pls fix!

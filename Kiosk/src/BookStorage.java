@@ -122,4 +122,22 @@ public class BookStorage {
         size = listOfBooks.size();
         return size;
     }
+
+    public void addPremadeBooks() {
+        this.book = new Book();
+        this.book.setTitle("");
+        this.book.setAuthor("");
+        this.book.setPublisher("");
+        this.book.setEdition("");
+        this.book.setRefNumber("");
+        this.book.setGenre("");
+        this.book.setReleaseDate("");
+        this.book.setPages(54);
+        this.book.setPrice(45);
+        this.book.setSeries(true);
+        if (series) {
+            this.book.setSeriesName(seriesName);
+        }
+        addBook();
+    }
 }
