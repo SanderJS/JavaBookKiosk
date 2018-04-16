@@ -1,5 +1,14 @@
 import java.util.ArrayList;
 
+/**
+ * this is a magazine, a extension of text (based media)
+ * a magazine contains a lot of pictures
+ * a larger pool of authors than ordinary books
+ * articles about different subjects.
+ * 
+ * @author Jan Anton, Joachim
+ * @version 1.0
+ */
 public class Magazine extends Text {
     prviate ArrayList<String> pictures;
     private int ArrayList<String> articles;
@@ -8,6 +17,10 @@ public class Magazine extends Text {
     /**
      * Constructor for objects of subclass Magazine
      * 
+     * creates and instance of a text with super
+     * creates a new list for pictures
+     * creates a new list of articles
+     * creates a new list for authors
      * 
      */
     public Magazine()
@@ -18,16 +31,31 @@ public class Magazine extends Text {
         this.authors = new ArrayList<>();
     }
 
+    /**
+     * adds a picture to the magazine
+     * 
+     * @param filename the name of the picture file
+     */
     public void addPicture(String filename)
     {
         pictures.add(filename);
     }
 
+    /**
+     * adds a article to the magazine
+     * 
+     * @param title the title of the article
+     */
     public void addArticle(String title)
     {
         articles.add(title);
     }
 
+    /**
+     * adds a author to the magazine 
+     * 
+     * @param author the author of the article
+     */
     public void addAuthor(String author)
     {
         authors.add(author);
