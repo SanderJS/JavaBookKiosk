@@ -10,8 +10,8 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Magazine extends Text {
-    prviate ArrayList<String> pictures;
-    private int ArrayList<String> articles;
+    private ArrayList<String> pictures;
+    private ArrayList<String> articles;
     private ArrayList<String> authors;
 
     /**
@@ -25,7 +25,8 @@ public class Magazine extends Text {
      */
     public Magazine()
     {
-        super(author, title, publisher, releasDate, pages, price);
+        // error author has private access in text!
+        super(author, title, publisher, releaseDate, pages, price);
         this.pictures = new ArrayList<>();
         this.articles = new ArrayList<>();
         this.authors = new ArrayList<>();

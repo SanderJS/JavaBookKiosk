@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Jan Anton and Joachim
  * @version 1.0
  */
-public Class Wiki extends Text {
+public class Wiki extends Text {
     private ArrayList<String> contributers;
     private ArrayList<String> projects;
     private String project;
@@ -19,6 +19,10 @@ public Class Wiki extends Text {
      * @param the project's name
      */
     public Wiki(String project) {
+        // pls fix!
+        super();
+        this.contributers = new ArrayList<>();
+        this.projects = new ArrayList<>();
         this.project = project;
     }
 
@@ -37,9 +41,9 @@ public Class Wiki extends Text {
      * 
      * @param projectName the name of the related project
      */
-    public void addPorjects(String projectName)
+    public void addProjects(String projectName)
     {
-        projects.add(ProjectName);
+        projects.add(projectName);
     }
 
     /**
@@ -48,7 +52,7 @@ public Class Wiki extends Text {
      * 
      * @param name the name of the 
      */
-    public void getProject(String name)
+    public String getProject(String name)
     {
         // iterate through the list and find the 
         // name that mathces with the given parametre
