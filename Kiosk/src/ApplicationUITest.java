@@ -9,4 +9,5 @@ class ApplicationUITest {
     @org.junit.jupiter.api.Test
     void listAllProducts() {
     }
+    
 }

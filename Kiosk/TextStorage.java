@@ -1,3 +1,5 @@
+import sun.swing.StringUIClientPropertyKey;
+
 import java.util.ArrayList;
 
 /**
@@ -7,14 +9,14 @@ import java.util.ArrayList;
  * @author Jan Anton, Sander Joachim, Karl Kristian
  * @version 0.2
  */
-public class BookStorage {
+public class TextStorage {
     private ArrayList<Text> listOfText;
     private Text text;
 
     /**
      * Initiates the list of all the texts.
      */
-    public BookStorage() {
+    public TextStorage() {
         this.listOfText = new ArrayList<>();
     }
 
@@ -34,15 +36,62 @@ public class BookStorage {
     public void addNewBook(String title, String author, String publisher,
                            String edition, String genre, String releaseDate,
                            int pages, int price, boolean isSeries) {
-    Book book = new Book(title, author, publisher, edition,
+        this.text = new Book(title, author, publisher, edition,
             genre, releaseDate, pages, price, isSeries);
-    addText(book);
+        addText(text);
     }
+
+    /**
+     *
+     * @param project
+     * @param title
+     * @param author
+     * @param publisher
+     * @param releaseDate
+     */
+    public void addNewWiki(String project, String title, String author,
+                           String publisher, String releaseDate){
+        this.text = new Wiki(project, author, title, publisher, releaseDate);
+        addText(text);
+    }
+
+    /**
+     * Adds a new magazine to the collection
+     * @param author
+     * @param title
+     * @param publisher
+     * @param releaseDate
+     * @param pages
+     * @param price
+     */
+    public void addNewMagazine(String author, String title, String publisher,
+                               String releaseDate, int pages, int price){
+        this.text = new Magazine(author, title, publisher, releaseDate, pages,price);
+        addText(text);
+    }
+
+    /**
+     * Adds a new newspaper to the collection
+     *
+     * @param author the author of the newspaper
+     * @param title of the newspaper
+     * @param publisher of the newspaper
+     * @param releaseDate of the newspaper
+     * @param pages of the newspaper
+     * @param price of the newspaper
+     */
+    public void addNewNewspaper(String author, String title, String publisher,
+                                String releaseDate, int pages, int price){
+        this.text = new Newspaper(author, title, publisher, releaseDate, pages, price);
+        addText(text);
+    }
+
     /**
      * The currently selected book to the list.
+     * @param text
      */
-    public void addText() {
-        this.listOfText.add(this.text);
+    public void addText(Text text){
+        this.listOfText.add(text);
     }
 
     /**
@@ -143,7 +192,7 @@ public class BookStorage {
         if (series) {
             book.setSeriesName("a book series");
         }
-        addText();
+        addText(text);
         //The second of three pre made books.
         Book book2 = new Book();
         book2.setTitle("ManTitle");
@@ -159,7 +208,7 @@ public class BookStorage {
         if (series) {
             book2.setSeriesName("");
         }
-        addText();
+        addText(text);
         //The final pre made book.
         Book book3 = new Book();
         book3.setTitle("Sander");
@@ -175,6 +224,6 @@ public class BookStorage {
         if (series) {
             book3.setSeriesName("a book series");
         }
-        addText();
+        addText(text);
     }
 }
