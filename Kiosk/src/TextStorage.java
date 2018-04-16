@@ -7,44 +7,23 @@ import java.util.ArrayList;
  * @author Jan Anton, Sander Joachim, Karl Kristian
  * @version 0.2
  */
-public class BookStorage {
-    private ArrayList<Book> listOfBooks;
-    private Book book;
+public class TextStorage {
+    private ArrayList<Text> listOfText;
+    private Text text;
 
     /**
-     * Initiates the list of all the books.
+     * Initiates the list of all the texts.
      */
-    public BookStorage() {
-        this.listOfBooks = new ArrayList<Book>();
-    }
-
-    /**
-     * Creates a new, empty book and fills it.
-     */
-    public void addNewBook(String title, String author, String publisher, String edition, String refNumber,
-                           String genre, String releaseDate, int pages, int price, boolean series, String seriesName) {
-        this.book = new Book();
-        this.book.setTitle(title);
-        this.book.setAuthor(author);
-        this.book.setPublisher(publisher);
-        this.book.setEdition(edition);
-        this.book.setRefNumber(refNumber);
-        this.book.setGenre(genre);
-        this.book.setReleaseDate(releaseDate);
-        this.book.setPages(pages);
-        this.book.setPrice(price);
-        this.book.setSeries(series);
-        if (series) {
-            this.book.setSeriesName(seriesName);
-        }
-        addBook();
+    public TextStorage() {
+        this.listOfText = new ArrayList<>();
     }
 
     /**
      * The currently selected book to the list.
+     * @param text the text
      */
-    public void addBook() {
-        this.listOfBooks.add(this.book);
+    public void addText(Text text){
+        this.listOfText.add(text);
     }
 
     /**
@@ -52,8 +31,8 @@ public class BookStorage {
      *
      * @param index is the position in the list.
      */
-    public void removeBookFromList(int index) {
-        listOfBooks.remove(index);
+    public void removeTextFromList(int index) {
+        listOfText.remove(index);
     }
 
     /**
@@ -61,10 +40,9 @@ public class BookStorage {
      *
      * @param author is the name of the author.
      */
-    public String getBookByAuthor(String author) {
-        Book foundBook = null;
+    public String getTextByAuthor(String author) {
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             if (b.getAuthor().equals(author)) {
                 returnString +=                 b.printDetailsAsString();
             }
@@ -77,10 +55,10 @@ public class BookStorage {
      *
      * @param publisher is the name of the publisher.
      */
-    public String getBookByPublisher(String publisher) {
-        Book foundBook = null;
+    public String getTextByPublisher(String publisher) {
+        Text foundText = null;
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             if (b.getPublisher().equals(publisher)) {
                 returnString += b.printDetailsAsString();
             }
@@ -95,10 +73,10 @@ public class BookStorage {
      * @param title     is the name of the title.
      * @param publisher is the name of the publisher.
      */
-    public String getBookByTitleAndPublisher(String title, String publisher) {
-        Book foundBook = null;
+    public String getTextByTitleAndPublisher(String title, String publisher) {
+        Text foundText = null;
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             if ((b.getTitle().equals(title)) && (b.getPublisher().equals(publisher))) {
                 returnString += b.printDetailsAsString();
             }
@@ -109,9 +87,9 @@ public class BookStorage {
     /**
      * Prints all the books stored.
      */
-    public String listAllBooks() {
+    public String listAllTexts() {
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             returnString += b.printDetailsAsString();
         }
         return returnString;
@@ -119,7 +97,25 @@ public class BookStorage {
 
     public int listSize() {
         int size;
-        size = listOfBooks.size();
+        size = listOfText.size();
         return size;
+    }
+
+    /**
+     *
+     */
+    public void addPremadeBooks() {
+        //The first of three pre made books.
+        Text book = new BookSeries("AuthorMan", "TitleMan", "Gyldendal", "5th"
+        , "sci-fi", "1234", "19-12-1999", 20, 200, "periodical");
+        addText(book);
+        //The second of three pre made books.
+        Text book2 = new Book("ManTitle", "ManAuthor", "Gyldendal", "9.th",
+                "Low-Fi", "5678", "20-04-1920", 200, 20);
+        addText(book2);
+        //The final pre made book.
+        Book book3 = new Book("Sander", "Joachim", "Skarmyr", "1st",
+                "Dead-High", "1368", "20-01-1285", 2001, 20123);
+        addText(book3);
     }
 }
