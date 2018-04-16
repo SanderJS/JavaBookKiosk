@@ -123,6 +123,12 @@ public class BookStorage {
         return size;
     }
 
+    /**
+     * adds a premade book
+     * use this to skip filling out author, title...
+     * 
+     * @
+     */
     public void addPremadeBooks() {
         this.book = new Book();
         this.book.setTitle("titleMan");
@@ -139,5 +145,35 @@ public class BookStorage {
             this.book.setSeriesName("a book series");
         }
         addBook();
+    }
+
+    /**
+     * adds a premade wiki
+     * use this ti skip filling out paramtres for wikis
+     * 
+     * @
+     */
+    public void addPremadeWiki() {
+
+    }
+
+    /**
+     * adds a premade magazine
+     * use this to skip filling in the paramtres
+     * 
+     * @
+     */
+    public void addPremadeMagazine() {
+
+    }
+
+    /**
+     * adds a premade newspaper
+     * use this to skip filling in the paramtres
+     * 
+     * @
+     */
+    public void addPremadeNewspaper() {
+
     }
 }
