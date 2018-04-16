@@ -64,10 +64,9 @@ public class Wiki extends Text {
      */
     public String printDetailsAsString() {
         String returnString = "";
-        returnString += "################################################\n";
+        returnString += "################################################" + "\n";
         returnString += "Title: " + super.getTitle() + ", Author: " + super.getAuthor() + "\n";
-        returnString += "Release date: " + super.getReleaseDate() + "\n";
-        returnString += "Project: " + project + "\n";
+        returnString += "Release date: " + super.getReleaseDate() + ",Project: " + project + "\n";
         return returnString;
     }
 }

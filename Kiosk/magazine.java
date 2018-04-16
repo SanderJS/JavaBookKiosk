@@ -67,11 +67,10 @@ public class Magazine extends Text {
 
     public String printDetailsAsString() {
         String returnString = "";
-        returnString += "################################################\n";
+        returnString += "################################################" + "\n";
         returnString += "Title: " + super.getTitle() + ", Author: " + super.getAuthor() + "\n";
-        returnString += "Release date: " + super.getReleaseDate() + "\n";
-        returnString += "Pages: " + pages + " Price: " + price + "\n";
-        returnString += "Publisher: " + super.getPublisher();
+        returnString += "Release date: " + super.getReleaseDate() + ", Pages: " + pages + "\n";
+        returnString += "Price: " + price + ", Publisher: " + super.getPublisher() + "\n";
         return returnString;
     }
 }
