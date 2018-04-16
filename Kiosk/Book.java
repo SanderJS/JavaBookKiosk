@@ -58,72 +58,7 @@ public class Book  extends Text {
     public void setTitle(String title) {
         super.setTitle(title);
     }
-
-    /**
-     * sets the publisher of the book
-     *
-     * @param publisher the publisher of the book
-     */
-    public void setPublisher(String publisher) {
-        super.setPublisher(publisher);
-    }
-
-    /**
-     * sets the edition of the book
-     *
-     * @param edition the edition of the book
-     */
-    public void setEdition(String edition) {
-        this.edition = edition;
-    }
-
-    /**
-     * sets the genre of the book
-     *
-     * @param genre the genre of the book
-     */
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    /**
-     * sets the release date of the book
-     *
-     * @param releaseDate the release date of the book
-     */
-    public void setReleaseDate(String releaseDate) {
-        super.setReleaseDate(releaseDate);
-    }
-
-    /**
-     * sets the number of pages on the book
-     *
-     * @param pages the number of pages in the book
-     */
-    public void setPages(int pages) {
-        this.pages = pages;
-    }
-
-    /**
-     * sets the price of the book
-     *
-     * @param price the price of the book
-     */
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    /**
-     * is the book a series?
-     * yes --> True
-     * no --> False
-     *
-     * @param series is the book a part of a series
-     */
-    public void setSeries(boolean series) {
-        this.isSeries = series;
-    }
-
+  
     /**
      * converts the book to a series, when it previously wasnt
      *
