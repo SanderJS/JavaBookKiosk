@@ -18,9 +18,9 @@ public class Wiki extends Text {
      * 
      * @param project the wiki project's name
      */
-    public Wiki(String project, String author, String title, String publisher, String releaseDate, int pages, int price) {
+    public Wiki(String project, String author, String title, String publisher, String releaseDate) {
         // pls fix!
-        super(author, title, publisher, releaseDate, pages, price);
+        super(author, title, publisher, releaseDate);
         this.contributers = new ArrayList<>();
         this.projects = new ArrayList<>();
         this.project = project;
