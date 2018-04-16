@@ -118,8 +118,8 @@ public String getAuthor() {
  * 
  * @return the number of pages
  */
-public void getPages() {
-    return pages
+public int getPages() {
+    return pages;
 }
 
 /**
@@ -127,7 +127,7 @@ public void getPages() {
  * 
  * @return the price of the text
  */
-public void getPrice() {
+public int getPrice() {
     return price;
 }
 
@@ -138,7 +138,7 @@ public void getPrice() {
         String returnString = "";
         returnString += "################################################\n";
         returnString += "Title: " + title + ", Author: " + author + "\n";
-        returnString += Pages: " + pages + "\n";
+        returnString += "Pages: " + pages + "\n";
         returnString += "Price: " + price + " USD" + "\n";
         returnString += "Release date: " + releaseDate + "\n";
         returnString += "Publisher: " + publisher + "\n";

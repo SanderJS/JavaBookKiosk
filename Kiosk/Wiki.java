@@ -35,12 +35,23 @@ public Class Wiki extends Text {
     /**
      * adds a related project to the main project
      * 
-     * @projectName the name of the related project
+     * @param projectName the name of the related project
      */
     public void addPorjects(String projectName)
     {
         projects.add(ProjectName);
     }
 
-    public void getPorject(String name)
+    /**
+     * searches through the list of related projects
+     * and compares the name with the given paramtre
+     * 
+     * @param name the name of the 
+     */
+    public void getProject(String name)
+    {
+        // iterate through the list and find the 
+        // name that mathces with the given parametre
+        return name;
+    }
 }

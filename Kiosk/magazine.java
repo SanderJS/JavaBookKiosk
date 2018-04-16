@@ -25,7 +25,7 @@ public class Magazine extends Text {
      */
     public Magazine()
     {
-        super(author, title, publisher, releasDate, pages, price)
+        super(author, title, publisher, releasDate, pages, price);
         this.pictures = new ArrayList<>();
         this.articles = new ArrayList<>();
         this.authors = new ArrayList<>();
