@@ -7,44 +7,42 @@ import java.util.ArrayList;
  * @author Jan Anton, Sander Joachim, Karl Kristian
  * @version 0.2
  */
-public class BookStorage extends ApplicationMain {
-    private ArrayList<Book> listOfBooks;
-    private Book book;
+public class BookStorage {
+    private ArrayList<Text> listOfText;
+    private Text text;
 
     /**
-     * Initiates the list of all the books.
+     * Initiates the list of all the texts.
      */
     public BookStorage() {
-        this.listOfBooks = new ArrayList<Book>();
+        this.listOfText = new ArrayList<>();
     }
 
     /**
-     * Creates a new, empty book and fills it.
+     * Creates and fills a text as a book.
+     *
+     * @param title
+     * @param author
+     * @param publisher
+     * @param edition
+     * @param genre
+     * @param releaseDate
+     * @param pages
+     * @param price
+     * @param isSeries
      */
-    public void addNewBook(String title, String author, String publisher, String edition, String refNumber,
-                           String genre, String releaseDate, int pages, int price, boolean series, String seriesName) {
-        this.book = new Book();
-        this.book.setTitle(title);
-        this.book.setAuthor(author);
-        this.book.setPublisher(publisher);
-        this.book.setEdition(edition);
-        this.book.setRefNumber(refNumber);
-        this.book.setGenre(genre);
-        this.book.setReleaseDate(releaseDate);
-        this.book.setPages(pages);
-        this.book.setPrice(price);
-        this.book.setSeries(series);
-        if (series) {
-            this.book.setSeriesName(seriesName);
-        }
-        addBook();
+    public void addNewBook(String title, String author, String publisher,
+                           String edition, String genre, String releaseDate,
+                           int pages, int price, boolean isSeries) {
+    Book book = new Book(title, author, publisher, edition,
+            genre, releaseDate, pages, price, isSeries);
+    addText(book);
     }
-
     /**
      * The currently selected book to the list.
      */
-    public void addBook() {
-        this.listOfBooks.add(this.book);
+    public void addText() {
+        this.listOfText.add(this.text);
     }
 
     /**
@@ -52,8 +50,8 @@ public class BookStorage extends ApplicationMain {
      *
      * @param index is the position in the list.
      */
-    public void removeBookFromList(int index) {
-        listOfBooks.remove(index);
+    public void removeTextFromList(int index) {
+        listOfText.remove(index);
     }
 
     /**
@@ -61,10 +59,9 @@ public class BookStorage extends ApplicationMain {
      *
      * @param author is the name of the author.
      */
-    public String getBookByAuthor(String author) {
-        Book foundBook = null;
+    public String getTextByAuthor(String author) {
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             if (b.getAuthor().equals(author)) {
                 returnString +=                 b.printDetailsAsString();
             }
@@ -77,10 +74,10 @@ public class BookStorage extends ApplicationMain {
      *
      * @param publisher is the name of the publisher.
      */
-    public String getBookByPublisher(String publisher) {
-        Book foundBook = null;
+    public String getTextByPublisher(String publisher) {
+        Text foundText = null;
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             if (b.getPublisher().equals(publisher)) {
                 returnString += b.printDetailsAsString();
             }
@@ -95,10 +92,10 @@ public class BookStorage extends ApplicationMain {
      * @param title     is the name of the title.
      * @param publisher is the name of the publisher.
      */
-    public String getBookByTitleAndPublisher(String title, String publisher) {
-        Book foundBook = null;
+    public String getTextByTitleAndPublisher(String title, String publisher) {
+        Text foundText = null;
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             if ((b.getTitle().equals(title)) && (b.getPublisher().equals(publisher))) {
                 returnString += b.printDetailsAsString();
             }
@@ -109,22 +106,75 @@ public class BookStorage extends ApplicationMain {
     /**
      * Prints all the books stored.
      */
-    public String listAllBooks() {
+    public String listAllTexts() {
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             returnString += b.printDetailsAsString();
         }
         return returnString;
     }
-    
-    /*private void premadeBook()
-    {
-        set
-    }*/
 
     public int listSize() {
         int size;
-        size = listOfBooks.size();
+        size = listOfText.size();
         return size;
+    }
+
+    /**
+     * adds a premade book
+     * use this to skip filling out author, title...
+     * 
+     * @
+     */
+    public void addPremadeBooks() {
+        //The first of three pre made books.
+        boolean series = true;
+        Book book = new Book();
+        book.setTitle("titleMan");
+        book.setAuthor("AuthorMan");
+        book.setPublisher("Gyldendal");
+        book.setEdition("5.th");
+        book.setRefNumber("1337");
+        book.setGenre("sci-fi");
+        book.setReleaseDate("1999");
+        book.setPages(54);
+        book.setPrice(45);
+        book.setSeries(series);
+        if (series) {
+            book.setSeriesName("a book series");
+        }
+        addText();
+        //The second of three pre made books.
+        Book book2 = new Book();
+        book2.setTitle("ManTitle");
+        book2.setAuthor("ManAuthor");
+        book2.setPublisher("Gyldendal");
+        book2.setEdition("9.th");
+        book2.setRefNumber("1227");
+        book2.setGenre("Low-Fi");
+        book2.setReleaseDate("1956");
+        book2.setPages(90);
+        book2.setPrice(100);
+        book2.setSeries(series = false);
+        if (series) {
+            book2.setSeriesName("");
+        }
+        addText();
+        //The final pre made book.
+        Book book3 = new Book();
+        book3.setTitle("Sander");
+        book3.setAuthor("Joachim");
+        book3.setPublisher("Skarmyr");
+        book3.setEdition("1st");
+        book3.setRefNumber("1997");
+        book3.setGenre("Blind");
+        book3.setReleaseDate("2001");
+        book3.setPages(100);
+        book3.setPrice(001);
+        book3.setSeries(series = true);
+        if (series) {
+            book3.setSeriesName("a book series");
+        }
+        addText();
     }
 }
