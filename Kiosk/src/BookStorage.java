@@ -154,7 +154,8 @@ public class BookStorage {
      * @
      */
     public void addPremadeWiki() {
-
+        this.wiki = new Wiki();
+        this.wiki.contributers = new 
     }
 
     /**
