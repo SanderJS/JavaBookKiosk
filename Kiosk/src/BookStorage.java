@@ -8,43 +8,41 @@ import java.util.ArrayList;
  * @version 0.2
  */
 public class BookStorage {
-    private ArrayList<Book> listOfBooks;
-    private Book book;
+    private ArrayList<Text> listOfText;
+    private Text text;
 
     /**
-     * Initiates the list of all the books.
+     * Initiates the list of all the texts.
      */
     public BookStorage() {
-        this.listOfBooks = new ArrayList<>();
+        this.listOfText = new ArrayList<>();
     }
 
     /**
-     * Creates a new, empty book and fills it.
+     * Creates and fills a text as a book.
+     *
+     * @param title
+     * @param author
+     * @param publisher
+     * @param edition
+     * @param genre
+     * @param releaseDate
+     * @param pages
+     * @param price
+     * @param isSeries
      */
-    public void addNewBook(String title, String author, String publisher, String edition, String refNumber,
-                           String genre, String releaseDate, int pages, int price, boolean series, String seriesName) {
-        this.book = new Book();
-        this.book.setTitle(title);
-        this.book.setAuthor(author);
-        this.book.setPublisher(publisher);
-        this.book.setEdition(edition);
-        this.book.setRefNumber(refNumber);
-        this.book.setGenre(genre);
-        this.book.setReleaseDate(releaseDate);
-        this.book.setPages(pages);
-        this.book.setPrice(price);
-        this.book.setSeries(series);
-        if (series) {
-            this.book.setSeriesName(seriesName);
-        }
-        addBook();
+    public void addNewBook(String title, String author, String publisher,
+                           String edition, String genre, String releaseDate,
+                           int pages, int price, boolean isSeries) {
+    Book book = new Book(title, author, publisher, edition,
+            genre, releaseDate, pages, price, isSeries);
+    addText(book);
     }
-
     /**
      * The currently selected book to the list.
      */
-    public void addBook() {
-        this.listOfBooks.add(this.book);
+    public void addText() {
+        this.listOfText.add(this.text);
     }
 
     /**
@@ -52,8 +50,8 @@ public class BookStorage {
      *
      * @param index is the position in the list.
      */
-    public void removeBookFromList(int index) {
-        listOfBooks.remove(index);
+    public void removeTextFromList(int index) {
+        listOfText.remove(index);
     }
 
     /**
@@ -61,10 +59,9 @@ public class BookStorage {
      *
      * @param author is the name of the author.
      */
-    public String getBookByAuthor(String author) {
-        Book foundBook = null;
+    public String getTextByAuthor(String author) {
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             if (b.getAuthor().equals(author)) {
                 returnString +=                 b.printDetailsAsString();
             }
@@ -77,10 +74,10 @@ public class BookStorage {
      *
      * @param publisher is the name of the publisher.
      */
-    public String getBookByPublisher(String publisher) {
-        Book foundBook = null;
+    public String getTextByPublisher(String publisher) {
+        Text foundText = null;
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             if (b.getPublisher().equals(publisher)) {
                 returnString += b.printDetailsAsString();
             }
@@ -95,10 +92,10 @@ public class BookStorage {
      * @param title     is the name of the title.
      * @param publisher is the name of the publisher.
      */
-    public String getBookByTitleAndPublisher(String title, String publisher) {
-        Book foundBook = null;
+    public String getTextByTitleAndPublisher(String title, String publisher) {
+        Text foundText = null;
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             if ((b.getTitle().equals(title)) && (b.getPublisher().equals(publisher))) {
                 returnString += b.printDetailsAsString();
             }
@@ -109,9 +106,9 @@ public class BookStorage {
     /**
      * Prints all the books stored.
      */
-    public String listAllBooks() {
+    public String listAllTexts() {
         String returnString = "";
-        for (Book b : this.listOfBooks) {
+        for (Text b : this.listOfText) {
             returnString += b.printDetailsAsString();
         }
         return returnString;
@@ -119,7 +116,7 @@ public class BookStorage {
 
     public int listSize() {
         int size;
-        size = listOfBooks.size();
+        size = listOfText.size();
         return size;
     }
 
@@ -132,87 +129,52 @@ public class BookStorage {
     public void addPremadeBooks() {
         //The first of three pre made books.
         boolean series = true;
-        this.book = new Book();
-        this.book.setTitle("titleMan");
-        this.book.setAuthor("AuthorMan");
-        this.book.setPublisher("Gyldendal");
-        this.book.setEdition("5.th");
-        this.book.setRefNumber("1337");
-        this.book.setGenre("sci-fi");
-        this.book.setReleaseDate("1999");
-        this.book.setPages(54);
-        this.book.setPrice(45);
-        this.book.setSeries(series);
+        Book book = new Book();
+        book.setTitle("titleMan");
+        book.setAuthor("AuthorMan");
+        book.setPublisher("Gyldendal");
+        book.setEdition("5.th");
+        book.setRefNumber("1337");
+        book.setGenre("sci-fi");
+        book.setReleaseDate("1999");
+        book.setPages(54);
+        book.setPrice(45);
+        book.setSeries(series);
         if (series) {
-            this.book.setSeriesName("a book series");
+            book.setSeriesName("a book series");
         }
-        addBook();
+        addText();
         //The second of three pre made books.
-        this.book = new Book();
-        this.book.setTitle("ManTitle");
-        this.book.setAuthor("ManAuthor");
-        this.book.setPublisher("Gyldendal");
-        this.book.setEdition("9.th");
-        this.book.setRefNumber("1227");
-        this.book.setGenre("Low-Fi");
-        this.book.setReleaseDate("1956");
-        this.book.setPages(90);
-        this.book.setPrice(100);
-        this.book.setSeries(series = false);
+        Book book2 = new Book();
+        book2.setTitle("ManTitle");
+        book2.setAuthor("ManAuthor");
+        book2.setPublisher("Gyldendal");
+        book2.setEdition("9.th");
+        book2.setRefNumber("1227");
+        book2.setGenre("Low-Fi");
+        book2.setReleaseDate("1956");
+        book2.setPages(90);
+        book2.setPrice(100);
+        book2.setSeries(series = false);
         if (series) {
-            this.book.setSeriesName("");
+            book2.setSeriesName("");
         }
-        addBook();
+        addText();
         //The final pre made book.
-        this.book = new Book();
-        this.book.setTitle("Sander");
-        this.book.setAuthor("Joachim");
-        this.book.setPublisher("Skarmyr");
-        this.book.setEdition("1st");
-        this.book.setRefNumber("1997");
-        this.book.setGenre("Blind");
-        this.book.setReleaseDate("2001");
-        this.book.setPages(100);
-        this.book.setPrice(001);
-        this.book.setSeries(series = true);
+        Book book3 = new Book();
+        book3.setTitle("Sander");
+        book3.setAuthor("Joachim");
+        book3.setPublisher("Skarmyr");
+        book3.setEdition("1st");
+        book3.setRefNumber("1997");
+        book3.setGenre("Blind");
+        book3.setReleaseDate("2001");
+        book3.setPages(100);
+        book3.setPrice(001);
+        book3.setSeries(series = true);
         if (series) {
-            this.book.setSeriesName("a book series");
+            book3.setSeriesName("a book series");
         }
-        addBook();
-    }
-<<<<<<< HEAD
-}
-=======
-
-    /**
-     * adds a premade wiki
-     * use this ti skip filling out paramtres for wikis
-     * 
-     * @
-     */
-    public void addPremadeWiki() {
-        this.wiki = new Wiki();
-        this.wiki.contributers = new 
-    }
-
-    /**
-     * adds a premade magazine
-     * use this to skip filling in the paramtres
-     * 
-     * @
-     */
-    public void addPremadeMagazine() {
-
-    }
-
-    /**
-     * adds a premade newspaper
-     * use this to skip filling in the paramtres
-     * 
-     * @
-     */
-    public void addPremadeNewspaper() {
-
+        addText();
     }
 }
->>>>>>> Hierarchy

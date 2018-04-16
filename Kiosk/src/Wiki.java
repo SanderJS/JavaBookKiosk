@@ -58,6 +58,4 @@ public class Wiki extends Text {
         // name that mathces with the given parametre
         return name;
     }
-
-    public void set
 }

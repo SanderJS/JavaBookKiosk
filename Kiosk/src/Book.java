@@ -35,9 +35,6 @@ public class Book {
      * @param edition is the publishing edition.
      * @param genre is the genre.
      * @param releaseDate is the initial release date.
-     * @param pages is the number of pages
-     * @param price is the price in USD.
-     * @param series if the book is part of a series or not.
      */
     public Book(String author, String title, String publisher, String edition, String genre,
                 String releaseDate, int pages, int price, boolean series) {
