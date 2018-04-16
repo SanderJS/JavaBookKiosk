@@ -176,12 +176,11 @@ public class Book  extends Text {
      */
     public String printDetailsAsString() {
         String returnString = "";
-        returnString += "################################################\n";
+        returnString += "################################################" + "\n";
         returnString += "Title: " + super.getTitle() + ", Author: " + super.getAuthor() + "\n";
         returnString += "Genre: " + genre + ", Pages: " + pages + "\n";
-        returnString += "Price: " + price + " USD" + "\n";
-        returnString += "Release date: " + super.getReleaseDate() + "\n";
-        returnString += "Publisher: " + super.getPublisher() + "\n";
+        returnString += "Price: " + price + " USD" + ", Release date: " + super.getReleaseDate() + "\n";
+        returnString += "Publisher: " + super.getPublisher() + ", ";
         if (isSeries) {
             if (series.equals("")) {
                 returnString += "Series not yet set" + "\n";
