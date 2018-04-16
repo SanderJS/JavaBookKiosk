@@ -1,5 +1,3 @@
-import sun.swing.StringUIClientPropertyKey;
-
 import java.util.ArrayList;
 
 /**
@@ -21,81 +19,8 @@ public class TextStorage {
     }
 
     /**
-     * Creates a text as a book and adds it to the collection
-     *
-     * @param title
-     * @param author
-     * @param publisher
-     * @param edition
-     * @param genre
-     * @param releaseDate
-     * @param pages
-     * @param price
-     */
-    public void addNewBook(String title, String author, String publisher,
-                                  String edition, String genre, String refNumber, String releaseDate,
-                                  int pages, int price) {
-        Text text = new Book(author, title, publisher, edition,
-            genre, refNumber, releaseDate, pages, price);
-        addText(text);
-    }
-
-    /**
-     * Creates a new wiki and adds it to the collection
-     * @param project
-     * @param title
-     * @param author
-     * @param publisher
-     * @param releaseDate
-     */
-    public void addNewWiki(String project, String title, String author,
-                           String publisher, String releaseDate){
-        Text text = new Wiki(project, author, title, publisher, releaseDate);
-        addText(text);
-    }
-
-    /**
-     * Adds a new magazine to the collection
-     * @param author
-     * @param title
-     * @param publisher
-     * @param releaseDate
-     * @param pages
-     * @param price
-     */
-    public void addNewMagazine(String author, String title, String publisher,
-                               String releaseDate, int pages, int price){
-        this.text = new Magazine(author, title, publisher, releaseDate, pages, price);
-        addText(text);
-    }
-
-    /**
-     * Adds a new newspaper to the collection
-     *
-     * @param author the author of the newspaper
-     * @param title of the newspaper
-     * @param publisher of the newspaper
-     * @param releaseDate of the newspaper
-     * @param pages of the newspaper
-     * @param price of the newspaper
-     */
-    public void addNewNewspaper(String author, String title, String publisher,
-                                String releaseDate, int pages, int price){
-        this.text = new Newspaper(author, title, publisher, releaseDate, pages, price);
-        addText(text);
-    }
-
-    public void addNewBookSeries(String title, String author, String publisher,
-                           String edition, String genre, String refNumber, String releaseDate,
-                           int pages, int price, String seriesName) {
-        Text text = new BookSeries(author, title, publisher, edition,
-                genre, refNumber, releaseDate, pages, price, seriesName);
-        addText(text);
-    }
-
-    /**
      * The currently selected book to the list.
-     * @param text
+     * @param text the text
      */
     public void addText(Text text){
         this.listOfText.add(text);

@@ -1,6 +1,4 @@
-import jdk.nashorn.internal.ir.IfNode;
-import sun.swing.StringUIClientPropertyKey;
-
+import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -47,23 +45,28 @@ public class ApplicationUI {
                 int menuSelection = this.showMenu();
                 switch (menuSelection) {
                     case 1:
+                        //Lists all of the products stored.
                         this.listAllProducts();
                         break;
 
                     case 2:
+                        //Lets the user input a new product.
                         this.addNewProduct();
                         break;
 
                     case 3:
+                        //Lets the user search up a text by name.
                         this.findProductByName();
                         break;
 
                     case 4:
+                        //Exits the loop and ends the program.
                         System.out.println("\nThank you for using Application v0.1. Bye!\n");
                         quit = true;
                         break;
 
                     default:
+                        //If the user inputs something else than a numeral.
                         System.out.println("Command not recognized");
                 }
             } catch (InputMismatchException ime) {
@@ -134,6 +137,7 @@ public class ApplicationUI {
      * user!!
      */
     private void addNewProduct() throws InputMismatchException {
+
         int numberOfProducts = 5;
         String doNotUse = "";
         String title = "";
@@ -172,18 +176,23 @@ public class ApplicationUI {
                     case 1:
                         doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later.
 
+                        //Takes the terminal input and defines the title as string.
                         System.out.println("Please type the title of the book: ");
                         title = reader.nextLine();
 
+                        //Takes the terminal input and defines the author as string.
                         System.out.println("Please type the author of the book: ");
                         author = reader.nextLine();
 
+                        //Takes the terminal input and defines the publisher as string.
                         System.out.println("Please type the publisher of the book: ");
                         publisher = reader.nextLine();
 
+                        //Takes the terminal input and defines the edition as string.
                         System.out.println("Please type the edition of the book: ");
                         edition = reader.nextLine();
 
+                        //Takes the terminal input and defines the reference number as string, but must be more than 2 characters.
                         System.out.println("Please type the reference number of the book");
                         System.out.println("This should be at least 3 characters long:");
                         refNumber = reader.nextLine();
@@ -191,35 +200,42 @@ public class ApplicationUI {
                             System.out.println("This book will fail due to user error. Not Sorry.");
                         }
 
+                        //Takes the terminal input and defines the genre as string.
                         System.out.println("Please type the genre of the book: ");
                         genre = reader.nextLine();
 
+                        //Takes the terminal input and defines the release date as string.
                         System.out.println("Please type the release date of the book:");
                         releaseDate = reader.nextLine();
 
+                        //Takes the terminal input and defines what object it belongs to.
                         System.out.println("Is the book part of a series? [Y/n]");
                         if (reader.nextLine().equals("Y")) {
                             isSeries = true;
                         }
+                        //Takes the terminal input and defines the name of the series as string.
                         if (isSeries) {
                             System.out.println("What is the name of the series?");
                             seriesName = reader.nextLine();
                         }
 
+                        //Takes the terminal input and defines the number of pages as int.
                         System.out.println("Please type the number of pages of the book: ");
                         pages = reader.nextInt();
 
+                        //Takes the terminal input and defines the price as int.
                         System.out.println("Please type the price of the Book in USD ");
                         price = reader.nextInt();
 
+                        //Adds the book to the storage if all fields are valid.
                        if (refNumber.length() >= 3 && isSeries) {
                             System.out.println("Book Added");
-                            textStorage.addNewBookSeries(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price, seriesName);
+                            textStorage.addText(new BookSeries(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price, seriesName));
                         } else {
                             if (refNumber.length() >= 3) {
-                                textStorage.addNewBook(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price);
+                                textStorage.addText(new Book(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price));
                             } else {
-                                System.out.println("Referance number too short");
+                                System.out.println("Reference number too short");
                             }
                         }
                         quit = true;
@@ -228,30 +244,38 @@ public class ApplicationUI {
                     case 2:
                         doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later.
 
+                        //Takes the terminal input and defines the title as string.
                         System.out.println("Please type the title of the magazine: ");
                         title = reader.nextLine();
 
+                        //Takes the terminal input and defines the author as string.
                         System.out.println("Please type the main editor/author of the magazine: ");
                         author = reader.nextLine();
 
+                        //Takes the terminal input and defines the publisher as string.
                         System.out.println("Please type the publisher of the magazine: ");
                         publisher = reader.nextLine();
 
+                        //Takes the terminal input and defines the reference number as string, but must be more than 2 characters.
                         System.out.println("Please type the reference number of the magazine.");
                         System.out.println("This should be at least 3 characters long:");
                         refNumber = reader.nextLine();
 
+                        //Takes the terminal input and defines the release date as string.
                         System.out.println("Please type the release date of the magazine: ");
                         releaseDate = reader.nextLine();
 
+                        //Takes the terminal input and defines the number of pages as int.
                         System.out.println("Please type the number of pages of the magazine: ");
                         pages = reader.nextInt();
 
+                        //Takes the terminal input and defines the price as int.
                         System.out.println("Please type the price of the magazine in USD ");
                         price = reader.nextInt();
 
+                        //Adds the magazine to the storage if all fields are valid.
                         if (refNumber.length() >= 3) {
-                            textStorage.addNewMagazine(author, title, publisher, releaseDate, pages, price);
+                            textStorage.addText(new Magazine(author, title, publisher, releaseDate, pages, price));
                         } else {
                             System.out.println("Ref number too short, magazine not added.");
                         }
@@ -261,51 +285,65 @@ public class ApplicationUI {
                     case 3:
                         doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later. //No >:(
 
+                        //Takes the terminal input and defines the title as string.
                         System.out.println("Please type the title of the newspaper: ");
                         title = reader.nextLine();
 
+                        //Takes the terminal input and defines the editor as string.
                         System.out.println("Please type the editor/author of the newspaper: ");
                         author = reader.nextLine();
 
+                        //Takes the terminal input and defines the publisher as string.
                         System.out.println("Please type the publisher of the newspaper: ");
                         publisher = reader.nextLine();
 
+                        //Takes the terminal input and defines the release date as string.
                         System.out.println("Please type the release date of the newspaper:");
                         releaseDate = reader.nextLine();
 
+                        //Takes the terminal input and defines the number of pages as int.
                         System.out.println("Please type the number of pages of the newspaper: ");
                         pages = reader.nextInt();
 
+                        //Takes the terminal input and defines the price as int.
                         System.out.println("Please type the price of the newspaper in USD ");
                         price = reader.nextInt();
 
-                        textStorage.addNewNewspaper(author, title, publisher, releaseDate, pages, price);
+                        //Adds the newspaper to the storage if all fields are valid.
+                        textStorage.addText(new Newspaper(author, title, publisher, releaseDate, pages, price));
                         quit = true;
                         break;
 
                     case 4:
-                        doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later.
+                        doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later. // Might have to be like this, don't touch.
 
+                        //Takes the terminal input and defines the title as string.
                         System.out.println("Please type the title of the wiki: ");
                         title = reader.nextLine();
 
+                        //Takes the terminal input and defines the main author as string.
                         System.out.println("Please type the main author of the wiki: ");
                         author = reader.nextLine();
 
+                        //Takes the terminal input and defines the publishing site as string.
                         System.out.println("Please type the website of the wiki: ");
                         publisher = reader.nextLine();
 
+                        //Takes the terminal input and defines the release date as string.
                         System.out.println("Please type the release date of the wiki:");
                         releaseDate = reader.nextLine();
 
+                        //Takes the terminal input and defines the wiki project name as string.
                         System.out.println("Please type the project for this wiki: ");
                         project = reader.nextLine();
 
-                        textStorage.addNewWiki(project, author, title, publisher, releaseDate);
+                        //Adds the newspaper to the storage.
+                        textStorage.addText(new Wiki(project, author, title, publisher, releaseDate));
                         quit = true;
                         break;
 
                     case 5:
+                        //Adds the pre-generated books to the storage.
                         System.out.println("All the pre-generated books has been added");
                         textStorage.addPremadeBooks();
                         quit = true;
@@ -315,7 +353,7 @@ public class ApplicationUI {
                         System.out.println("Please input a valid numeral");
                 }
             } catch (InputMismatchException ime) {
-                System.out.println("\nERROR: Please provide a number between 1 and X..\n");
+                System.out.println("\nERROR: Please provide a number between 1 and" + numberOfProducts + "\n");
             }
         }
     }
@@ -330,16 +368,23 @@ public class ApplicationUI {
      * to print the details of the found item.
      */
     private void findProductByName() throws InputMismatchException {
-        System.out.println("What kind of product are you looking for?\n");
-        System.out.println("1. Book");
+        //Shows the user the options he has.
+        System.out.println("What do you want to search for?\n");
+        System.out.println("1: Book\n");
+        System.out.println("2: Magazine\n");
+        System.out.println("3: Newspaper\n");
+        System.out.println("4: Wiki\n");
+        System.out.println("5: Author");
+        System.out.println();
 
-        int numberOfProducts = 1;
+        //
+        int numberOfOptions = 1;
         Scanner reader = new Scanner(System.in);
 
         boolean quit = false;
 
         int menuSelection = reader.nextInt();
-        if ((menuSelection < 1) || (menuSelection > numberOfProducts)) {
+        if ((menuSelection < 1) || (menuSelection > numberOfOptions)) {
             throw new InputMismatchException();
         }
 
@@ -347,6 +392,7 @@ public class ApplicationUI {
             try {
                 switch (menuSelection) {
                     case 1:
+                        //Searches for the author defined by the user.
                         String author = reader.nextLine();
                         System.out.println("What is the authors name? This search is case sensitive:");
                         System.out.println(textStorage.getTextByAuthor(author));
@@ -358,7 +404,7 @@ public class ApplicationUI {
                         break;
                 }
             } catch (InputMismatchException ime) {
-                System.out.println("\nERROR: Please provide a number between 1 and X..\n");
+                System.out.println("\nERROR: Please provide a number between 1 and " + numberOfOptions + "\n");
             }
         }
     }
