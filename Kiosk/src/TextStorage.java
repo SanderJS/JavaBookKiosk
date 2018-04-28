@@ -8,22 +8,22 @@ import java.util.ArrayList;
  * @version 0.2
  */
 public class TextStorage {
-    private ArrayList<Text> listOfText;
-    private Text text;
+    private ArrayList<Literature> listOfLiterature;
+    private Literature literature;
 
     /**
      * Initiates the list of all the texts.
      */
     public TextStorage() {
-        this.listOfText = new ArrayList<>();
+        this.listOfLiterature = new ArrayList<>();
     }
 
     /**
      * The currently selected book to the list.
-     * @param text the text
+     * @param literature the literature
      */
-    public void addText(Text text){
-        this.listOfText.add(text);
+    public void addText(Literature literature){
+        this.listOfLiterature.add(literature);
     }
 
     /**
@@ -32,7 +32,7 @@ public class TextStorage {
      * @param index is the position in the list.
      */
     public void removeTextFromList(int index) {
-        listOfText.remove(index);
+        listOfLiterature.remove(index);
     }
 
     /**
@@ -42,7 +42,7 @@ public class TextStorage {
      */
     public String getTextByAuthor(String author) {
         String returnString = "";
-        for (Text b : this.listOfText) {
+        for (Literature b : this.listOfLiterature) {
             if (b.getAuthor().equals(author)) {
                 returnString +=                 b.printDetailsAsString();
             }
@@ -56,9 +56,9 @@ public class TextStorage {
      * @param publisher is the name of the publisher.
      */
     public String getTextByPublisher(String publisher) {
-        Text foundText = null;
+        Literature foundLiterature = null;
         String returnString = "";
-        for (Text b : this.listOfText) {
+        for (Literature b : this.listOfLiterature) {
             if (b.getPublisher().equals(publisher)) {
                 returnString += b.printDetailsAsString();
             }
@@ -74,9 +74,9 @@ public class TextStorage {
      * @param publisher is the name of the publisher.
      */
     public String getTextByTitleAndPublisher(String title, String publisher) {
-        Text foundText = null;
+        Literature foundLiterature = null;
         String returnString = "";
-        for (Text b : this.listOfText) {
+        for (Literature b : this.listOfLiterature) {
             if ((b.getTitle().equals(title)) && (b.getPublisher().equals(publisher))) {
                 returnString += b.printDetailsAsString();
             }
@@ -89,7 +89,7 @@ public class TextStorage {
      */
     public String listAllTexts() {
         String returnString = "";
-        for (Text b : this.listOfText) {
+        for (Literature b : this.listOfLiterature) {
             returnString += b.printDetailsAsString();
         }
         return returnString;
@@ -97,7 +97,7 @@ public class TextStorage {
 
     public int listSize() {
         int size;
-        size = listOfText.size();
+        size = listOfLiterature.size();
         return size;
     }
 
@@ -106,11 +106,11 @@ public class TextStorage {
      */
     public void addPremadeBooks() {
         //The first of three pre made books.
-        Text book = new BookSeries("AuthorMan", "TitleMan", "Gyldendal", "5th"
+        Literature book = new BookSeries("AuthorMan", "TitleMan", "Gyldendal", "5th"
         , "sci-fi", "1234", "19-12-1999", 20, 200, "periodical");
         addText(book);
         //The second of three pre made books.
-        Text book2 = new Book("ManTitle", "ManAuthor", "Gyldendal", "9.th",
+        Literature book2 = new Book("ManTitle", "ManAuthor", "Gyldendal", "9.th",
                 "Low-Fi", "5678", "20-04-1920", 200, 20);
         addText(book2);
         //The final pre made book.

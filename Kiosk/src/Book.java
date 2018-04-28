@@ -9,7 +9,7 @@
  * @author Jan Anton, Sander Joachim
  * @version 0.1
  */
-public class Book extends Text {
+public class Book extends Literature {
     private String edition;
     private String refNumber;
     private String genre;

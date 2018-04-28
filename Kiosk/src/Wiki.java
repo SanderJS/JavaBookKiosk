@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Jan Anton and Joachim
  * @version 1.0
  */
-public class Wiki extends Text {
+public class Wiki extends Literature {
     private ArrayList<String> contributors;
     private ArrayList<String> projects;
     private String project;

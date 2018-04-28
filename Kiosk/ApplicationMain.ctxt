@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=ApplicationMain
-comment0.text=\r\n\ The\ Main-class\ of\ the\ application.\ This\ class\ only\ holds\ the\ main()-method\r\n\ to\ start\ the\ application.\r\n\ \r\n\ @author\ asty\r\n\ @version\ 1.0\r\n
+comment0.literature=\r\n\ The\ Main-class\ of\ the\ application.\ This\ class\ only\ holds\ the\ main()-method\r\n\ to\ start\ the\ application.\r\n\ \r\n\ @author\ asty\r\n\ @version\ 1.0\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment1.text=\r\n\ The\ main\ entry\ for\ the\ application.\r\n\ @param\ args\ arguments\ provided\ during\ startup\ of\ the\ application\r\n
+comment1.literature=\r\n\ The\ main\ entry\ for\ the\ application.\r\n\ @param\ args\ arguments\ provided\ during\ startup\ of\ the\ application\r\n
 numComments=2

@@ -1,19 +1,19 @@
 /**
  * a superclass that holds different forms of text (based media)
- * Text based medias such as books, magazines, newspapers and wikis.
+ * Literature based medias such as books, magazines, newspapers and wikis.
  * 
  * every text has a author, title, publisher and a release date.
  * 
  * @author Jan Anton og Sander Joachim
  * @version 1.0
  */
-public abstract class Text {
+public abstract class Literature {
     private String author;
     private String title;
     private String publisher;
     private String releaseDate;
 
-    public Text () {
+    public Literature() {
 
     }
     /**
@@ -24,7 +24,7 @@ public abstract class Text {
     * @param publisher is the publisher of the text
     * @param releaseDate is the release date of the text
     */
-    public Text (String author, String title, String publisher, String releaseDate) {
+    public Literature(String author, String title, String publisher, String releaseDate) {
         this.author = author;
         this.title = title;
         this.publisher = publisher;
@@ -33,7 +33,7 @@ public abstract class Text {
 
 
     /**
-    * Sets the author of the Text
+    * Sets the author of the Literature
     *
     * @param author is the author.
     */
@@ -42,31 +42,36 @@ public abstract class Text {
     }
     
     /**
-    * Sets the title of the Text
+    * Sets the title of the Literature
     *
-    * @param title is the Text title
+    * @param title is the Literature title
     */
     public void setTitle(String title) {
         this.title = title;
     }
 
     /**
-    * sets the publisher of the Text
+    * sets the publisher of the Literature
     *
-    * @param publisher sets the Text's publisher
+    * @param publisher sets the Literature's publisher
     */
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
 
+    /**
+     * Sets the release date of the literature.
+     *
+     * @param releaseDate sets the release date of the literature
+     */
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 
     /**
-    * Returns the title of the Text
+    * Returns the title of the Literature
     *
-    * @return the title of the Text
+    * @return the title of the Literature
     */
     protected String getTitle() {
         return title;
@@ -77,16 +82,16 @@ public abstract class Text {
     }
 
     /**
-    *  Returns the publisher for the Text.
+    *  Returns the publisher for the Literature.
     *
-    * @return the publisher of the Text.
+    * @return the publisher of the Literature.
     */
     protected String getPublisher() {
         return publisher;
     }
 
     /**
-    * gets the author of the Text.
+    * gets the author of the Literature.
     *
     * @return the name of the author.
     */

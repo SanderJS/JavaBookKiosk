@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Jan Anton, Joachim
  * @version 1.0
  */
-public class Newspaper extends Text {
+public class Newspaper extends Literature {
     private ArrayList<String> pictures;
     private ArrayList<String> articles;
     private ArrayList<String> authors;
