@@ -1,8 +1,8 @@
 /**
- * a superclass that holds different forms of text (based media)
+ * a superclass that holds different forms of literature
  * Literature based medias such as books, magazines, newspapers and wikis.
  * 
- * every text has a author, title, publisher and a release date.
+ * every literature has a title, publisher and a release date.
  * 
  * @author Jan Anton og Sander Joachim
  * @version 1.0
@@ -19,28 +19,16 @@ public abstract class Literature {
     /**
     * constructor of the text superclass
     *
-    * @param author is the author of the text
     * @param title is the title of the text
     * @param publisher is the publisher of the text
     * @param releaseDate is the release date of the text
     */
-    public Literature(String author, String title, String publisher, String releaseDate) {
-        this.author = author;
+    public Literature(String title, String publisher, String releaseDate) {
         this.title = title;
         this.publisher = publisher;
         this.releaseDate = releaseDate;
     }
 
-
-    /**
-    * Sets the author of the Literature
-    *
-    * @param author is the author.
-    */
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-    
     /**
     * Sets the title of the Literature
     *
@@ -77,6 +65,10 @@ public abstract class Literature {
         return title;
     }
 
+    /**
+     *
+     * @return
+     */
     protected String getReleaseDate() {
         return releaseDate;
     }
@@ -90,17 +82,14 @@ public abstract class Literature {
         return publisher;
     }
 
-    /**
-    * gets the author of the Literature.
-    *
-    * @return the name of the author.
-    */
-    protected String getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
     /**
      * Prints all the details of the text.
+     *
+     * @return detailed infromation.
      */
      public String printDetailsAsString() {
          String returnString = "";

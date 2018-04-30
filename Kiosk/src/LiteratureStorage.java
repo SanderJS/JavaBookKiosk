@@ -7,14 +7,14 @@ import java.util.ArrayList;
  * @author Jan Anton, Sander Joachim, Karl Kristian
  * @version 0.2
  */
-public class TextStorage {
+public class LiteratureStorage {
     private ArrayList<Literature> listOfLiterature;
     private Literature literature;
 
     /**
      * Initiates the list of all the texts.
      */
-    public TextStorage() {
+    public LiteratureStorage() {
         this.listOfLiterature = new ArrayList<>();
     }
 
@@ -44,7 +44,7 @@ public class TextStorage {
         String returnString = "";
         for (Literature b : this.listOfLiterature) {
             if (b.getAuthor().equals(author)) {
-                returnString +=                 b.printDetailsAsString();
+                returnString += b.printDetailsAsString();
             }
         }
         return returnString;

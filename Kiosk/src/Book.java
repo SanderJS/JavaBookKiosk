@@ -9,12 +9,10 @@
  * @author Jan Anton, Sander Joachim
  * @version 0.1
  */
-public class Book extends Literature {
+public class Book extends AbnormalPublication {
     private String edition;
     private String refNumber;
     private String genre;
-    private int pages;
-    private int price;
 
     /**
      * A new book filled with information
@@ -27,14 +25,11 @@ public class Book extends Literature {
      */
     public Book(String author, String title, String publisher, String edition, String genre,
                String refNumber, String releaseDate, int pages, int price) {
-        super(author, title, publisher, releaseDate);
+        super(author, title, publisher, releaseDate, pages, price);
         this.edition = edition;
         this.genre = genre;
         this.refNumber = refNumber;
-        this.pages = pages;
-        this.price = price;
         }
-
 
     /**
      * Returns the reference number for the book.
@@ -48,22 +43,19 @@ public class Book extends Literature {
     /**
      * Returns the edition of the book.
      *
-     * @return
+     * @return the edition.
      */
     protected String getEdition() {
         return edition;
     }
 
+    /**
+     * returns the genre
+     *
+     * @return the genre
+     */
     protected String getGenre() {
         return genre;
-    }
-
-    protected int getPages() {
-        return pages;
-    }
-
-    protected int getPrice() {
-        return price;
     }
 
     /**
@@ -73,8 +65,8 @@ public class Book extends Literature {
         String returnString = "";
         returnString += "################################################\n";
         returnString += "Title: " + super.getTitle() + ", Author: " + super.getAuthor() + "\n";
-        returnString += "Genre: " + genre + ", Pages: " + pages + "\n";
-        returnString += "Price: " + price + " USD" + "\n";
+        returnString += "Genre: " + genre + ", Pages: " + super.getPages() + "\n";
+        returnString += "Price: " + super.getPrice() + " USD" + "\n";
         returnString += "Release date: " + super.getReleaseDate() + "\n";
         returnString += "Publisher: " + super.getPublisher() + "\n";
        if (refNumber.equals("")) {

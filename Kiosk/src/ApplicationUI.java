@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -12,7 +11,7 @@ import java.util.Scanner;
  */
 public class ApplicationUI {
 
-    private TextStorage textStorage;
+    private LiteratureStorage literatureStorage;
 
     // The menu tha will be displayed. Please edit/alter the menu
     // to fit your application (i.e. replace "prodct" with "litterature"
@@ -28,7 +27,7 @@ public class ApplicationUI {
      * Creates an instance of the ApplicationUI User interface and a new book storage.
      */
     public ApplicationUI() {
-        this.textStorage = new TextStorage();
+        this.literatureStorage = new LiteratureStorage();
     }
 
     /**
@@ -119,8 +118,8 @@ public class ApplicationUI {
      * Lists all the products/literature in the register
      */
     public void listAllProducts() {
-        if (this.textStorage.listSize() > 0) {
-            System.out.println(textStorage.listAllTexts());
+        if (this.literatureStorage.listSize() > 0) {
+            System.out.println(literatureStorage.listAllTexts());
         } else {
             System.out.println("There are nothing stored at the moment.");
         }
@@ -230,10 +229,10 @@ public class ApplicationUI {
                         //Adds the book to the storage if all fields are valid.
                        if (refNumber.length() >= 3 && isSeries) {
                             System.out.println("Book Added");
-                            textStorage.addText(new BookSeries(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price, seriesName));
+                            literatureStorage.addText(new BookSeries(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price, seriesName));
                         } else {
                             if (refNumber.length() >= 3) {
-                                textStorage.addText(new Book(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price));
+                                literatureStorage.addText(new Book(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price));
                             } else {
                                 System.out.println("Reference number too short");
                             }
@@ -275,7 +274,7 @@ public class ApplicationUI {
 
                         //Adds the magazine to the storage if all fields are valid.
                         if (refNumber.length() >= 3) {
-                            textStorage.addText(new Magazine(author, title, publisher, releaseDate, pages, price));
+                            literatureStorage.addText(new Magazine(title, publisher, releaseDate, pages, price));
                         } else {
                             System.out.println("Ref number too short, magazine not added.");
                         }
@@ -310,7 +309,7 @@ public class ApplicationUI {
                         price = reader.nextInt();
 
                         //Adds the newspaper to the storage if all fields are valid.
-                        textStorage.addText(new Newspaper(author, title, publisher, releaseDate, pages, price));
+                        literatureStorage.addText(new Newspaper(title, publisher, releaseDate, pages, price));
                         quit = true;
                         break;
 
@@ -338,14 +337,14 @@ public class ApplicationUI {
                         project = reader.nextLine();
 
                         //Adds the newspaper to the storage.
-                        textStorage.addText(new Wiki(project, author, title, publisher, releaseDate));
+                        //literatureStorage.addText(new Wiki(project, author, title, publisher, releaseDate));
                         quit = true;
                         break;
 
                     case 5:
                         //Adds the pre-generated books to the storage.
                         System.out.println("All the pre-generated books has been added");
-                        textStorage.addPremadeBooks();
+                        literatureStorage.addPremadeBooks();
                         quit = true;
                         break;
 
@@ -395,7 +394,7 @@ public class ApplicationUI {
                         //Searches for the author defined by the user.
                         String author = reader.nextLine();
                         System.out.println("What is the authors name? This search is case sensitive:");
-                        System.out.println(textStorage.getTextByAuthor(author));
+                        System.out.println(literatureStorage.getTextByAuthor(author));
                         quit = true;
                         break;
 

@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=TextStorage
+comment0.target=LiteratureStorage
 comment0.literature=\r\n\ The\ list\ that\ holds\ the\ different\ books,\ papers\ and\ newspapers\r\n\ that\ is\ in\ the\ kiosks\ stock.\r\n\r\n\ @author\ Jan\ Anton,\ Sander\ Joachim,\ Karl\ Kristian\r\n\ @version\ 0.2\r\n
 comment1.params=
-comment1.target=TextStorage()
+comment1.target=LiteratureStorage()
 comment1.literature=\r\n\ Initiates\ the\ list\ of\ all\ the\ texts.\r\n
 comment10.params=title\ publisher
 comment10.target=java.lang.String\ getTextByTitleAndPublisher(java.lang.String,\ java.lang.String)

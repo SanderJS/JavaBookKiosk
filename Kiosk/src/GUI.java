@@ -14,7 +14,7 @@ public class GUI extends Application {
     public void start(Stage primaryStage) {
         BorderPane root = new BorderPane();
         VBox topContainer = new VBox();
-        MenuBar mainMenu = createMenus();
+        //MenuBar mainMenu = createMenus();
 
         primaryStage.show();
     }
