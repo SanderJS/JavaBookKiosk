@@ -23,13 +23,17 @@ public class GUI extends Application {
         root.setTop(mainMenu);
 
         // adds the left region of the borderpane
+        // left pane
+        // a hbox filled with buttons
+        // coderz
+
+        // add the created ^^ left hbox
         root.setLeft(newHBox);
 
         // adds the bottom status bar
         root.setBottom(newVBox);
 
         // adds the center options region
-        // a vbox with a lot of buttons (?)
         root.setCenter(options);
 
         // title of the window
