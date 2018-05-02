@@ -1,3 +1,4 @@
+/*
 import java.util.ArrayList;
 
 /**
@@ -7,8 +8,8 @@ import java.util.ArrayList;
  * 
  * @author Jan Anton and Joachim
  * @version 1.0
- */
-public class Wiki extends Text {
+ *
+public class Wiki extends AbnormalPublication {
     private ArrayList<String> contributors;
     private ArrayList<String> projects;
     private String project;
@@ -17,7 +18,7 @@ public class Wiki extends Text {
      * constructor for class Wiki
      * 
      * @param project the wiki project's name
-     */
+     *
     public Wiki(String project, String author, String title, String publisher, String releaseDate) {
         // pls fix!
         super(author, title, publisher, releaseDate);
@@ -30,7 +31,7 @@ public class Wiki extends Text {
      * gets the name of the main project
      * 
      * @return the main project's name
-     */
+     *
     public String getMainProjectName()
     {
         return project;
@@ -40,7 +41,7 @@ public class Wiki extends Text {
      * adds a related project to the main project
      * 
      * @param projectName the name of the related project
-     */
+     *
     public void addProjects(String projectName)
     {
         projects.add(projectName);
@@ -51,7 +52,7 @@ public class Wiki extends Text {
      * and compares the name with the given paramtre
      * 
      * @param name the name of the 
-     */
+     *
     public String getProject(String name)
     {
         // iterate through the list and find the 
@@ -61,12 +62,14 @@ public class Wiki extends Text {
 
     /**
      * Prints all the details of the book.
-     */
+     *
     public String printDetailsAsString() {
         String returnString = "";
-        returnString += "################################################" + "\n";
+        returnString += "################################################\n";
         returnString += "Title: " + super.getTitle() + ", Author: " + super.getAuthor() + "\n";
-        returnString += "Release date: " + super.getReleaseDate() + ",Project: " + project + "\n";
+        returnString += "Release date: " + super.getReleaseDate() + "\n";
+        returnString += "Project: " + project + "\n";
         return returnString;
     }
 }
+*/
