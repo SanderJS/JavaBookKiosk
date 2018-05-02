@@ -1,14 +1,30 @@
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Node;
+import javafx.scene.text.Text;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Font;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.GridPane;
+import javafx.scene.image.ImageView;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.HBox
+import javafx.geometry.Pos;
+import javafx.geometry.Insets;
 
 public class GUI extends Application
 {
@@ -32,7 +48,7 @@ public class GUI extends Application
         ToolBar toolBar = createToolBar();
 
         // Places the topContainer in top borderpane
-        r.setTop(topContainer);
+        root.setTop(topContainer);
         // Place th menubar in the topContainer
         topContainer.getChildren().add(mainMenu);
         // Place the Toolbar
@@ -47,13 +63,13 @@ public class GUI extends Application
         // coderz
 
         // add the created ^^ left hbox
-        root.setLeft(someVBox);
+        //root.setLeft(someVBox);
 
         // adds the bottom status bar
-        root.setBottom(someHBOx);
+        //root.setBottom(someHBOx);
 
         // adds the center list of texts region
-        root.setCenter();
+        //root.setCenter();
 
         // title of the window
         primaryStage.setTitle("Kiosk Manager");
@@ -73,8 +89,8 @@ public class GUI extends Application
     }
 
     /**
-     * this is how a toolbar is created
-     * 
+     * this is creates a toolbar that lies under the menu
+     * a toolbar contains buttons can add, print and ???
      */
     private ToolBar createToolBar()
     {
@@ -82,34 +98,86 @@ public class GUI extends Application
         Button openFileBtn = new Button();
         Button printBtn = new Button();
 
-        // place icons here
-        // ex:
-        // openFileBtn.setGraphic(new ImageView("images/FolderOpen_32.png"));
+        // assign icons to buttons here
+        // icons we have are add, deletem done, exit, help, home, print and save
+        // not all icons need to be used
+        openFileBtn.setGraphic(new ImageView("img/add.png"));
+        printBtn.setGraphic(new ImageView("img/print.png"));
+        
         // the images folder is located at at the same repo level as the .java files.
+        
+        // lambda expression to handle events for buttons and other actions
+        openFileBtn.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+            @Override
+            public void handle(ActionEvent event)
+            {
+                handleFileOpen();
+            }
+        });
+
+        printBtn.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+            @Override
+            public void handle(ActionEvent event)
+            {
+                handleFilePrint();
+            }
+        });        
+        
+
+        //Add the Buttons to the ToolBar.
+        toolBar.getItems().addAll(openFileBtn, printBtn);
+        return toolBar;
     }
 
+    // Creates the menu bar
+    // creates menuItems (open, print and exit)
+    // 
     private MenuBar createMenus()
     {
         // Creates a menubar
         MenuBar menuBar = new MenuBar();
 
-        // creates a toolbar option called "file"
+        // creates a menu for files
         Menu menuFile = new Menu("File");
         // inside of file, these options exist
         MenuItem openFile = new MenuItem("Open");
         MenuItem printFile = new MenuItem("Print");
         MenuItem exitApp = new MenuItem("Exit");
 
-        // creates a toolbar option called "edit"
+        // creates a meni for edit
         Menu menuEdit = new Menu("Edit");
         // inside edit nothing exits
 
-        // creates a new toolbar option called "view"
+        // creates a menu for view
         Menu menuView = new Menu("View");
         // inside view nothing exists (atm)
 
-        // creates a new toolbar option called "help"
-        Menu menuHelp = new Menu("Help")
+        // creates a menu for help
+        Menu menuHelp = new Menu("Help");
         // inside help nothing exists
+    }
+    
+    // A set of "delegate"-methods. These are methods that actually
+    // deals with the stuff related to the function askd for by the
+    // user as a button or a menue or a toolbar is clicked.
+    private void handleFileOpen()
+    {
+        textArea.appendText("File Open was selected by the user...\n");
+    }
+    
+    // Exits the application
+    private void handleExit()
+    {
+        Platform.exit();
+    }
+    
+    // read handleFileOpen javadoc
+    private void handleFilePrint()
+    {
+        textArea.appendText("File Print was selected by the user...\n");
     }
 }
