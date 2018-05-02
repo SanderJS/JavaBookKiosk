@@ -96,8 +96,10 @@ public class GUI extends Application
         Button printBtn = new Button();
 
         // place icons here
-        openFileBtn.setGraphic(new ImageView("images/FolderOpen_32.png"));
-        printBtn.setGraphic(new ImageView("images/Print_32.png"));
+        // icons we have are add, deletem done, exit, help, home, print and save
+        // not all icons need to be used
+        openFileBtn.setGraphic(new ImageView("img/add.png"));
+        printBtn.setGraphic(new ImageView("img/print.png"));
         
         // the images folder is located at at the same repo level as the .java files.
         
