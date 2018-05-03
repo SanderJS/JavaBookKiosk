@@ -54,7 +54,7 @@ public class GUI extends Application
         topContainer.getChildren().add(toolBar);
 
         // Creates the scene, adds the root node and starting size
-        Scene scene = new Scene(root, 400, 275);
+        Scene scene = new Scene(root, 600, 800);
 
         // adds the left region of the borderpane
         root.setLeft(createLeftBar());
@@ -95,18 +95,18 @@ public class GUI extends Application
         // Buttons that the toolbar will hold
         Button openFileBtn = new Button();
         Button printBtn = new Button();
-        Button helpBtn = new Button();
         Button saveBtn = new Button();
         Button delBtn = new Button();
+        Button helpBtn = new Button();
 
         // assign icons to buttons here
         // icons we have are add, deletem done, exit, help, home, print and save
         // not all icons need to be used
         openFileBtn.setGraphic(new ImageView("img/add.png"));
         printBtn.setGraphic(new ImageView("img/print.png"));
-        helpBtn.setGraphic(new ImageView("img/help.png"));
         saveBtn.setGraphic(new ImageView("img/save.png"));
         delBtn.setGraphic(new ImageView("img/delete.png"));
+        helpBtn.setGraphic(new ImageView("img/help.png"));
         
         // the images folder is located at at the same repo level as the .java files.
         
@@ -165,7 +165,9 @@ public class GUI extends Application
         });
 
         // Add the Buttons to the toolBar.
-        toolBar.getItems().addAll(openFileBtn, printBtn, helpBtn, saveBtn, delBtn);
+        // this decides the order in which the buttons
+        // wil be placed
+        toolBar.getItems().addAll(openFileBtn, printBtn, saveBtn, delBtn, helpBtn);
         return toolBar;
     }
 
@@ -245,6 +247,17 @@ public class GUI extends Application
         Button button1 = new Button();
         Button button2 = new Button();
         Button button3 = new Button();
+        Button button4 = new Button();
+        // label the buttons
+        button1.setText("Add New Text");
+        button2.setText("List All");
+        button3.setText("Search");
+        button4.setText("Convert To Series");
+        // set padding
+        button1.setPadding((new Insets(12)));
+        button2.setPadding((new Insets(12)));
+        button3.setPadding((new Insets(12)));
+        button4.setPadding((new Insets(12)));
         // make lamda expressions to assign actions to buttons
         button1.setOnAction(new EventHandler<ActionEvent>()
         {
@@ -267,6 +280,16 @@ public class GUI extends Application
         });
         
         button3.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+            @Override
+            public void handle(ActionEvent event)
+            {
+                handleButton();
+            }
+        });
+        
+        button4.setOnAction(new EventHandler<ActionEvent>()
         {
 
             @Override
@@ -314,18 +337,18 @@ public class GUI extends Application
     // Event handlers that does something
     private void handleFileSave()
     {
-        textArea.appendText("File Save was selected by the user.../n");
+        textArea.appendText("File Save was selected by the user...\n");
     }
     
     // Event handlers that does something
     private void handleFileHelp()
     {
-        textArea.appendText("Help was selected by the user.../n");
+        textArea.appendText("Help was selected by the user...\n");
     }
     
     // Event handlers that does something
     private void handleFileDel()
     {
-        textArea.appendText("File Delete was selected by the user.../n");
+        textArea.appendText("File Delete was selected by the user...\n");
     }
 }
