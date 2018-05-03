@@ -191,7 +191,7 @@ public class GUI extends Application
         // vbox to control the sizing
         VBox vbox = new VBox();
         
-        // creation of a column
+        // creation of a column(s)
         // the title of each column
         TableColumn<Literature, String> titleColumn = new TableColumn<>("Title");
         // restrcts the limits of much a column can be compressed
@@ -202,6 +202,11 @@ public class GUI extends Application
         TableColumn<Literature, String> publisherColumn = new TableColumn<>("Publisher");
         publisherColumn.setMinWidth(200);
         publisherColumn.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+        
+        // The release date-column
+        TableColumn<Literature, String> releaseDateColumn = new TableColumn<>("Release date");
+        releaseDateColumn.setMinWidth(200);
+        releaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("release date"));
 
         tableView = new TableView<>();
         tableView.setItems(this.getLiteratureList());
@@ -210,6 +215,7 @@ public class GUI extends Application
         vbox.getChildren().add(tableView);
 
         // Create the row of buttons for Add, Delete and Edit
+        // remove/edit if need be
         HBox buttonRow = new HBox();
         buttonRow.setAlignment(Pos.CENTER);
         buttonRow.setPadding(new Insets(15, 15, 15, 15));
@@ -365,15 +371,108 @@ public class GUI extends Application
     }
     
     // dummy data
-    private void fillStorageWithDummyData()
+    private void fillRegisterWithDummyData()
     {
-        this.litStorage.addText(new Book("forfatter", "tittel", "Gyldendal", "utgave", "sjanger",
-        "referanse nummer", "1898", 20, 59));
-        this.litStorage.addText(new Magazine(params));
-        this.litStorage.addText(new BookSeries(params));
-        this.litStorage.addText(new Newspaper(params));
-        this.litStorage.addText(new Book(params));
+        this.litStorage.addText(new Book("Henrik Ibsen", "Et dukkehejm", "Gyldendal", "4. utgave", "drama",
+        "48245909 nummer", "1879", 90, 8));
+        this.litStorage.addText(new Magazine("some magazine", "made by a company", "released at one poin",
+        25, 60));
+        this.litStorage.addText(new BookSeries("ya boii", "a song of boiis and boyos", "Marvel", "42.th edition",
+        "real shit", "6942069", "4. may 1980", 562, 23, "cool series"));
+        this.litStorage.addText(new Newspaper("Ze Times", "German publishingz", "12. Jan 1995", 44, 60));
+        this.litStorage.addText(new Book("Oscar Wilde", "The Picture of Dorian Gray", "Pearson", "7.th edition",
+        "novel", "1957991", "1890", 125, 10));
     }
+    
+    /**
+     * Display the input dialog to get create a new Newspaper.
+     */
+    private void doAddNewspaper()
+    {
+        NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog();
+
+        Optional<Newspaper> result = npDialog.showAndWait();
+
+        if (result.isPresent())
+        {
+            Newspaper newspaper = result.get();
+            litStorage.addLiterature(newspaper);
+            updateObservableList();
+            System.out.println("Number of items in litStorage: " + litStorage.getSize());
+        }
+    }
+    
+    /**
+     * Deletes the literature selected in the table. If no literature is
+     * selected, nothing is deleted, and the user is informed that he/she must
+     * select which literature to delete.
+     */
+    private void doDeleteLiterature()
+    {
+        if (this.tableView.getSelectionModel().isEmpty())
+        {
+            showPleaseSelectItemDialog();
+        } else
+        {
+            Object selectedObject = this.tableView.getSelectionModel().getSelectedItem();
+            if (selectedObject instanceof Literature)
+            {
+                if (showDeleteConfirmationDialog())
+                {
+                    Literature lit = (Literature) selectedObject;
+                    this.litReg.remove(lit);
+                    this.updateObservableList();
+                }
+            }
+        }
+    }
+
+    /**
+     * Edit the selected item.
+     */
+    private void doEditLiterature()
+    {
+        if (this.tableView.getSelectionModel().isEmpty())
+        {
+            showPleaseSelectItemDialog();
+        } else
+        {
+            Object selectedObject = this.tableView.getSelectionModel().getSelectedItem();
+            if (selectedObject instanceof Literature)
+            {
+                Newspaper selectedNewspaper = (Newspaper) selectedObject;
+
+                NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog(selectedNewspaper, true);
+
+                Optional<Newspaper> result = npDialog.showAndWait();
+
+                updateObservableList();
+            }
+        }
+    }
+
+    /**
+     * Show details of the selected item.
+     */
+    private void doShowDetails()
+    {
+        if (this.tableView.getSelectionModel().isEmpty())
+        {
+            showPleaseSelectItemDialog();
+        } else
+        {
+            Object selectedObject = this.tableView.getSelectionModel().getSelectedItem();
+            if (selectedObject instanceof Literature)
+            {
+                Newspaper selectedNewspaper = (Newspaper) selectedObject;
+
+                NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog(selectedNewspaper, false);
+
+                Optional<Newspaper> result = npDialog.showAndWait();
+            }
+        }
+    }
+    
     
     // what does the buttons do?
     // this

@@ -10,10 +10,13 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Newspaper extends SerialPublication {
+    // possible jerry rig fix
     private String newspaper;
+    /*
     private ArrayList<String> pictures;
     private ArrayList<String> articles;
     private ArrayList<String> authors;
+    */
     /**
      * Constructor for objects of subclass Newspaper
      *
@@ -26,10 +29,27 @@ public class Newspaper extends SerialPublication {
     {
         // error author has private access in text!
         super(title, publisher, releaseDate, pages, price);
+        /*
         this.pictures = new ArrayList<>();
         this.articles = new ArrayList<>();
         this.authors = new ArrayList<>();
+        */
         this.newspaper = "Newspaper";
+    }
+    
+    public String getTitle()
+    {
+        // shit
+    }
+    
+    public String getPublisher()
+    {
+        // asdasd
+    }
+    
+    public String getReleaseDate()
+    {
+        //ajj
     }
 
     /**
@@ -37,20 +57,24 @@ public class Newspaper extends SerialPublication {
      *
      * @param filename the name of the picture file
      */
+    /*
     public void addPicture(String filename)
     {
         pictures.add(filename);
     }
+    */
 
     /**
      * adds a article to the magazine
      *
      * @param title the title of the article
      */
+    /*
     public void addArticle(String title)
     {
         articles.add(title);
     }
+    */
 
     /**
      * Builds a string with detailed newspaper information.

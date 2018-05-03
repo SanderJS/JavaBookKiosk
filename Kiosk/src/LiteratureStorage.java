@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+//maybes
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * The list that holds the different books, papers and newspapers
@@ -8,6 +11,12 @@ import java.util.ArrayList;
  * @version 0.2
  */
 public class LiteratureStorage {
+    /**
+     * Arne sitt eksempel har final på listOfLiterature
+     * og ingen Literature literature
+     * 
+     * Hva brukes Literature literature til?
+     */
     private ArrayList<Literature> listOfLiterature;
     private Literature literature;
 
@@ -20,7 +29,7 @@ public class LiteratureStorage {
 
     /**
      * The currently selected book to the list.
-     * @param literature the literature
+     * @param literature the literature to add
      */
     public void addText(Literature literature){
         this.listOfLiterature.add(literature);
@@ -33,6 +42,16 @@ public class LiteratureStorage {
      */
     public void removeTextFromList(int index) {
         listOfLiterature.remove(index);
+    }
+    
+    /**
+     * Returns the list of literature.
+     *
+     * @return the list of literature.
+     */
+    List<Literature> getLiteratureList()
+    {
+        return this.listOfLiterature;
     }
 
     /**

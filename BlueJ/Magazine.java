@@ -30,6 +30,7 @@ public class Magazine extends SerialPublication {
         this.pictures = new ArrayList<>();
         this.articles = new ArrayList<>();
         this.authors = new ArrayList<>();
+        // maybe
         this.magazine = "Magazine";
     }
 
