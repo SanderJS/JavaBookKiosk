@@ -9,12 +9,10 @@ import java.util.ArrayList;
  * @author Jan Anton, Joachim
  * @version 1.0
  */
-public class Magazine extends Text {
+public class Magazine extends SerialPublication {
     private ArrayList<String> pictures;
     private ArrayList<String> articles;
     private ArrayList<String> authors;
-    private int pages;
-    private int price;
 
     /**
      * Constructor for objects of subclass Magazine
@@ -24,12 +22,10 @@ public class Magazine extends Text {
      * creates a new list of articles
      * creates a new list for authors
      */
-    public Magazine(String author, String title, String publisher, String releaseDate, int pages, int price)
+    public Magazine(String title, String publisher, String releaseDate, int pages, int price)
     {
         // error author has private access in text!
-        super(author, title, publisher, releaseDate);
-        this.pages = pages;
-        this.price = price;
+        super(title, publisher, releaseDate, pages, price);
         this.pictures = new ArrayList<>();
         this.articles = new ArrayList<>();
         this.authors = new ArrayList<>();
@@ -56,26 +52,16 @@ public class Magazine extends Text {
     }
 
     /**
-     * adds a author to the magazine 
-     * 
-     * @param author the author of the article
-     */
-    public void addAuthor(String author)
-    {
-        authors.add(author);
-    }
-
-    /**
-     * returns the details of the magazine
+     * returns the details of the newspaper
      *
-     * @return 
+     * @return a string with detailed newspaper information
      */
     public String printDetailsAsString() {
         String returnString = "";
         returnString += "################################################\n";
-        returnString += "Title: " + super.getTitle() + ", Author: " + super.getAuthor() + "\n";
+        returnString += "Title: " + super.getTitle() + "\n";
         returnString += "Release date: " + super.getReleaseDate() + "\n";
-        returnString += "Pages: " + pages + " Price: " + price + "\n";
+        returnString += "Pages: " + super.getPages() + " Price: " + super.getPrice() + "\n";
         returnString += "Publisher: " + super.getPublisher();
         return returnString;
     }
