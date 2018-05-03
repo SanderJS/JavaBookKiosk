@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Magazine
 comment0.text=\r\n\ this\ is\ a\ magazine,\ a\ extension\ of\ text\ (based\ media)\r\n\ a\ magazine\ contains\ a\ lot\ of\ pictures\r\n\ a\ larger\ pool\ of\ authors\ than\ ordinary\ books\r\n\ articles\ about\ different\ subjects.\r\n\ \r\n\ @author\ Jan\ Anton,\ Joachim\r\n\ @version\ 1.0\r\n
-comment1.params=author\ title\ publisher\ releaseDate\ pages\ price
-comment1.target=Magazine(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int)
+comment1.params=title\ publisher\ releaseDate\ pages\ price
+comment1.target=Magazine(java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ subclass\ Magazine\r\n\ \r\n\ creates\ and\ instance\ of\ a\ text\ with\ super\r\n\ creates\ a\ new\ list\ for\ pictures\r\n\ creates\ a\ new\ list\ of\ articles\r\n\ creates\ a\ new\ list\ for\ authors\r\n
 comment2.params=filename
 comment2.target=void\ addPicture(java.lang.String)
@@ -10,9 +10,7 @@ comment2.text=\r\n\ adds\ a\ picture\ to\ the\ magazine\r\n\ \r\n\ @param\ filen
 comment3.params=title
 comment3.target=void\ addArticle(java.lang.String)
 comment3.text=\r\n\ adds\ a\ article\ to\ the\ magazine\r\n\ \r\n\ @param\ title\ the\ title\ of\ the\ article\r\n
-comment4.params=author
-comment4.target=void\ addAuthor(java.lang.String)
-comment4.text=\r\n\ adds\ a\ author\ to\ the\ magazine\ \r\n\ \r\n\ @param\ author\ the\ author\ of\ the\ article\r\n
-comment5.params=
-comment5.target=java.lang.String\ printDetailsAsString()
-numComments=6
+comment4.params=
+comment4.target=java.lang.String\ printDetailsAsString()
+comment4.text=\r\n\ returns\ the\ details\ of\ the\ newspaper\r\n\r\n\ @return\ a\ string\ with\ detailed\ newspaper\ information\r\n
+numComments=5

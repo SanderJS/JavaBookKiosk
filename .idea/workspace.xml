@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70a658ed-99d6-48b4-b6a5-d205daff1a49" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Kiosk/src/BookSeries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Kiosk/src/ApplicationUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kiosk/src/ApplicationUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kiosk/src/ApplicationUITest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kiosk/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kiosk/src/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kiosk/src/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kiosk/src/Magazine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kiosk/src/TextStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kiosk/src/TextStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kiosk/ApplicationUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kiosk/ApplicationUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kiosk/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kiosk/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kiosk/Magazine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kiosk/Magazine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Kiosk/TextStorage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Kiosk/TextStorage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kiosk/src/BookSeries.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kiosk/src/BookSeries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kiosk/src/MenuBar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kiosk/src/Wiki.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,86 +17,73 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="ApplicationUI.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Kiosk/src/ApplicationUI.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1888">
-                  <caret line="202" column="25" lean-forward="true" selection-start-line="202" selection-start-column="25" selection-end-line="202" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="TextStorage.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Kiosk/src/TextStorage.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1048">
-                  <caret line="87" column="32" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="32" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Text.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Kiosk/src/Text.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" selection-start-line="16" selection-end-line="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BookSeries.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Kiosk/src/BookSeries.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Magazine.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Kiosk/src/Magazine.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="730">
-                  <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Book.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Kiosk/src/Book.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="309">
-                  <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#3772#3773#0" expanded="true" />
-                    <element signature="e#3804#3805#0" expanded="true" />
-                    <element signature="e#3289#3290#0" expanded="true" />
-                    <element signature="e#3319#3320#0" expanded="true" />
-                    <element signature="e#1835#1836#0" expanded="true" />
-                    <element signature="e#1863#1864#0" expanded="true" />
-                    <element signature="e#1896#1897#0" expanded="true" />
-                    <element signature="e#1924#1925#0" expanded="true" />
-                    <element signature="e#1957#1958#0" expanded="true" />
-                    <element signature="e#1984#1985#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Kiosk/src/GUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5460">
+              <caret line="368" column="5" selection-start-line="368" selection-start-column="5" selection-end-line="368" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Literature.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Kiosk/src/Literature.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Book.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Kiosk/src/Book.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="870">
+              <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SerialPublication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Kiosk/src/SerialPublication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="3" selection-start-column="3" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Kiosk/src/ApplicationUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="139" column="32" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookSeries.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Kiosk/src/BookSeries.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaFXApplication" />
         <option value="Class" />
       </list>
     </option>
@@ -110,6 +91,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>series</find>
+      <find>wiki</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,18 +105,22 @@
         <option value="$PROJECT_DIR$/Kiosk/src/Wiki.java" />
         <option value="$PROJECT_DIR$/Kiosk/src/Newspaper.java" />
         <option value="$PROJECT_DIR$/Kiosk/src/Magazine.java" />
-        <option value="$PROJECT_DIR$/Kiosk/src/Book.java" />
-        <option value="$PROJECT_DIR$/Kiosk/src/BookSeries.java" />
         <option value="$PROJECT_DIR$/Kiosk/src/TextStorage.java" />
+        <option value="$PROJECT_DIR$/Kiosk/src/GrapichalUI.java" />
+        <option value="$PROJECT_DIR$/Kiosk/src/GUI.java" />
+        <option value="$PROJECT_DIR$/Kiosk/src/MenuBar.java" />
+        <option value="$PROJECT_DIR$/Kiosk/src/Literature.java" />
+        <option value="$PROJECT_DIR$/Kiosk/src/Book.java" />
         <option value="$PROJECT_DIR$/Kiosk/src/ApplicationUI.java" />
+        <option value="$PROJECT_DIR$/Kiosk/src/BookSeries.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1970" />
-    <option name="y" value="-4" />
-    <option name="width" value="1871" />
-    <option name="height" value="1085" />
+    <option name="x" value="51" />
+    <option name="y" value="24" />
+    <option name="width" value="935" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -142,8 +128,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,11 +146,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -183,9 +172,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.GraphicalUI">
     <configuration name="ApplicationMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ApplicationMain" />
+      <module name="Kiosk" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="GraphicalUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GraphicalUI" />
       <module name="Kiosk" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -230,8 +224,13 @@
       <properties />
       <listeners />
     </configuration>
+    <list>
+      <item itemvalue="Application.ApplicationMain" />
+      <item itemvalue="Application.GraphicalUI" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GraphicalUI" />
         <item itemvalue="Application.ApplicationMain" />
       </list>
     </recent_temporary>
@@ -250,22 +249,22 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1970" y="-4" width="1871" height="1085" extended-state="6" />
+    <frame x="53" y="27" width="1867" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32991803" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32924336" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32991803" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32991803" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18673088" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22174612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -274,10 +273,11 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32946146" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32991803" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290735" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -291,15 +291,47 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Kiosk/src/TextStorage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1305">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Kiosk/src/Text.java">
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/Literature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/BookSeries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/Magazine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/TextStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/Literature.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
@@ -426,7 +458,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Kiosk/src/Text.java">
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/Literature.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
@@ -437,9 +469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1905">
           <caret line="127" column="23" lean-forward="true" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -521,13 +550,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Kiosk/src/ApplicationUITest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="35" selection-start-column="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/ApplicationUITest.java" />
     <entry file="file://$PROJECT_DIR$/Kiosk/src/ApplicationMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -535,66 +558,153 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/TextStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Kiosk/src/Magazine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
+        <state relative-caret-position="865">
           <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Kiosk/src/Text.java">
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/GrapichalUI.java" />
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="5460">
+          <caret line="368" column="5" selection-start-line="368" selection-start-column="5" selection-end-line="368" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Kiosk/src/BookSeries.java">
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/MenuBar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+        <state relative-caret-position="165">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/Literature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Kiosk/src/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-          <folding>
-            <element signature="e#3772#3773#0" expanded="true" />
-            <element signature="e#3804#3805#0" expanded="true" />
-            <element signature="e#3289#3290#0" expanded="true" />
-            <element signature="e#3319#3320#0" expanded="true" />
-            <element signature="e#1835#1836#0" expanded="true" />
-            <element signature="e#1863#1864#0" expanded="true" />
-            <element signature="e#1896#1897#0" expanded="true" />
-            <element signature="e#1924#1925#0" expanded="true" />
-            <element signature="e#1957#1958#0" expanded="true" />
-            <element signature="e#1984#1985#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="870">
+          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Kiosk/src/TextStorage.java">
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/SerialPublication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1048">
-          <caret line="87" column="32" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="32" />
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Kiosk/src/ApplicationUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1888">
-          <caret line="202" column="25" lean-forward="true" selection-start-line="202" selection-start-column="25" selection-end-line="202" selection-end-column="25" />
+        <state relative-caret-position="15">
+          <caret line="139" column="32" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Kiosk/src/BookSeries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>Java 8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Kiosk</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
