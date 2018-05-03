@@ -28,8 +28,7 @@ import javafx.geometry.Insets;
 
 public class GUI extends Application
 {
-    // TextAre to display text
-    // may not be needed
+    // TextArea to display text
     TextArea textArea;
 
     public static void main(String[] args) {
@@ -58,21 +57,18 @@ public class GUI extends Application
         Scene scene = new Scene(root, 400, 275);
 
         // adds the left region of the borderpane
-        // left pane
-        // a hbox filled with buttons
-        // coderz
-
-        // add the created ^^ left hbox
-        //root.setLeft(someVBox);
-
-        // adds the bottom status bar
-        //root.setBottom(someHBOx);
+        root.setLeft(createLeftBar());
+        
+        // adds the statusBar
+        root.setBottom(createStatusBar());
 
         // adds the center list of texts region
-        //root.setCenter();
+        root.setCenter(createCentreContent());
 
         // title of the window
         primaryStage.setTitle("Kiosk Manager");
+        // choose which scene to display
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
@@ -94,15 +90,23 @@ public class GUI extends Application
      */
     private ToolBar createToolBar()
     {
+        // create an toolBar
+        ToolBar toolBar = new ToolBar();
         // Buttons that the toolbar will hold
         Button openFileBtn = new Button();
         Button printBtn = new Button();
+        Button helpBtn = new Button();
+        Button saveBtn = new Button();
+        Button delBtn = new Button();
 
         // assign icons to buttons here
         // icons we have are add, deletem done, exit, help, home, print and save
         // not all icons need to be used
         openFileBtn.setGraphic(new ImageView("img/add.png"));
         printBtn.setGraphic(new ImageView("img/print.png"));
+        helpBtn.setGraphic(new ImageView("img/help.png"));
+        saveBtn.setGraphic(new ImageView("img/save.png"));
+        delBtn.setGraphic(new ImageView("img/delete.png"));
         
         // the images folder is located at at the same repo level as the .java files.
         
@@ -125,11 +129,43 @@ public class GUI extends Application
             {
                 handleFilePrint();
             }
-        });        
+        });
         
+        
+        helpBtn.setOnAction(new EventHandler<ActionEvent>()
+        {
 
-        //Add the Buttons to the ToolBar.
-        toolBar.getItems().addAll(openFileBtn, printBtn);
+            @Override
+            public void handle(ActionEvent event)
+            {
+                handleFileHelp();
+            }
+        });
+        
+        
+        saveBtn.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+            @Override
+            public void handle(ActionEvent event)
+            {
+                handleFileSave();
+            }
+        });
+        
+        
+        delBtn.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+            @Override
+            public void handle(ActionEvent event)
+            {
+                handleFileDel();
+            }
+        });
+
+        // Add the Buttons to the toolBar.
+        toolBar.getItems().addAll(openFileBtn, printBtn, helpBtn, saveBtn, delBtn);
         return toolBar;
     }
 
@@ -147,8 +183,13 @@ public class GUI extends Application
         MenuItem openFile = new MenuItem("Open");
         MenuItem printFile = new MenuItem("Print");
         MenuItem exitApp = new MenuItem("Exit");
+        // add the items to their submenus
+        menuFile.getItems().addAll(openFile, printFile);
+        menuFile.getItems().add(new SeparatorMenuItem());
+        menuFile.getItems().add(exitApp);
+        
 
-        // creates a meni for edit
+        // creates a menu for edit
         Menu menuEdit = new Menu("Edit");
         // inside edit nothing exits
 
@@ -159,6 +200,95 @@ public class GUI extends Application
         // creates a menu for help
         Menu menuHelp = new Menu("Help");
         // inside help nothing exists
+        
+        // put all thes sub menus into a menubar
+        menuBar.getMenus().addAll(menuFile, menuEdit, menuView);
+        // return the newly created menubar
+        return menuBar;
+    }
+    
+    /**
+     * issa new node for center content
+     */
+    private Node createCentreContent()
+    {
+        this.textArea = new TextArea();
+        return this.textArea;
+    }
+    
+    /**
+     * issa new node for the status bar
+     */
+    private Node createStatusBar()
+    {
+        // creates a HBox and call it statusBar
+        HBox statusBar = new HBox();
+        // Styles the bar to make it more visable
+        statusBar.setStyle("-fx-background-color: #999999;");
+        // add some text to the bar
+        statusBar.getChildren().add(new Text("Status: OK"));
+        // return the newly created statusBar
+        return statusBar;
+    }
+    
+    
+    /**
+     * issa new node for buttons on the left pane
+     */
+    private Node createLeftBar()
+    {
+        // Create e VBox that will contain the buttons
+        VBox leftBar = new VBox();
+        // Style the bar to make it c00l
+        leftBar.setStyle("-fx-background-color: #666666;");
+        // make the buttons
+        Button button1 = new Button();
+        Button button2 = new Button();
+        Button button3 = new Button();
+        // make lamda expressions to assign actions to buttons
+        button1.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+            @Override
+            public void handle(ActionEvent event)
+            {
+                handleButton();
+            }
+        });
+        
+        button2.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+            @Override
+            public void handle(ActionEvent event)
+            {
+                handleButton();
+            }
+        });
+        
+        button3.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+            @Override
+            public void handle(ActionEvent event)
+            {
+                handleButton();
+            }
+        });
+        
+        // place the buttons inside of the VBox
+        // note that leftBar is a node
+        // and therfore uses getChildren instead of getItems (?) maybe???
+        leftBar.getChildren().addAll(button1, button2, button3);
+        // return the newly created leftBar
+        return leftBar;
+    }
+    
+    // what does the buttons do?
+    // this
+    private void handleButton()
+    {
+        textArea.appendText("button was pressed...\n");
     }
     
     // A set of "delegate"-methods. These are methods that actually
@@ -179,5 +309,23 @@ public class GUI extends Application
     private void handleFilePrint()
     {
         textArea.appendText("File Print was selected by the user...\n");
+    }
+    
+    // Event handlers that does something
+    private void handleFileSave()
+    {
+        textArea.appendText("File Save was selected by the user.../n");
+    }
+    
+    // Event handlers that does something
+    private void handleFileHelp()
+    {
+        textArea.appendText("Help was selected by the user.../n");
+    }
+    
+    // Event handlers that does something
+    private void handleFileDel()
+    {
+        textArea.appendText("File Delete was selected by the user.../n");
     }
 }

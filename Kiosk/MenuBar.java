@@ -1,4 +1,4 @@
-import javafx.scene.control.Menu;
+/*import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 
 public class MenuBar {
@@ -26,7 +26,8 @@ public class MenuBar {
         // inside view nothing exists (atm)
 
         // creates a new toolbar option called "help"
-        Menu menuHelp = new Menu("Help")
+        Menu menuHelp = new Menu("Help");
         // inside help nothing exists
     }
 }
+*/
