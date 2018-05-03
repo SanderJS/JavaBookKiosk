@@ -31,12 +31,21 @@ import javafx.collections.FXCollections;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+
 
 
 public class GUI extends Application
 {
     // TextArea to display text
     TextArea textArea;
+    
+    //TO BE ADDED
+    // obsevable list to use litReg.
+    // dont let book series be a subclass of books
+    // remove GUI redundance
+    // 
 
     public static void main(String[] args) {
         launch(args);
