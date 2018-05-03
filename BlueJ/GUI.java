@@ -1,6 +1,10 @@
 //Application layer
 import javafx.application.Application;
 import javafx.application.Platform;
+// connecting GUI and Literature
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 //Visual layer
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -16,7 +20,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextArea;   // may be removed
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
@@ -32,7 +36,6 @@ import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.PasswordField;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
@@ -43,16 +46,41 @@ public class GUI extends Application
     // TextArea to display text
     TextArea textArea;
     
-    //TO BE ADDED
+    // WIP section
+    // asdasd
+    private LiteratureStorage litStorage;
+    // a list of lit
+    // needs to be a observable list in order to 
+    // work with the tableView and Literature class
+    private ObservableList<Literature> lit;
+    // this is how we chose to list the literature
+    private TableView<Literature> tableView;
+    
+    /**
+     * An ObservableList used to "wrap" the real register to enable the link
+     * between the TableView and the LiteratureRegister.
+     */
+    private ObservableList<Literature> literatures;
+    
+    // TO BE ADDED
     // obsevable list to use litReg.
-    // dont let book series be a subclass of books
-    // remove GUI redundance
-    // 
+    // GUI functions
 
+    // ????
     public static void main(String[] args) {
         launch(args);
     }
+    
+    // decides what happens when the program starts
+    // right now it start by adding some premade data
+    @Override
+    public void init()
+    {
+        litStorage = new LiteratureStorage();
+        this.fillRegisterWithDummyData();
+    }
 
+    // WutFace
     @Override
     public void start(Stage primaryStage) {
         // Creates a root node. 
@@ -103,7 +131,6 @@ public class GUI extends Application
 
     // Creates the menu bar
     // creates menuItems (open, print and exit)
-    // 
     private MenuBar createMenus()
     {
         // Creates a menubar
@@ -155,12 +182,62 @@ public class GUI extends Application
     }
     
     /**
-     * issa new node for center content
+     * The centre content shows a table of literature
+     * 
+     * @return the node to be placed in the cneter of the BorderPane
      */
     private Node createCentreContent()
     {
-        this.textArea = new TextArea();
-        return this.textArea;
+        // vbox to control the sizing
+        VBox vbox = new VBox();
+        
+        // creation of a column
+        // the title of each column
+        TableColumn<Literature, String> titleColumn = new TableColumn<>("Title");
+        // restrcts the limits of much a column can be compressed
+        titleColumn.setMinWidth(200);
+        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+
+        // The Publisher-column
+        TableColumn<Literature, String> publisherColumn = new TableColumn<>("Publisher");
+        publisherColumn.setMinWidth(200);
+        publisherColumn.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+
+        tableView = new TableView<>();
+        tableView.setItems(this.getLiteratureList());
+        tableView.getColumns().addAll(titleColumn , publisherColumn);
+
+        vbox.getChildren().add(tableView);
+
+        // Create the row of buttons for Add, Delete and Edit
+        HBox buttonRow = new HBox();
+        buttonRow.setAlignment(Pos.CENTER);
+        buttonRow.setPadding(new Insets(15, 15, 15, 15));
+        buttonRow.setSpacing(10);
+
+        // Add literature button
+        Button addButton = new Button("New literature");
+        addButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent event)
+            {
+                doAddNewspaper();
+            }
+        }
+        );
+
+        // Delete literature button
+        Button deleteButton = new Button("Delete");
+        deleteButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent event)
+            {
+                doDeleteLiterature();
+            }
+        }
+        );
     }
     
     /**
@@ -178,6 +255,28 @@ public class GUI extends Application
         return statusBar;
     }
     
+    /**
+     * Returns an ObservableList holding the literatures to display.
+     *
+     * @return an ObservableList holding the literatures to display.
+     */
+    private ObservableList<Literature> getLiteratureList()
+    {
+        // Create an ObservableArrayList wrapping the LiteratureRegister
+        literatures
+                = FXCollections.observableArrayList(this.litStorage.getLiteratureList());
+        return literatures;
+    }
+    
+    /**
+     * Updates the ObservableArray wrapper with the current content in the
+     * Literature register. Call this method whenever changes are made to the
+     * underlying LiteratureRegister.
+     */
+    private void updateObservableList()
+    {
+        this.literatures.setAll(this.litStorage.getLiteratureList());
+    }
     
     /**
      * issa new node for buttons on the left pane
@@ -193,16 +292,19 @@ public class GUI extends Application
         Button button2 = new Button();
         Button button3 = new Button();
         Button button4 = new Button();
+        Button button5 = new Button();
         // label the buttons
-        button1.setText("Add New Text");
+        button1.setText("Add New Literature");
         button2.setText("List All");
         button3.setText("Search");
         button4.setText("Convert To Series");
+        button5.setText("More Info");
         // set padding
         button1.setPadding((new Insets(12)));
         button2.setPadding((new Insets(12)));
         button3.setPadding((new Insets(12)));
         button4.setPadding((new Insets(12)));
+        button5.setPadding((new Insets(12)));
         // make lamda expressions to assign actions to buttons
         button1.setOnAction(new EventHandler<ActionEvent>()
         {
@@ -244,12 +346,33 @@ public class GUI extends Application
             }
         });
         
+        button5.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+            @Override
+            public void handle(ActionEvent event)
+            {
+                handleButton();
+            }
+        });
+        
         // place the buttons inside of the VBox
         // note that leftBar is a node
         // and therfore uses getChildren instead of getItems (?) maybe???
         leftBar.getChildren().addAll(button1, button2, button3);
         // return the newly created leftBar
         return leftBar;
+    }
+    
+    // dummy data
+    private void fillStorageWithDummyData()
+    {
+        this.litStorage.addText(new Book("forfatter", "tittel", "Gyldendal", "utgave", "sjanger",
+        "referanse nummer", "1898", 20, 59));
+        this.litStorage.addText(new Magazine(params));
+        this.litStorage.addText(new BookSeries(params));
+        this.litStorage.addText(new Newspaper(params));
+        this.litStorage.addText(new Book(params));
     }
     
     // what does the buttons do?
@@ -273,7 +396,7 @@ public class GUI extends Application
         Platform.exit();
     }
     
-    // read handleFileOpen javadoc
+    // pls change
     private void handleFilePrint()
     {
         textArea.appendText("File Print was selected by the user...\n");
