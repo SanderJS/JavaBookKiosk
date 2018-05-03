@@ -137,7 +137,7 @@ public class ApplicationUI {
      */
     private void addNewProduct() throws InputMismatchException {
 
-        int numberOfProducts = 5;
+        int numberOfProducts = 4;
         String doNotUse = "";
         String title = "";
         String author = "";
@@ -158,8 +158,7 @@ public class ApplicationUI {
         System.out.println("1: Book");
         System.out.println("2: Magazine");
         System.out.println("3: Newspaper");
-        System.out.println("4: wiki");
-        System.out.println("5: 3 pre generated books");
+        System.out.println("4: 3 pre generated books");
 
         boolean quit = false;
 
@@ -314,34 +313,6 @@ public class ApplicationUI {
                         break;
 
                     case 4:
-                        doNotUse = reader.nextLine();   //This grabs the previous input. Temp fix, please fix later. // Might have to be like this, don't touch.
-
-                        //Takes the terminal input and defines the title as string.
-                        System.out.println("Please type the title of the wiki: ");
-                        title = reader.nextLine();
-
-                        //Takes the terminal input and defines the main author as string.
-                        System.out.println("Please type the main author of the wiki: ");
-                        author = reader.nextLine();
-
-                        //Takes the terminal input and defines the publishing site as string.
-                        System.out.println("Please type the website of the wiki: ");
-                        publisher = reader.nextLine();
-
-                        //Takes the terminal input and defines the release date as string.
-                        System.out.println("Please type the release date of the wiki:");
-                        releaseDate = reader.nextLine();
-
-                        //Takes the terminal input and defines the wiki project name as string.
-                        System.out.println("Please type the project for this wiki: ");
-                        project = reader.nextLine();
-
-                        //Adds the newspaper to the storage.
-                        //literatureStorage.addText(new Wiki(project, author, title, publisher, releaseDate));
-                        quit = true;
-                        break;
-
-                    case 5:
                         //Adds the pre-generated books to the storage.
                         System.out.println("All the pre-generated books has been added");
                         literatureStorage.addPremadeBooks();
@@ -372,7 +343,6 @@ public class ApplicationUI {
         System.out.println("1: Book\n");
         System.out.println("2: Magazine\n");
         System.out.println("3: Newspaper\n");
-        System.out.println("4: Wiki\n");
         System.out.println("5: Author");
         System.out.println();
 

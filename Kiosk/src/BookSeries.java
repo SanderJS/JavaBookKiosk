@@ -1,13 +1,19 @@
 /**
  *
  */
-public class BookSeries extends Book {
+public class BookSeries extends AbnormalPublication {
     private String seriesName;
+    private String edition;
+    private String refNumber;
+    private String genre;
 
     public BookSeries(String author, String title, String publisher, String edition, String genre,
                       String refNumber, String releaseDate, int pages, int price, String seriesName) {
-        super(author, title, publisher, edition, genre, refNumber, releaseDate, pages, price);
+        super(author, title, publisher, releaseDate, pages, price);
         this.seriesName = seriesName;
+        this.edition = edition;
+        this.refNumber = refNumber;
+        this.genre = genre;
     }
 
     /**
@@ -17,14 +23,14 @@ public class BookSeries extends Book {
         String returnString = "";
         returnString += "################################################\n";
         returnString += "Title: " + super.getTitle() + ", Author: " + super.getAuthor() + "\n";
-        returnString += "Genre: " + super.getGenre() + ", Pages: " + super.getPages() + "\n";
+        returnString += "Genre: " + genre + ", Pages: " + super.getPages() + "\n";
         returnString += "Price: " + super.getPrice() + " USD" + "\n";
         returnString += "Release date: " + super.getReleaseDate() + "\n";
         returnString += "Publisher: " + super.getPublisher() + "\n";
-        if (super.getRefNumber().equals("")) {
+        if (refNumber.equals("")) {
             returnString += "Reference number not set" + "\n";
         } else {
-            returnString += "ISBN: " + super.getRefNumber() + "\n";
+            returnString += "ISBN: " + refNumber + "\n";
         }
         returnString += "Series: " + seriesName + "\n";
         return returnString;
