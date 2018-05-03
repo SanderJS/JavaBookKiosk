@@ -12,6 +12,7 @@ public abstract class Literature {
     private String title;
     private String publisher;
     private String releaseDate;
+    private String literatureType;
 
     public Literature() {
 

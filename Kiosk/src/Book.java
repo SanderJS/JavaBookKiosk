@@ -13,6 +13,7 @@ public class Book extends AbnormalPublication {
     private String edition;
     private String refNumber;
     private String genre;
+    private String book;
 
     /**
      * A new book filled with information
@@ -29,6 +30,7 @@ public class Book extends AbnormalPublication {
         this.edition = edition;
         this.genre = genre;
         this.refNumber = refNumber;
+        this.book = "Book";
         }
 
     /**

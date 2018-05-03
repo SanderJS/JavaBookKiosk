@@ -1,5 +1,7 @@
+//Application layer
 import javafx.application.Application;
 import javafx.application.Platform;
+//Visual layer
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -11,7 +13,6 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.MenuBar;
-import javafx.scene.control.ToolBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.PasswordField;
@@ -21,6 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.GridPane;
 import javafx.scene.image.ImageView;
+//Control layer
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -59,15 +61,12 @@ public class GUI extends Application
         VBox topContainer = new VBox();
         // Creats our main menuto hold our sub menus
         MenuBar mainMenu = createMenus();
-        // Creates a toolbar, located below the menubar
-        ToolBar toolBar = createToolBar();
+
 
         // Places the topContainer in top borderpane
         root.setTop(topContainer);
         // Place th menubar in the topContainer
         topContainer.getChildren().add(mainMenu);
-        // Place the Toolbar
-        topContainer.getChildren().add(toolBar);
 
         // Creates the scene, adds the root node and starting size
         Scene scene = new Scene(root, 600, 800);
@@ -100,92 +99,7 @@ public class GUI extends Application
         System.exit(0);
     }
 
-    /**
-     * this is creates a toolbar that lies under the menu
-     * a toolbar contains buttons can add, print and ???
-     */
-    private ToolBar createToolBar()
-    {
-        // create an toolBar
-        ToolBar toolBar = new ToolBar();
-        // Buttons that the toolbar will hold
-        Button openFileBtn = new Button();
-        Button printBtn = new Button();
-        Button saveBtn = new Button();
-        Button delBtn = new Button();
-        Button helpBtn = new Button();
 
-        // assign icons to buttons here
-        // icons we have are add, deletem done, exit, help, home, print and save
-        // not all icons need to be used
-        openFileBtn.setGraphic(new ImageView("img/add.png"));
-        printBtn.setGraphic(new ImageView("img/print.png"));
-        saveBtn.setGraphic(new ImageView("img/save.png"));
-        delBtn.setGraphic(new ImageView("img/delete.png"));
-        helpBtn.setGraphic(new ImageView("img/help.png"));
-        
-        // the images folder is located at at the same repo level as the .java files.
-        
-        // lambda expression to handle events for buttons and other actions
-        openFileBtn.setOnAction(new EventHandler<ActionEvent>()
-        {
-
-            @Override
-            public void handle(ActionEvent event)
-            {
-                handleFileOpen();
-            }
-        });
-
-        printBtn.setOnAction(new EventHandler<ActionEvent>()
-        {
-
-            @Override
-            public void handle(ActionEvent event)
-            {
-                handleFilePrint();
-            }
-        });
-        
-        
-        helpBtn.setOnAction(new EventHandler<ActionEvent>()
-        {
-
-            @Override
-            public void handle(ActionEvent event)
-            {
-                handleFileHelp();
-            }
-        });
-        
-        
-        saveBtn.setOnAction(new EventHandler<ActionEvent>()
-        {
-
-            @Override
-            public void handle(ActionEvent event)
-            {
-                handleFileSave();
-            }
-        });
-        
-        
-        delBtn.setOnAction(new EventHandler<ActionEvent>()
-        {
-
-            @Override
-            public void handle(ActionEvent event)
-            {
-                handleFileDel();
-            }
-        });
-
-        // Add the Buttons to the toolBar.
-        // this decides the order in which the buttons
-        // wil be placed
-        toolBar.getItems().addAll(openFileBtn, printBtn, saveBtn, delBtn, helpBtn);
-        return toolBar;
-    }
 
     // Creates the menu bar
     // creates menuItems (open, print and exit)
@@ -198,9 +112,24 @@ public class GUI extends Application
         // creates a menu for files
         Menu menuFile = new Menu("File");
         // inside of file, these options exist
+        // Open
         MenuItem openFile = new MenuItem("Open");
+        // Print
         MenuItem printFile = new MenuItem("Print");
+        printFile.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                
+            }
+        });
+        // Exit
         MenuItem exitApp = new MenuItem("Exit");
+        exitApp.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                handleExit();
+            }
+        });
         // add the items to their submenus
         menuFile.getItems().addAll(openFile, printFile);
         menuFile.getItems().add(new SeparatorMenuItem());
@@ -331,8 +260,8 @@ public class GUI extends Application
     }
     
     // A set of "delegate"-methods. These are methods that actually
-    // deals with the stuff related to the function askd for by the
-    // user as a button or a menue or a toolbar is clicked.
+    // deals with the stuff related to the function asked for by the
+    // user as a button or a menu  is clicked.
     private void handleFileOpen()
     {
         textArea.appendText("File Open was selected by the user...\n");

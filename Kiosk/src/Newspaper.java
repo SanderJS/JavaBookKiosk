@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Newspaper extends SerialPublication {
+    private String newspaper;
     private ArrayList<String> pictures;
     private ArrayList<String> articles;
     private ArrayList<String> authors;
@@ -28,6 +29,7 @@ public class Newspaper extends SerialPublication {
         this.pictures = new ArrayList<>();
         this.articles = new ArrayList<>();
         this.authors = new ArrayList<>();
+        this.newspaper = "Newspaper";
     }
 
     /**
