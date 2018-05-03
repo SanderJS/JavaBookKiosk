@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=SerialPublication
+comment0.text=\r\n\r\n
+comment1.params=title\ publisher\ releaseDate\ pages\ price
+comment1.target=SerialPublication(java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int)
+comment1.text=\r\n\r\n\ @param\ title\ the\ publications\ title\r\n\ @param\ publisher\ the\ publications\ publisher\r\n\ @param\ releaseDate\ the\ release\ date\r\n\ @param\ pages\ the\ number\ of\ pages\ in\ the\ literature\r\n\ @param\ price\ the\ price\ of\ the\ literature\r\n
+comment2.params=
+comment2.target=int\ getPages()
+comment2.text=\r\n\ returns\ the\r\n\r\n\ @return\r\n
+comment3.params=
+comment3.target=int\ getPrice()
+comment3.text=\r\n\r\n\ @return\r\n
+numComments=4

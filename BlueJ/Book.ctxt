@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Book
+comment0.text=\r\n\ A\ class\ that\ maintains\ information\ on\ a\ book.\r\n\ It\ contains\ the\ name\ of\ the\ author,\ the\ title\ of\ the\ book,\r\n\ the\ total\ pages\ in\ the\ book,the\ price,\r\n\ the\ genre\ and\ the\ release\ date.\r\n\ It\ also\ contains\ the\ ISBN\ reference\ number\ of\ the\ book.\r\n\r\n\ @author\ Jan\ Anton,\ Sander\ Joachim\r\n\ @version\ 0.1\r\n
+comment1.params=author\ title\ publisher\ edition\ genre\ refNumber\ releaseDate\ pages\ price
+comment1.target=Book(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int)
+comment1.text=\r\n\ A\ new\ book\ filled\ with\ information\r\n\ @param\ author\ is\ the\ author.\r\n\ @param\ title\ is\ the\ title.\r\n\ @param\ publisher\ is\ the\ publisher.\r\n\ @param\ edition\ is\ the\ publishing\ edition.\r\n\ @param\ genre\ is\ the\ genre.\r\n\ @param\ releaseDate\ is\ the\ initial\ release\ date.\r\n
+comment2.params=
+comment2.target=java.lang.String\ getRefNumber()
+comment2.text=\r\n\ Returns\ the\ reference\ number\ for\ the\ book.\r\n\r\n\ @return\ the\ reference\ number\ of\ the\ book.\r\n
+comment3.params=
+comment3.target=java.lang.String\ getEdition()
+comment3.text=\r\n\ Returns\ the\ edition\ of\ the\ book.\r\n\r\n\ @return\ the\ edition.\r\n
+comment4.params=
+comment4.target=java.lang.String\ getGenre()
+comment4.text=\r\n\ returns\ the\ genre\r\n\r\n\ @return\ the\ genre\r\n
+comment5.params=
+comment5.target=java.lang.String\ printDetailsAsString()
+comment5.text=\r\n\ Prints\ all\ the\ details\ of\ the\ book.\r\n
+numComments=6
