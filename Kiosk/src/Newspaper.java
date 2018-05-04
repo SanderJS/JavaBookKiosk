@@ -44,7 +44,7 @@ public class Newspaper extends SerialPublication {
      */
     public String getTitle()
     {
-        // shit
+        return super.getTitle();
     }
     
     /**
@@ -54,7 +54,7 @@ public class Newspaper extends SerialPublication {
      */
     public String getPublisher()
     {
-        // asdasd
+        return super.getPublisher();
     }
     
     /**
@@ -64,7 +64,7 @@ public class Newspaper extends SerialPublication {
      */
     public String getReleaseDate()
     {
-        //ajj
+        return super.getReleaseDate();
     }
     
     /**
@@ -74,7 +74,7 @@ public class Newspaper extends SerialPublication {
      */
     public int getPrice()
     {
-        //sdfsdf
+        return super.getPrice();
     }
     
     /**
@@ -84,7 +84,7 @@ public class Newspaper extends SerialPublication {
      */
     public int getPages()
     {
-        //asdasd
+        return super.getPages();
     }
 
     /**

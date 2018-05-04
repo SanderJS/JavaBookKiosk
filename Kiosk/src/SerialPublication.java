@@ -20,7 +20,7 @@ public class SerialPublication extends Literature {
     }
 
     /**
-     * returns the
+     * returns the pages of the publication
      *
      * @return
      */
@@ -29,10 +29,29 @@ public class SerialPublication extends Literature {
     }
 
     /**
+     * returns the price of the publication
      *
      * @return
      */
     protected int getPrice() {
         return price;
+    }
+
+    /**
+     * Sets the number of pages in the publication.
+     *
+     * @param pages the number of pages
+     */
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    /**
+     * Sets the price of the publication.
+     *
+     * @param price the price of the publication
+     */
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

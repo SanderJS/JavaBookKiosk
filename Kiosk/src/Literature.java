@@ -58,6 +58,15 @@ public abstract class Literature {
     }
 
     /**
+     * Sets the name of the author.
+     *
+     * @param author
+     */
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    /**
     * Returns the title of the Literature
     *
     * @return the title of the Literature

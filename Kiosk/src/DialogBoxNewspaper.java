@@ -20,7 +20,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
     // instance variables - replace the example below with your own
     public enum Mode
     {
-        NEW, EDIT, INFOR
+        NEW, EDIT, INFO
     }
     
     private Mode mode;
@@ -28,7 +28,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
     /**
      * Holds a instance of Newspaper, might be editable
      */
-    private Newspaper exisitingNewspaper = null;
+    private Newspaper existingNewspaper = null;
     
     /**
      * creates an instance of dialogBox to get information from the
@@ -38,7 +38,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
     {
         super();
         this.mode = Mode.NEW;
-        creatDialogBox();
+        createDialogBox();
     }
 
     /**
@@ -49,7 +49,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
      * editing of the fields in the dialog. if <code>false</code> the
      * information will be displayed in non-editable fields.
      */
-    public NewspaperDetailsDialog(Newspaper newsPaper, boolean editable)
+    public DialogBoxNewspaper(Newspaper newsPaper, boolean editable)
     {
         super();
         if (editable)
@@ -92,10 +92,10 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
         releaseDate.setPromptText("release date");
         
         TextField pages = new TextField();
-        pages.setPromtText("pages");
+        pages.setPromptText("pages");
         
         TextField price = new TextField();
-        price.setPromtText("price");
+        price.setPromptText("price");
         
         // Prevent characters (non-integers) to be added
         // bruker price og ikke numbofIssues
@@ -114,7 +114,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
                     }
                 } catch (NumberFormatException e)
                 {
-                    issueNoTxt.setText(oldValue);
+                    price.setText(oldValue);
                 }
             }
         });
@@ -133,7 +133,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
                     }
                 } catch (NumberFormatException e)
                 {
-                    issueNoTxt.setText(oldValue);
+                    pages.setText(oldValue);
                 }
             }
         });
@@ -173,7 +173,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
             releaseDate.setText(existingNewspaper.getReleaseDate());
             // samme med numofyearlyissues
             price.setText(Integer.toString(existingNewspaper.getPrice()));
-            // vår pages param
+            // vï¿½r pages param
             pages.setText(Integer.toString(existingNewspaper.getPages()));
             // Set to non-editable if Mode.INFO
             if (mode == Mode.INFO)
@@ -195,8 +195,8 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
         grid.add(new Label("Release date"), 0, 2);
         grid.add(releaseDate, 1, 2);
         grid.add(new Label("Pages"), 0, 3);
-        grid.add(page, 1, 3);
-        grid.add(newLabel("Price"), 0, 4);
+        grid.add(pages, 1, 3);
+        grid.add(new Label("Price"), 0, 4);
         grid.add(price, 1, 4);
 
         getDialogPane().setContent(grid);
@@ -210,19 +210,19 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
             {
                 if (button == ButtonType.OK)
                 {
-                    int issueNo = Integer.parseInt(issueNoTxt.getText());
-                    int totalIssues = Integer.parseInt(totalNoOfIssues.getText());
+                    int pagesNo = Integer.parseInt(pages.getText());
+                    int priceInt = Integer.parseInt(price.getText());
                     Newspaper result = null;
                     if (mode == Mode.NEW)
                     {
-                        result = new Newspaper(title.getText(), publisher.getText(), releaseDate.getText(), price.getInt(), pages.getInt());
+                        result = new Newspaper(title.getText(), publisher.getText(), releaseDate.getText(), pagesNo, priceInt);
                     } else if (mode == Mode.EDIT)
                     {
                         existingNewspaper.setTitle(title.getText());
                         existingNewspaper.setPublisher(publisher.getText());
-                        existingNewspaper.setReleaseDate.getText();
-                        existingNewspaper.setInt();
-                        existingNewspaper.setInt();
+                        existingNewspaper.setReleaseDate(releaseDate.getText());
+                        existingNewspaper.setPages(pagesNo);
+                        existingNewspaper.setPrice(priceInt);
                         result = existingNewspaper;
                     }
                     return result;

@@ -2,30 +2,16 @@
 import javafx.application.Application;
 import javafx.application.Platform;
 // connecting GUI and Literature
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 //Visual layer
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.text.Text;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Font;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;   // may be removed
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.GridPane;
-import javafx.scene.image.ImageView;
 //Control layer
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
@@ -34,11 +20,8 @@ import javafx.geometry.Insets;
 // TODO(s)?
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
+import java.util.Optional;
 
 
 public class GUI extends Application
@@ -63,7 +46,7 @@ public class GUI extends Application
     private ObservableList<Literature> literatures;
     
     // TO BE ADDED
-    // obsevable list to use litReg.
+    // obsevable list to use litStorage.
     // GUI functions
 
     // ????
@@ -244,6 +227,7 @@ public class GUI extends Application
             }
         }
         );
+        return vbox;
     }
     
     /**
@@ -373,14 +357,14 @@ public class GUI extends Application
     // dummy data
     private void fillRegisterWithDummyData()
     {
-        this.litStorage.addText(new Book("Henrik Ibsen", "Et dukkehejm", "Gyldendal", "4. utgave", "drama",
-        "48245909 nummer", "1879", 90, 8));
-        this.litStorage.addText(new Magazine("some magazine", "made by a company", "released at one poin",
+        this.litStorage.addLiterature(new Book("Henrik Ibsen", "Et dukkehejm", "Gyldendal", "4. utgave", "drama",
+        "48245909", "1879", 90, 8));
+        this.litStorage.addLiterature(new Magazine("some magazine", "made by a company", "released at one poin",
         25, 60));
-        this.litStorage.addText(new BookSeries("ya boii", "a song of boiis and boyos", "Marvel", "42.th edition",
+        this.litStorage.addLiterature(new BookSeries("ya boii", "a song of boiis and boyos", "Marvel", "42.th edition",
         "real shit", "6942069", "4. may 1980", 562, 23, "cool series"));
-        this.litStorage.addText(new Newspaper("Ze Times", "German publishingz", "12. Jan 1995", 44, 60));
-        this.litStorage.addText(new Book("Oscar Wilde", "The Picture of Dorian Gray", "Pearson", "7.th edition",
+        this.litStorage.addLiterature(new Newspaper("Ze Times", "German publishingz", "12. Jan 1995", 44, 60));
+        this.litStorage.addLiterature(new Book("Oscar Wilde", "The Picture of Dorian Gray", "Pearson", "7.th edition",
         "novel", "1957991", "1890", 125, 10));
     }
     
@@ -389,16 +373,16 @@ public class GUI extends Application
      */
     private void doAddNewspaper()
     {
-        NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog();
+        DialogBoxNewspaper npDialog = new DialogBoxNewspaper();
 
         Optional<Newspaper> result = npDialog.showAndWait();
 
         if (result.isPresent())
         {
             Newspaper newspaper = result.get();
-            litStorage.addLiterature(newspaper);
+            LiteratureStorage.addLiterature(new newspaper);
             updateObservableList();
-            System.out.println("Number of items in litStorage: " + litStorage.getSize());
+            System.out.println("Number of items in litStorage: " + LiteratureStorage.getSize());
         }
     }
     
@@ -420,7 +404,7 @@ public class GUI extends Application
                 if (showDeleteConfirmationDialog())
                 {
                     Literature lit = (Literature) selectedObject;
-                    this.litReg.remove(lit);
+                    this.litStorage.removeByObject(lit);
                     this.updateObservableList();
                 }
             }
@@ -442,7 +426,7 @@ public class GUI extends Application
             {
                 Newspaper selectedNewspaper = (Newspaper) selectedObject;
 
-                NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog(selectedNewspaper, true);
+                DialogBoxNewspaper npDialog = new DialogBoxNewspaper(selectedNewspaper, true);
 
                 Optional<Newspaper> result = npDialog.showAndWait();
 
@@ -466,13 +450,39 @@ public class GUI extends Application
             {
                 Newspaper selectedNewspaper = (Newspaper) selectedObject;
 
-                NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog(selectedNewspaper, false);
+                DialogBoxNewspaper npDialog = new DialogBoxNewspaper(selectedNewspaper, false);
 
                 Optional<Newspaper> result = npDialog.showAndWait();
             }
         }
     }
-    
+
+    private void showPleaseSelectItemDialog() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Information");
+        alert.setHeaderText("No items selected");
+        alert.setContentText("Please select an item\n to continue");
+
+        alert.showAndWait();
+    }
+
+    private boolean showDeleteConfirmationDialog() {
+        boolean deleteConfirmed = false;
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm");
+
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            deleteConfirmed = true;
+        } else {
+            deleteConfirmed = false;
+        }
+        return deleteConfirmed;
+    }
     
     // what does the buttons do?
     // this
