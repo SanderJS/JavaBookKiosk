@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=DialogBoxNewspaper
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ DialogBoxes\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=DialogBoxNewspaper()
+comment1.text=\r\n\ creates\ an\ instance\ of\ dialogBox\ to\ get\ information\ from\ the\r\n\ user.\ The\ information\ fills\ the\ parameters\ for\ a\ newspaper\r\n
+comment2.params=newsPaper\ editable
+comment2.target=DialogBoxNewspaper(Newspaper,\ boolean)
+comment2.text=\r\n\ Creates\ an\ instance\ of\ the\ DialogBoxNewspaper\ dialog.\r\n\r\n\ @param\ newsPaper\ the\ newspaper\ instance\ to\ edit\r\n\ @param\ editable\ if\ set\ to\ <code>true</code>,\ the\ dialog\ will\ enable\r\n\ editing\ of\ the\ fields\ in\ the\ dialog.\ if\ <code>false</code>\ the\r\n\ information\ will\ be\ displayed\ in\ non-editable\ fields.\r\n
+comment3.params=
+comment3.target=void\ createDialogBox()
+comment3.text=\r\n\ Create\ the\ dialog\ box.\r\n
+comment4.params=observable\ oldValue\ newValue
+comment4.target=void\ changed(javafx.beans.value.ObservableValue,\ java.lang.String,\ java.lang.String)
+comment5.params=observable\ oldValue\ newValue
+comment5.target=void\ changed(javafx.beans.value.ObservableValue,\ java.lang.String,\ java.lang.String)
+comment6.params=button
+comment6.target=Newspaper\ call(javafx.scene.control.ButtonType)
+numComments=7

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=LiteratureTest
+comment1.params=
+comment1.target=void\ setUp()
+comment2.params=
+comment2.target=void\ testGetTitle()
+comment3.params=date
+comment3.target=void\ testSetReleaseDate(java.lang.String)
+numComments=4
