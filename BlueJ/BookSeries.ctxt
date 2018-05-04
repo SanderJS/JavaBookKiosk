@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=BookSeries
+comment0.text=\r\n\r\n
+comment1.params=author\ title\ publisher\ edition\ genre\ refNumber\ releaseDate\ pages\ price\ seriesName
+comment1.target=BookSeries(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ printDetailsAsString()
+comment2.text=\r\n\ Prints\ all\ the\ details\ of\ the\ book.\r\n
+comment3.params=
+comment3.target=java.lang.String\ getSeriesName()
+comment4.params=
+comment4.target=java.lang.String\ getEdition()
+comment5.params=
+comment5.target=java.lang.String\ getRefNumber()
+comment6.params=
+comment6.target=java.lang.String\ getGenre()
+numComments=7

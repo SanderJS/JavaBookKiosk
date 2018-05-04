@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=DialogBoxBook
+comment0.text=\r\n\ Dialog\ boxes\ for\ making\ books\ via\ GUI\r\n\r\n\ @athor\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date\r\n
+comment1.params=
+comment1.target=DialogBoxBook()
+comment1.text=\r\n\ Creates\ an\ instance\ of\ dialogBox\ to\ get\ information\ from\r\n\ the\ user.\ The\ infomration\ fill\ the\ parameters\ for\ a\ newspaper\r\n
+comment2.params=book\ editable
+comment2.target=DialogBoxBook(Book,\ boolean)
+comment2.text=\r\n\ Cretes\ an\ instance\ of\ the\ DoalogBoxBook\ dialog\r\n\r\n\ @param\ book\ the\ instance\ of\ Book\ to\ edit\r\n\ @param\ editable\ if\ set\ to\ <code>true</code>,\ the\ dialog\r\n\ will\ enable\ editing\ of\ the\ fields\ in\ the\ dialog,\ if\ <code>false</code>\r\n\ the\ information\ wil\ be\ displated\ in\ non-editable\ fields.\r\n
+comment3.params=
+comment3.target=void\ createDialogBox()
+comment3.text=\r\n\ Create\ the\ dialog\ box\r\n
+comment4.params=observable\ oldValue\ newValue
+comment4.target=void\ changed(javafx.beans.value.ObservableValue,\ java.lang.String,\ java.lang.String)
+comment5.params=observable\ oldValue\ newValue
+comment5.target=void\ changed(javafx.beans.value.ObservableValue,\ java.lang.String,\ java.lang.String)
+comment6.params=button
+comment6.target=Book\ call(javafx.scene.control.ButtonType)
+numComments=7
