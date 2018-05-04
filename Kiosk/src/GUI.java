@@ -253,9 +253,8 @@ public class GUI extends Application
     private ObservableList<Literature> getLiteratureList()
     {
         // Create an ObservableArrayList wrapping the LiteratureRegister
-        literatures
-                = FXCollections.observableArrayList(this.litStorage.getLiteratureList());
-        return literatures;
+        lit = FXCollections.observableArrayList(this.litStorage.getLiteratureList());
+        return lit;
     }
     
     /**
@@ -265,7 +264,7 @@ public class GUI extends Application
      */
     private void updateObservableList()
     {
-        this.literatures.setAll(this.litStorage.getLiteratureList());
+        this.lit.setAll(this.litStorage.getLiteratureList());
     }
     
     /**
@@ -302,47 +301,39 @@ public class GUI extends Application
             @Override
             public void handle(ActionEvent event)
             {
-                handleButton();
+                handleAddLiterature();
             }
         });
         
-        button2.setOnAction(new EventHandler<ActionEvent>()
-        {
+        button2.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent event)
-            {
-                handleButton();
+            public void handle(ActionEvent event) {
+                handleAddLiterature();
             }
         });
         
-        button3.setOnAction(new EventHandler<ActionEvent>()
-        {
+        button3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent event)
-            {
-                handleButton();
+            public void handle(ActionEvent event) {
+                handleAddLiterature();
             }
         });
         
-        button4.setOnAction(new EventHandler<ActionEvent>()
-        {
+        button4.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent event)
-            {
-                handleButton();
+            public void handle(ActionEvent event) {
+                handleAddLiterature();
             }
         });
         
-        button5.setOnAction(new EventHandler<ActionEvent>()
-        {
+        button5.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent event)
-            {
-                handleButton();
+            public void handle(ActionEvent event) {
+                handleAddLiterature();
             }
         });
         
@@ -353,10 +344,11 @@ public class GUI extends Application
         // return the newly created leftBar
         return leftBar;
     }
-    
-    // dummy data
-    private void fillRegisterWithDummyData()
-    {
+
+    /**
+     *
+     */
+    private void fillRegisterWithDummyData() {
         this.litStorage.addLiterature(new Book("Henrik Ibsen", "Et dukkehejm", "Gyldendal", "4. utgave", "drama",
         "48245909", "1879", 90, 8));
         this.litStorage.addLiterature(new Magazine("some magazine", "made by a company", "released at one poin",
@@ -371,18 +363,16 @@ public class GUI extends Application
     /**
      * Display the input dialog to get create a new Newspaper.
      */
-    private void doAddNewspaper()
-    {
+    private void doAddNewspaper() {
         DialogBoxNewspaper npDialog = new DialogBoxNewspaper();
-
         Optional<Newspaper> result = npDialog.showAndWait();
 
-        if (result.isPresent())
-        {
+        if (result.isPresent()) {
+
             Newspaper newspaper = result.get();
-            LiteratureStorage.addLiterature(new newspaper);
+            litStorage.addLiterature(newspaper);
             updateObservableList();
-            System.out.println("Number of items in litStorage: " + LiteratureStorage.getSize());
+            System.out.println("Number of items in literatureStorage: " + litStorage.getSize());
         }
     }
     
@@ -391,8 +381,7 @@ public class GUI extends Application
      * selected, nothing is deleted, and the user is informed that he/she must
      * select which literature to delete.
      */
-    private void doDeleteLiterature()
-    {
+    private void doDeleteLiterature() {
         if (this.tableView.getSelectionModel().isEmpty())
         {
             showPleaseSelectItemDialog();
@@ -483,25 +472,24 @@ public class GUI extends Application
         }
         return deleteConfirmed;
     }
-    
-    // what does the buttons do?
-    // this
-    private void handleButton()
-    {
-        textArea.appendText("button was pressed...\n");
+
+    /** what does the buttons do?
+     *  Thats defined here
+     */
+
+    private void handleAddLiterature() {
+        doAddNewspaper();
     }
     
     // A set of "delegate"-methods. These are methods that actually
     // deals with the stuff related to the function asked for by the
     // user as a button or a menu  is clicked.
-    private void handleFileOpen()
-    {
+    private void handleFileOpen() {
         textArea.appendText("File Open was selected by the user...\n");
     }
     
     // Exits the application
-    private void handleExit()
-    {
+    private void handleExit() {
         Platform.exit();
     }
     
