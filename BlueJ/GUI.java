@@ -385,11 +385,71 @@ public class GUI extends Application
     }
     
     /**
+     * Displays a confirmation dialog with custom actions.
+     */
+    private void doShowCustomConfirmationDialog()
+    {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog with Custom Actions");
+        alert.setHeaderText("Look, a Confirmation Dialog with Custom Actions");
+        alert.setContentText("Choose your option.");
+
+        ButtonType buttonTypeOne = new ButtonType("One");
+        ButtonType buttonTypeTwo = new ButtonType("Two");
+        ButtonType buttonTypeThree = new ButtonType("Three");
+        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeOne)
+        {
+            // ... user chose "One"
+            System.out.println("User chose ONE..");
+        } else if (result.get() == buttonTypeTwo)
+        {
+            // ... user chose "Two"
+            System.out.println("User chose TWO..");
+        } else if (result.get() == buttonTypeThree)
+        {
+            // ... user chose "Three"
+            System.out.println("User chose THREE..");
+        } else
+        {
+            // ... user chose CANCEL or closed the dialog
+            System.out.println("User chose CANCEL or closed the dialog..");
+        }
+    }
+    
+    /**
+     * Exit the application. Displays a confirmation dialog.
+     */
+    private void doExitApplication()
+    {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Exit Application ?");
+        alert.setContentText("Are you sure you want to exit this application?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK)
+        {
+            // ... user chose OK
+            Platform.exit();
+        } else
+        {
+            // ... user chose CANCEL or closed the dialog
+            // then do nothing.
+        }
+    }
+    
+    /**
      * Display the input dialog to get create a new Newspaper.
      */
-    private void doAddNewspaper()
+    private void AddNewspaper()
     {
-        NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog();
+        DialogBoxNewspaper npDialog = new DialogBoxNewspaper();
 
         Optional<Newspaper> result = npDialog.showAndWait();
 
