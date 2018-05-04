@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+
 /**
  *
  */
@@ -16,11 +18,22 @@ public class AbnormalPublication extends Literature {
      * @param price
      */
    public AbnormalPublication(String author, String title, String publisher, String releaseDate, int pages, int price) {
-       super(title, publisher, releaseDate);
+       super(title, publisher, releaseDate, price, pages);
        this.author = author;
-       this.pages = pages;
-       this.price = price;
    }
+
+   /**
+    * Sets the name of the author.
+    *
+    * @param author
+    */
+    public void setAuthor(String author) throws InputMismatchException {
+        if (author.length() == 0) {
+            throw new InputMismatchException();
+        } else {
+            this.author = author;
+        }
+    }
 
     /**
      *
@@ -29,20 +42,4 @@ public class AbnormalPublication extends Literature {
    public String getAuthor() {
        return author;
    }
-
-    /**
-     *
-     * @return
-     */
-    public int getPages() {
-        return pages;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int getPrice() {
-        return price;
-    }
 }

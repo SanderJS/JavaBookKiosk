@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class LiteratureStorage {
     /**
-     * Arne sitt eksempel har final p� listOfLiterature
+     * Arne sitt eksempel har final på listOfLiterature
      * og ingen Literature literature
      * 
      * Hva brukes Literature literature til?
@@ -48,8 +48,7 @@ public class LiteratureStorage {
      *
      * @return the list of literature.
      */
-    List<Literature> getLiteratureList()
-    {
+    public List<Literature> getLiteratureList() {
         return this.listOfLiterature;
     }
 
@@ -61,7 +60,8 @@ public class LiteratureStorage {
     public String getTextByAuthor(String author) {
         String returnString = "";
         for (Literature b : this.listOfLiterature) {
-            if (b.getAuthor().equals(author)) {
+            if (b instanceof AbnormalPublication) {
+                ((AbnormalPublication) b).getAuthor();
                 returnString += b.printDetailsAsString();
             }
         }

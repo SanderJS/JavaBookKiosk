@@ -32,24 +32,18 @@ public class GUI extends Application
     // WIP section
     // asdasd
     private LiteratureStorage litStorage;
-    // a list of lit
+    // a list of literatures.
     // needs to be a observable list in order to 
     // work with the tableView and Literature class
-    private ObservableList<Literature> lit;
+    private ObservableList<Literature> obsList;
     // this is how we chose to list the literature
     private TableView<Literature> tableView;
-    
-    /**
-     * An ObservableList used to "wrap" the real register to enable the link
-     * between the TableView and the LiteratureRegister.
-     */
-    private ObservableList<Literature> literatures;
-    
-    // TO BE ADDED
-    // obsevable list to use litStorage.
-    // GUI functions
 
-    // ????
+    /**
+     *
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
@@ -57,9 +51,9 @@ public class GUI extends Application
     // decides what happens when the program starts
     // right now it start by adding some premade data
     @Override
-    public void init()
-    {
+    public void init() {
         litStorage = new LiteratureStorage();
+        tableView = new TableView<>();
         this.fillRegisterWithDummyData();
     }
 
@@ -169,8 +163,7 @@ public class GUI extends Application
      * 
      * @return the node to be placed in the cneter of the BorderPane
      */
-    private Node createCentreContent()
-    {
+    private Node createCentreContent() {
         // vbox to control the sizing
         VBox vbox = new VBox();
         
@@ -179,7 +172,7 @@ public class GUI extends Application
         TableColumn<Literature, String> titleColumn = new TableColumn<>("Title");
         // restrcts the limits of much a column can be compressed
         titleColumn.setMinWidth(200);
-        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        titleColumn.setCellValueFactory(new PropertyValueFactory<>("Title"));
 
         // The Publisher-column
         TableColumn<Literature, String> publisherColumn = new TableColumn<>("Publisher");
@@ -189,11 +182,11 @@ public class GUI extends Application
         // The release date-column
         TableColumn<Literature, String> releaseDateColumn = new TableColumn<>("Release date");
         releaseDateColumn.setMinWidth(200);
-        releaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("release date"));
+        releaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
 
-        tableView = new TableView<>();
+
+        tableView.getColumns().addAll(titleColumn , publisherColumn, releaseDateColumn);
         tableView.setItems(this.getLiteratureList());
-        tableView.getColumns().addAll(titleColumn , publisherColumn);
 
         vbox.getChildren().add(tableView);
 
@@ -250,11 +243,10 @@ public class GUI extends Application
      *
      * @return an ObservableList holding the literatures to display.
      */
-    private ObservableList<Literature> getLiteratureList()
-    {
+    private ObservableList<Literature> getLiteratureList() {
         // Create an ObservableArrayList wrapping the LiteratureRegister
-        lit = FXCollections.observableArrayList(this.litStorage.getLiteratureList());
-        return lit;
+        this.obsList = FXCollections.observableArrayList(this.litStorage.getLiteratureList());
+        return obsList;
     }
     
     /**
@@ -262,9 +254,8 @@ public class GUI extends Application
      * Literature register. Call this method whenever changes are made to the
      * underlying LiteratureRegister.
      */
-    private void updateObservableList()
-    {
-        this.lit.setAll(this.litStorage.getLiteratureList());
+    private void updateObservableList() {
+        this.obsList.setAll(this.litStorage.getLiteratureList());
     }
     
     /**
@@ -438,9 +429,7 @@ public class GUI extends Application
             if (selectedObject instanceof Literature)
             {
                 Newspaper selectedNewspaper = (Newspaper) selectedObject;
-
                 DialogBoxNewspaper npDialog = new DialogBoxNewspaper(selectedNewspaper, false);
-
                 Optional<Newspaper> result = npDialog.showAndWait();
             }
         }
@@ -471,6 +460,15 @@ public class GUI extends Application
             deleteConfirmed = false;
         }
         return deleteConfirmed;
+    }
+
+    public void showCantEnterEmpty() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Error");
+        alert.setHeaderText("Some fields are empty.");
+        alert.setContentText("Please fill all fields.");
+
+        alert.showAndWait();
     }
 
     /** what does the buttons do?

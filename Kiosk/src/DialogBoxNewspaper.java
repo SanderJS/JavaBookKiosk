@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
+import java.util.InputMismatchException;
+
 /**
  * Write a description of class DialogBoxes here.
  *
@@ -205,19 +207,16 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
         setResultConverter( new Callback<ButtonType, Newspaper>()
         {
             @Override
-            public Newspaper call(ButtonType button
-            )
-            {
-                if (button == ButtonType.OK)
-                {
+            public Newspaper call(ButtonType button) {
+                if (button == ButtonType.OK) {
                     int pagesNo = Integer.parseInt(pages.getText());
                     int priceInt = Integer.parseInt(price.getText());
+
                     Newspaper result = null;
-                    if (mode == Mode.NEW)
-                    {
+
+                    if (mode == Mode.NEW) {
                         result = new Newspaper(title.getText(), publisher.getText(), releaseDate.getText(), pagesNo, priceInt);
-                    } else if (mode == Mode.EDIT)
-                    {
+                    } else if (mode == Mode.EDIT) {
                         existingNewspaper.setTitle(title.getText());
                         existingNewspaper.setPublisher(publisher.getText());
                         existingNewspaper.setReleaseDate(releaseDate.getText());
