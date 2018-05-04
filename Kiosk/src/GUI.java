@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 //Visual layer
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -300,7 +301,7 @@ public class GUI extends Application
 
             @Override
             public void handle(ActionEvent event) {
-                handleAddLiterature();
+                handleShowDetails();
             }
         });
         
@@ -368,6 +369,22 @@ public class GUI extends Application
     }
 
     /**
+     * Display the input dialog to get create a new Newspaper.
+     */
+    private void doAddBook() {
+        DialogBoxBook npDialog = new DialogBoxBook();
+        Optional<Book> result = npDialog.showAndWait();
+
+        if (result.isPresent()) {
+
+            Book book = result.get();
+            litStorage.addLiterature(book);
+            updateObservableList();
+            System.out.println("Number of items in literatureStorage: " + litStorage.getSize());
+        }
+    }
+
+    /**
      * Deletes the literature selected in the table. If no literature is
      * selected, nothing is deleted, and the user is informed that he/she must
      * select which literature to delete.
@@ -394,16 +411,12 @@ public class GUI extends Application
     /**
      * Edit the selected item.
      */
-    private void doEditLiterature()
-    {
-        if (this.tableView.getSelectionModel().isEmpty())
-        {
+    private void doEditLiterature() {
+        if (this.tableView.getSelectionModel().isEmpty()) {
             showPleaseSelectItemDialog();
-        } else
-        {
+        } else {
             Object selectedObject = this.tableView.getSelectionModel().getSelectedItem();
-            if (selectedObject instanceof Literature)
-            {
+            if (selectedObject instanceof Literature) {
                 Newspaper selectedNewspaper = (Newspaper) selectedObject;
 
                 DialogBoxNewspaper npDialog = new DialogBoxNewspaper(selectedNewspaper, true);
@@ -418,21 +431,35 @@ public class GUI extends Application
     /**
      * Show details of the selected item.
      */
-    private void doShowDetails()
-    {
-        if (this.tableView.getSelectionModel().isEmpty())
-        {
+    private void doShowDetails() {
+        if (this.tableView.getSelectionModel().isEmpty()) {
             showPleaseSelectItemDialog();
-        } else
-        {
+        } else {
             Object selectedObject = this.tableView.getSelectionModel().getSelectedItem();
-            if (selectedObject instanceof Literature)
-            {
+            if (selectedObject instanceof Literature) {
                 Newspaper selectedNewspaper = (Newspaper) selectedObject;
                 DialogBoxNewspaper npDialog = new DialogBoxNewspaper(selectedNewspaper, false);
                 Optional<Newspaper> result = npDialog.showAndWait();
             }
         }
+    }
+
+    private void doChooseLiterature() {
+       Alert alert = new Alert(Alert.AlertType.WARNING);
+       alert.setTitle("Add new book, newspaper, magazine or book series?");
+
+       SplitMenuButton menuButton = new SplitMenuButton();
+       menuButton.setText("Literature type");
+       menuButton.getItems().addAll(new MenuItem("Book"), new MenuItem("Newspaper"));
+       menuButton.setOnAction(new EventHandler<ActionEvent>() {
+           @Override
+           public void handle(ActionEvent actionEvent) {
+               doAddBook();
+           }
+       });
+
+       
+       alert.showAndWait();
     }
 
     private void showPleaseSelectItemDialog() {
@@ -476,6 +503,10 @@ public class GUI extends Application
      */
 
     private void handleAddLiterature() {
+        doChooseLiterature();
+    }
+
+    private void handleShowDetails() {
         doAddNewspaper();
     }
     
