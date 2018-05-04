@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Newspaper extends SerialPublication {
     // possible jerry rig fix
-    private String newspaper;
+    //private String newspaper;
     /*
     private ArrayList<String> pictures;
     private ArrayList<String> articles;
@@ -34,22 +34,57 @@ public class Newspaper extends SerialPublication {
         this.articles = new ArrayList<>();
         this.authors = new ArrayList<>();
         */
-        this.newspaper = "Newspaper";
+        //this.newspaper = "Newspaper";
     }
     
+    /**
+     * returns the title of the book
+     * 
+     * @return the title of the newspaper
+     */
     public String getTitle()
     {
         // shit
     }
     
+    /**
+     * returns the publisher of the book
+     * 
+     * @return the newspaper's publisher
+     */
     public String getPublisher()
     {
         // asdasd
     }
     
+    /**
+     * returns the release date of the newspaper
+     * 
+     * @return the release date of the newspaper
+     */
     public String getReleaseDate()
     {
         //ajj
+    }
+    
+    /**
+     * gets the price of the newspaper
+     * 
+     * @return the price of the newspaper
+     */
+    public int getPrice()
+    {
+        //sdfsdf
+    }
+    
+    /**
+     * gets the number of pages in the newspaper
+     * 
+     * @return the number of pages in the newspaper
+     */
+    public int getPages()
+    {
+        //asdasd
     }
 
     /**

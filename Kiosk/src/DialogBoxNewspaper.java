@@ -95,10 +95,12 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
         pages.setPromtText("pages");
         
         TextField price = new TextField();
-        price.setPrompt Text("price");
+        price.setPromtText("price");
         
         // Prevent characters (non-integers) to be added
-        releaseDate.textProperty().addListener(new ChangeListener<String>()
+        // bruker price og ikke numbofIssues
+        
+        price.textProperty().addListener(new ChangeListener<String>()
         {
             @Override
             public void changed(ObservableValue<? extends String> observable,
@@ -117,9 +119,29 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
             }
         });
         
-        // er dette i det hele tatt interesant????
+        pages.textProperty().addListener(new ChangeListener<String>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends String> observable,
+                    String oldValue, String newValue)
+            {
+                try
+                {
+                    if (newValue.length() > 0)
+                    {
+                        Integer.parseInt(newValue);
+                    }
+                } catch (NumberFormatException e)
+                {
+                    issueNoTxt.setText(oldValue);
+                }
+            }
+        });
+        
+        /*
         TextField totalNoOfIssues = new TextField();
         totalNoOfIssues.setPromptText("Total number of issues");
+        
         // Prevent characters (non-integers) to be added
         totalNoOfIssues.textProperty().addListener(new ChangeListener<String>()
         {
@@ -139,6 +161,8 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
                 }
             }
         });
+        */
+        
         
         // Fill inn data from the provided Newspaper, if not null.
         if ((mode == Mode.EDIT) || (mode == Mode.INFO))
@@ -148,26 +172,32 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
             // Get issuenumb er en func i newspaper
             releaseDate.setText(existingNewspaper.getReleaseDate());
             // samme med numofyearlyissues
-            totalNoOfIssues.setText(Integer.toString(existingNewspaper.getNumberOfYearlyIssues()));
+            price.setText(Integer.toString(existingNewspaper.getPrice()));
+            // vår pages param
+            pages.setText(Integer.toString(existingNewspaper.getPages()));
             // Set to non-editable if Mode.INFO
             if (mode == Mode.INFO)
             {
                 title.setEditable(false);
                 publisher.setEditable(false);
-                releadeDate.setEditable(false);
-                totalNoOfIssues.setEditable(false);
+                releaseDate.setEditable(false);
+                price.setEditable(false);
+                pages.setEditable(false);
             }
 
         }
 
+        // what goes where in the grid
         grid.add(new Label("Title:"), 0, 0);
         grid.add(title, 1, 0);
         grid.add(new Label("Publisher:"), 0, 1);
         grid.add(publisher, 1, 1);
         grid.add(new Label("Release date"), 0, 2);
         grid.add(releaseDate, 1, 2);
-        grid.add(new Label("Number of issues pr year:"), 0, 3);
-        grid.add(totalNoOfIssues, 1, 3);
+        grid.add(new Label("Pages"), 0, 3);
+        grid.add(page, 1, 3);
+        grid.add(newLabel("Price"), 0, 4);
+        grid.add(price, 1, 4);
 
         getDialogPane().setContent(grid);
 
@@ -185,13 +215,14 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
                     Newspaper result = null;
                     if (mode == Mode.NEW)
                     {
-                        result = new Newspaper(title.getText(), publisher.getText(), issueNo, totalIssues);
+                        result = new Newspaper(title.getText(), publisher.getText(), releaseDate.getText(), price.getInt(), pages.getInt());
                     } else if (mode == Mode.EDIT)
                     {
                         existingNewspaper.setTitle(title.getText());
                         existingNewspaper.setPublisher(publisher.getText());
-                        existingNewspaper.setIssueNumber(issueNo);
-                        existingNewspaper.setNumberOfYearlyIssues(totalIssues);
+                        existingNewspaper.setReleaseDate.getText();
+                        existingNewspaper.setInt();
+                        existingNewspaper.setInt();
                         result = existingNewspaper;
                     }
                     return result;
