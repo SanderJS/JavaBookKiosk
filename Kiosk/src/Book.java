@@ -33,6 +33,18 @@ public class Book extends AbnormalPublication {
         this.book = "Book";
         }
 
+    public void setEdition(String edition){
+        this.edition = edition;
+    }
+
+    public void setGenre(String genre){
+        this.genre = genre;
+    }
+
+    public void setRefNumber(String refNumber){
+        this.refNumber = refNumber;
+    }
+
     /**
      * Returns the reference number for the book.
      *

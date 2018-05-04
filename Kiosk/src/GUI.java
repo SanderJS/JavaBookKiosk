@@ -350,6 +350,16 @@ public class GUI extends Application
         this.litStorage.addLiterature(new Book("Oscar Wilde", "The Picture of Dorian Gray", "Pearson", "7.th edition",
         "novel", "1957991", "1890", 125, 10));
     }
+
+    private void doAddBook() {
+        DialogBoxBook npDialog = new DialogBoxBook();
+        Optional<Book> result = npDialog.showAndWait();
+        if (result.isPresent()) {
+            Book book = result.get();
+            updateObservableList();
+            System.out.println("Number of items in literatureStorage: " + litStorage.getSize());
+        }
+    }
     
     /**
      * Display the input dialog to get create a new Newspaper.
