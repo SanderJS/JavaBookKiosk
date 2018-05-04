@@ -2,30 +2,16 @@
 import javafx.application.Application;
 import javafx.application.Platform;
 // connecting GUI and Literature
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 //Visual layer
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.text.Text;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Font;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;   // may be removed
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.GridPane;
-import javafx.scene.image.ImageView;
 //Control layer
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
@@ -34,11 +20,8 @@ import javafx.geometry.Insets;
 // TODO(s)?
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
+import java.util.Optional;
 
 
 public class GUI extends Application
@@ -49,24 +32,18 @@ public class GUI extends Application
     // WIP section
     // asdasd
     private LiteratureStorage litStorage;
-    // a list of lit
+    // a list of literatures.
     // needs to be a observable list in order to 
     // work with the tableView and Literature class
-    private ObservableList<Literature> lit;
+    private ObservableList<Literature> obsList;
     // this is how we chose to list the literature
     private TableView<Literature> tableView;
-    
-    /**
-     * An ObservableList used to "wrap" the real register to enable the link
-     * between the TableView and the LiteratureRegister.
-     */
-    private ObservableList<Literature> literatures;
-    
-    // TO BE ADDED
-    // obsevable list to use litReg.
-    // GUI functions
 
-    // ????
+    /**
+     *
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
@@ -74,9 +51,9 @@ public class GUI extends Application
     // decides what happens when the program starts
     // right now it start by adding some premade data
     @Override
-    public void init()
-    {
+    public void init() {
         litStorage = new LiteratureStorage();
+        tableView = new TableView<>();
         this.fillRegisterWithDummyData();
     }
 
@@ -186,8 +163,7 @@ public class GUI extends Application
      * 
      * @return the node to be placed in the cneter of the BorderPane
      */
-    private Node createCentreContent()
-    {
+    private Node createCentreContent() {
         // vbox to control the sizing
         VBox vbox = new VBox();
         
@@ -196,7 +172,7 @@ public class GUI extends Application
         TableColumn<Literature, String> titleColumn = new TableColumn<>("Title");
         // restrcts the limits of much a column can be compressed
         titleColumn.setMinWidth(200);
-        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        titleColumn.setCellValueFactory(new PropertyValueFactory<>("Title"));
 
         // The Publisher-column
         TableColumn<Literature, String> publisherColumn = new TableColumn<>("Publisher");
@@ -206,11 +182,11 @@ public class GUI extends Application
         // The release date-column
         TableColumn<Literature, String> releaseDateColumn = new TableColumn<>("Release date");
         releaseDateColumn.setMinWidth(200);
-        releaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("release date"));
+        releaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
 
-        tableView = new TableView<>();
+
+        tableView.getColumns().addAll(titleColumn , publisherColumn, releaseDateColumn);
         tableView.setItems(this.getLiteratureList());
-        tableView.getColumns().addAll(titleColumn , publisherColumn);
 
         vbox.getChildren().add(tableView);
 
@@ -244,6 +220,7 @@ public class GUI extends Application
             }
         }
         );
+        return vbox;
     }
     
     /**
@@ -266,12 +243,10 @@ public class GUI extends Application
      *
      * @return an ObservableList holding the literatures to display.
      */
-    private ObservableList<Literature> getLiteratureList()
-    {
+    private ObservableList<Literature> getLiteratureList() {
         // Create an ObservableArrayList wrapping the LiteratureRegister
-        literatures
-                = FXCollections.observableArrayList(this.litStorage.getLiteratureList());
-        return literatures;
+        this.obsList = FXCollections.observableArrayList(this.litStorage.getLiteratureList());
+        return obsList;
     }
     
     /**
@@ -279,9 +254,8 @@ public class GUI extends Application
      * Literature register. Call this method whenever changes are made to the
      * underlying LiteratureRegister.
      */
-    private void updateObservableList()
-    {
-        this.literatures.setAll(this.litStorage.getLiteratureList());
+    private void updateObservableList() {
+        this.obsList.setAll(this.litStorage.getLiteratureList());
     }
     
     /**
@@ -318,47 +292,39 @@ public class GUI extends Application
             @Override
             public void handle(ActionEvent event)
             {
-                handleButton();
+                handleAddLiterature();
             }
         });
         
-        button2.setOnAction(new EventHandler<ActionEvent>()
-        {
+        button2.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent event)
-            {
-                handleButton();
+            public void handle(ActionEvent event) {
+                handleAddLiterature();
             }
         });
         
-        button3.setOnAction(new EventHandler<ActionEvent>()
-        {
+        button3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent event)
-            {
-                handleButton();
+            public void handle(ActionEvent event) {
+                handleAddLiterature();
             }
         });
         
-        button4.setOnAction(new EventHandler<ActionEvent>()
-        {
+        button4.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent event)
-            {
-                handleButton();
+            public void handle(ActionEvent event) {
+                handleAddLiterature();
             }
         });
         
-        button5.setOnAction(new EventHandler<ActionEvent>()
-        {
+        button5.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
-            public void handle(ActionEvent event)
-            {
-                handleButton();
+            public void handle(ActionEvent event) {
+                handleAddLiterature();
             }
         });
         
@@ -369,106 +335,44 @@ public class GUI extends Application
         // return the newly created leftBar
         return leftBar;
     }
-    
-    // dummy data
-    private void fillRegisterWithDummyData()
-    {
-        this.litStorage.addText(new Book("Henrik Ibsen", "Et dukkehejm", "Gyldendal", "4. utgave", "drama",
-        "48245909 nummer", "1879", 90, 8));
-        this.litStorage.addText(new Magazine("some magazine", "made by a company", "released at one poin",
+
+    /**
+     *
+     */
+    private void fillRegisterWithDummyData() {
+        this.litStorage.addLiterature(new Book("Henrik Ibsen", "Et dukkehejm", "Gyldendal", "4. utgave", "drama",
+        "48245909", "1879", 90, 8));
+        this.litStorage.addLiterature(new Magazine("some magazine", "made by a company", "released at one poin",
         25, 60));
-        this.litStorage.addText(new BookSeries("ya boii", "a song of boiis and boyos", "Marvel", "42.th edition",
+        this.litStorage.addLiterature(new BookSeries("ya boii", "a song of boiis and boyos", "Marvel", "42.th edition",
         "real shit", "6942069", "4. may 1980", 562, 23, "cool series"));
-        this.litStorage.addText(new Newspaper("Ze Times", "German publishingz", "12. Jan 1995", 44, 60));
-        this.litStorage.addText(new Book("Oscar Wilde", "The Picture of Dorian Gray", "Pearson", "7.th edition",
+        this.litStorage.addLiterature(new Newspaper("Ze Times", "German publishingz", "12. Jan 1995", 44, 60));
+        this.litStorage.addLiterature(new Book("Oscar Wilde", "The Picture of Dorian Gray", "Pearson", "7.th edition",
         "novel", "1957991", "1890", 125, 10));
     }
-    
-    /**
-     * Displays a confirmation dialog with custom actions.
-     */
-    private void doShowCustomConfirmationDialog()
-    {
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog with Custom Actions");
-        alert.setHeaderText("Look, a Confirmation Dialog with Custom Actions");
-        alert.setContentText("Choose your option.");
 
-        ButtonType buttonTypeOne = new ButtonType("One");
-        ButtonType buttonTypeTwo = new ButtonType("Two");
-        ButtonType buttonTypeThree = new ButtonType("Three");
-        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
-
-        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == buttonTypeOne)
-        {
-            // ... user chose "One"
-            System.out.println("User chose ONE..");
-        } else if (result.get() == buttonTypeTwo)
-        {
-            // ... user chose "Two"
-            System.out.println("User chose TWO..");
-        } else if (result.get() == buttonTypeThree)
-        {
-            // ... user chose "Three"
-            System.out.println("User chose THREE..");
-        } else
-        {
-            // ... user chose CANCEL or closed the dialog
-            System.out.println("User chose CANCEL or closed the dialog..");
-        }
-    }
-    
-    /**
-     * Exit the application. Displays a confirmation dialog.
-     */
-    private void doExitApplication()
-    {
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("Exit Application ?");
-        alert.setContentText("Are you sure you want to exit this application?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-
-        if (result.get() == ButtonType.OK)
-        {
-            // ... user chose OK
-            Platform.exit();
-        } else
-        {
-            // ... user chose CANCEL or closed the dialog
-            // then do nothing.
-        }
-    }
-    
     /**
      * Display the input dialog to get create a new Newspaper.
      */
-    private void AddNewspaper()
-    {
+    private void doAddNewspaper() {
         DialogBoxNewspaper npDialog = new DialogBoxNewspaper();
-
         Optional<Newspaper> result = npDialog.showAndWait();
 
-        if (result.isPresent())
-        {
+        if (result.isPresent()) {
+
             Newspaper newspaper = result.get();
             litStorage.addLiterature(newspaper);
             updateObservableList();
-            System.out.println("Number of items in litStorage: " + litStorage.getSize());
+            System.out.println("Number of items in literatureStorage: " + litStorage.getSize());
         }
     }
-    
+
     /**
      * Deletes the literature selected in the table. If no literature is
      * selected, nothing is deleted, and the user is informed that he/she must
      * select which literature to delete.
      */
-    private void doDeleteLiterature()
-    {
+    private void doDeleteLiterature() {
         if (this.tableView.getSelectionModel().isEmpty())
         {
             showPleaseSelectItemDialog();
@@ -480,7 +384,7 @@ public class GUI extends Application
                 if (showDeleteConfirmationDialog())
                 {
                     Literature lit = (Literature) selectedObject;
-                    this.litReg.remove(lit);
+                    this.litStorage.removeByObject(lit);
                     this.updateObservableList();
                 }
             }
@@ -502,7 +406,7 @@ public class GUI extends Application
             {
                 Newspaper selectedNewspaper = (Newspaper) selectedObject;
 
-                NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog(selectedNewspaper, true);
+                DialogBoxNewspaper npDialog = new DialogBoxNewspaper(selectedNewspaper, true);
 
                 Optional<Newspaper> result = npDialog.showAndWait();
 
@@ -525,33 +429,65 @@ public class GUI extends Application
             if (selectedObject instanceof Literature)
             {
                 Newspaper selectedNewspaper = (Newspaper) selectedObject;
-
-                NewspaperDetailsDialog npDialog = new NewspaperDetailsDialog(selectedNewspaper, false);
-
+                DialogBoxNewspaper npDialog = new DialogBoxNewspaper(selectedNewspaper, false);
                 Optional<Newspaper> result = npDialog.showAndWait();
             }
         }
     }
-    
-    
-    // what does the buttons do?
-    // this
-    private void handleButton()
-    {
-        textArea.appendText("button was pressed...\n");
+
+    private void showPleaseSelectItemDialog() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Information");
+        alert.setHeaderText("No items selected");
+        alert.setContentText("Please select an item\n to continue");
+
+        alert.showAndWait();
+    }
+
+    private boolean showDeleteConfirmationDialog() {
+        boolean deleteConfirmed = false;
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm");
+
+
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == ButtonType.OK) {
+            deleteConfirmed = true;
+        } else {
+            deleteConfirmed = false;
+        }
+        return deleteConfirmed;
+    }
+
+    public void showCantEnterEmpty() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Error");
+        alert.setHeaderText("Some fields are empty.");
+        alert.setContentText("Please fill all fields.");
+
+        alert.showAndWait();
+    }
+
+    /** what does the buttons do?
+     *  Thats defined here
+     */
+
+    private void handleAddLiterature() {
+        doAddNewspaper();
     }
     
     // A set of "delegate"-methods. These are methods that actually
     // deals with the stuff related to the function asked for by the
     // user as a button or a menu  is clicked.
-    private void handleFileOpen()
-    {
+    private void handleFileOpen() {
         textArea.appendText("File Open was selected by the user...\n");
     }
     
     // Exits the application
-    private void handleExit()
-    {
+    private void handleExit() {
         Platform.exit();
     }
     

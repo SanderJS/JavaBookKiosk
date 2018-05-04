@@ -33,12 +33,24 @@ public class Book extends AbnormalPublication {
         this.book = "Book";
         }
 
+    public void setEdition(String edition){
+        this.edition = edition;
+    }
+
+    public void setGenre(String genre){
+        this.genre = genre;
+    }
+
+    public void setRefNumber(String refNumber){
+        this.refNumber = refNumber;
+    }
+
     /**
      * Returns the reference number for the book.
      *
      * @return the reference number of the book.
      */
-    protected String getRefNumber() {
+    public String getRefNumber() {
         return refNumber;
     }
 
@@ -47,7 +59,7 @@ public class Book extends AbnormalPublication {
      *
      * @return the edition.
      */
-    protected String getEdition() {
+    public String getEdition() {
         return edition;
     }
 
@@ -56,7 +68,7 @@ public class Book extends AbnormalPublication {
      *
      * @return the genre
      */
-    protected String getGenre() {
+    public String getGenre() {
         return genre;
     }
 

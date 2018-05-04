@@ -11,9 +11,6 @@ import java.util.ArrayList;
  */
 public class Magazine extends SerialPublication {
     private String magazine;
-    private ArrayList<String> pictures;
-    private ArrayList<String> articles;
-    private ArrayList<String> authors;
 
     /**
      * Constructor for objects of subclass Magazine
@@ -27,31 +24,8 @@ public class Magazine extends SerialPublication {
     {
         // error author has private access in text!
         super(title, publisher, releaseDate, pages, price);
-        this.pictures = new ArrayList<>();
-        this.articles = new ArrayList<>();
-        this.authors = new ArrayList<>();
         // maybe
         this.magazine = "Magazine";
-    }
-
-    /**
-     * adds a picture to the magazine
-     * 
-     * @param filename the name of the picture file
-     */
-    public void addPicture(String filename)
-    {
-        pictures.add(filename);
-    }
-
-    /**
-     * adds a article to the magazine
-     * 
-     * @param title the title of the article
-     */
-    public void addArticle(String title)
-    {
-        articles.add(title);
     }
 
     /**

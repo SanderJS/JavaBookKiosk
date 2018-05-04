@@ -10,13 +10,6 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Newspaper extends SerialPublication {
-    // possible jerry rig fix
-    //private String newspaper;
-    /*
-    private ArrayList<String> pictures;
-    private ArrayList<String> articles;
-    private ArrayList<String> authors;
-    */
     /**
      * Constructor for objects of subclass Newspaper
      *
@@ -36,80 +29,6 @@ public class Newspaper extends SerialPublication {
         */
         //this.newspaper = "Newspaper";
     }
-    
-    /**
-     * returns the title of the book
-     * 
-     * @return the title of the newspaper
-     */
-    public String getTitle()
-    {
-        return super.getTitle();
-    }
-    
-    /**
-     * returns the publisher of the book
-     * 
-     * @return the newspaper's publisher
-     */
-    public String getPublisher()
-    {
-        return super.getPublisher();
-    }
-    
-    /**
-     * returns the release date of the newspaper
-     * 
-     * @return the release date of the newspaper
-     */
-    public String getReleaseDate()
-    {
-        return super.getReleaseDate();
-    }
-    
-    /**
-     * gets the price of the newspaper
-     * 
-     * @return the price of the newspaper
-     */
-    public int getPrice()
-    {
-        return super.getPrice();
-    }
-    
-    /**
-     * gets the number of pages in the newspaper
-     * 
-     * @return the number of pages in the newspaper
-     */
-    public int getPages()
-    {
-        return super.getPages();
-    }
-
-    /**
-     * adds a picture to the magazine
-     *
-     * @param filename the name of the picture file
-     */
-    /*
-    public void addPicture(String filename)
-    {
-        pictures.add(filename);
-    }
-    */
-
-    /**
-     * adds a article to the magazine
-     *
-     * @param title the title of the article
-     */
-    /*
-    public void addArticle(String title)
-    {
-        articles.add(title);
-    }
-    */
 
     /**
      * Builds a string with detailed newspaper information.

@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+
 /**
  * a superclass that holds different forms of literature
  * Literature based medias such as books, magazines, newspapers and wikis.
@@ -8,15 +10,17 @@
  * @version 1.0
  */
 public abstract class Literature {
-    private String author;
     private String title;
     private String publisher;
     private String releaseDate;
     private String literatureType;
+    private int price;
+    private int pages;
 
     public Literature() {
 
     }
+
     /**
     * constructor of the text superclass
     *
@@ -24,10 +28,12 @@ public abstract class Literature {
     * @param publisher is the publisher of the text
     * @param releaseDate is the release date of the text
     */
-    public Literature(String title, String publisher, String releaseDate) {
+    public Literature(String title, String publisher, String releaseDate, int price, int pages) {
         this.title = title;
         this.publisher = publisher;
         this.releaseDate = releaseDate;
+        this.price = price;
+        this.pages = pages;
     }
 
     /**
@@ -35,8 +41,12 @@ public abstract class Literature {
     *
     * @param title is the Literature title
     */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String title) throws InputMismatchException {
+        if (title.length() == 0) {
+            throw new InputMismatchException();
+        } else {
+            this.title = title;
+        }
     }
 
     /**
@@ -44,8 +54,12 @@ public abstract class Literature {
     *
     * @param publisher sets the Literature's publisher
     */
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setPublisher(String publisher) throws InputMismatchException {
+        if (publisher.length() == 0) {
+            throw new InputMismatchException();
+        } else {
+            this.publisher = publisher;
+        }
     }
 
     /**
@@ -53,8 +67,51 @@ public abstract class Literature {
      *
      * @param releaseDate sets the release date of the literature
      */
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setReleaseDate(String releaseDate) throws InputMismatchException {
+        if (releaseDate.length() == 0) {
+            throw new InputMismatchException();
+        } else {
+            this.releaseDate = releaseDate;
+        }
+    }
+
+    /**
+     *
+     * @param price
+     * @throws InputMismatchException
+     */
+    public void setPrice(int price) throws InputMismatchException {
+            if (price <= 0) {
+                throw new InputMismatchException();
+            } else {
+                this.price = price;
+            }
+    }
+
+    /**
+     *
+     * @param pages
+     * @throws InputMismatchException
+     */
+    public boolean setPages(int pages) throws InputMismatchException {
+        int setPages = 1;
+        boolean returnBoolean = false;
+
+        if (pages <= 0) {
+            throw new InputMismatchException();
+        }
+
+        try {
+            switch (setPages) {
+                case 1:
+                    this.pages = pages;
+                    returnBoolean = true;
+                    break;
+            }
+        } catch (InputMismatchException ime) {
+        returnBoolean = false;
+        }
+        return returnBoolean;
     }
 
     /**
@@ -62,7 +119,7 @@ public abstract class Literature {
     *
     * @return the title of the Literature
     */
-    protected String getTitle() {
+    public String getTitle() {
         return title;
     }
 
@@ -70,7 +127,7 @@ public abstract class Literature {
      *
      * @return
      */
-    protected String getReleaseDate() {
+    public String getReleaseDate() {
         return releaseDate;
     }
 
@@ -79,13 +136,27 @@ public abstract class Literature {
     *
     * @return the publisher of the Literature.
     */
-    protected String getPublisher() {
+    public String getPublisher() {
         return publisher;
     }
 
-    public String getAuthor() {
-        return author;
+    /**
+     *
+     * @return
+     */
+    public int getPages() {
+        return pages;
     }
+
+    /**
+     *
+     * @return
+     */
+    public int getPrice() {
+        return price;
+    }
+
+
 
     /**
      * Prints all the details of the text.

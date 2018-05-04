@@ -118,7 +118,7 @@ public class ApplicationUI {
      * Lists all the products/literature in the register
      */
     public void listAllProducts() {
-        if (this.literatureStorage.listSize() > 0) {
+        if (this.literatureStorage.getSize() > 0) {
             System.out.println(literatureStorage.listAllTexts());
         } else {
             System.out.println("There are nothing stored at the moment.");
@@ -228,10 +228,10 @@ public class ApplicationUI {
                         //Adds the book to the storage if all fields are valid.
                        if (refNumber.length() >= 3 && isSeries) {
                             System.out.println("Book Added");
-                            literatureStorage.addText(new BookSeries(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price, seriesName));
+                            literatureStorage.addLiterature(new BookSeries(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price, seriesName));
                         } else {
                             if (refNumber.length() >= 3) {
-                                literatureStorage.addText(new Book(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price));
+                                literatureStorage.addLiterature(new Book(title, author,publisher, edition, genre,refNumber, releaseDate, pages, price));
                             } else {
                                 System.out.println("Reference number too short");
                             }
@@ -273,7 +273,7 @@ public class ApplicationUI {
 
                         //Adds the magazine to the storage if all fields are valid.
                         if (refNumber.length() >= 3) {
-                            literatureStorage.addText(new Magazine(title, publisher, releaseDate, pages, price));
+                            literatureStorage.addLiterature(new Magazine(title, publisher, releaseDate, pages, price));
                         } else {
                             System.out.println("Ref number too short, magazine not added.");
                         }
@@ -308,7 +308,7 @@ public class ApplicationUI {
                         price = reader.nextInt();
 
                         //Adds the newspaper to the storage if all fields are valid.
-                        literatureStorage.addText(new Newspaper(title, publisher, releaseDate, pages, price));
+                        literatureStorage.addLiterature(new Newspaper(title, publisher, releaseDate, pages, price));
                         quit = true;
                         break;
 

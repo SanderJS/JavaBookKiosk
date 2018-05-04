@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 //maybes
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -12,7 +11,7 @@ import java.util.List;
  */
 public class LiteratureStorage {
     /**
-     * Arne sitt eksempel har final på listOfLiterature
+     * Arne sitt eksempel har final pÃ¥ listOfLiterature
      * og ingen Literature literature
      * 
      * Hva brukes Literature literature til?
@@ -31,7 +30,7 @@ public class LiteratureStorage {
      * The currently selected book to the list.
      * @param literature the literature to add
      */
-    public void addText(Literature literature){
+    public void addLiterature(Literature literature){
         this.listOfLiterature.add(literature);
     }
 
@@ -49,8 +48,7 @@ public class LiteratureStorage {
      *
      * @return the list of literature.
      */
-    List<Literature> getLiteratureList()
-    {
+    public List<Literature> getLiteratureList() {
         return this.listOfLiterature;
     }
 
@@ -62,7 +60,8 @@ public class LiteratureStorage {
     public String getTextByAuthor(String author) {
         String returnString = "";
         for (Literature b : this.listOfLiterature) {
-            if (b.getAuthor().equals(author)) {
+            if (b instanceof AbnormalPublication) {
+                ((AbnormalPublication) b).getAuthor();
                 returnString += b.printDetailsAsString();
             }
         }
@@ -114,10 +113,17 @@ public class LiteratureStorage {
         return returnString;
     }
 
-    public int listSize() {
+    public int getSize() {
         int size;
         size = listOfLiterature.size();
         return size;
+    }
+
+    public void removeByObject(Literature lit) {
+        if (listOfLiterature.contains(lit)) {
+            int location = listOfLiterature.lastIndexOf(lit);
+            removeTextFromList(location);
+        }
     }
 
     /**
@@ -127,14 +133,14 @@ public class LiteratureStorage {
         //The first of three pre made books.
         Literature book = new BookSeries("AuthorMan", "TitleMan", "Gyldendal", "5th"
         , "sci-fi", "1234", "19-12-1999", 20, 200, "periodical");
-        addText(book);
+        addLiterature(book);
         //The second of three pre made books.
         Literature book2 = new Book("ManTitle", "ManAuthor", "Gyldendal", "9.th",
                 "Low-Fi", "5678", "20-04-1920", 200, 20);
-        addText(book2);
+        addLiterature(book2);
         //The final pre made book.
         Book book3 = new Book("Sander", "Joachim", "Skarmyr", "1st",
                 "Dead-High", "1368", "20-01-1285", 2001, 20123);
-        addText(book3);
+        addLiterature(book3);
     }
 }

@@ -351,16 +351,6 @@ public class GUI extends Application
         "novel", "1957991", "1890", 125, 10));
     }
 
-    private void doAddBook() {
-        DialogBoxBook npDialog = new DialogBoxBook();
-        Optional<Book> result = npDialog.showAndWait();
-        if (result.isPresent()) {
-            Book book = result.get();
-            updateObservableList();
-            System.out.println("Number of items in literatureStorage: " + litStorage.getSize());
-        }
-    }
-    
     /**
      * Display the input dialog to get create a new Newspaper.
      */
@@ -376,7 +366,7 @@ public class GUI extends Application
             System.out.println("Number of items in literatureStorage: " + litStorage.getSize());
         }
     }
-    
+
     /**
      * Deletes the literature selected in the table. If no literature is
      * selected, nothing is deleted, and the user is informed that he/she must

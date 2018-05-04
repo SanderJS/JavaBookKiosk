@@ -2,8 +2,6 @@
  *
  */
 public class SerialPublication extends Literature {
-    private int pages;
-    private int price;
 
     /**
      *
@@ -14,25 +12,6 @@ public class SerialPublication extends Literature {
      * @param price the price of the literature
      */
     public SerialPublication(String title, String publisher, String releaseDate, int pages, int price) {
-        super(title, publisher, releaseDate);
-        this.pages = pages;
-        this.price = price;
-    }
-
-    /**
-     * returns the
-     *
-     * @return
-     */
-    protected int getPages() {
-        return pages;
-    }
-
-    /**
-     *
-     * @return
-     */
-    protected int getPrice() {
-        return price;
+        super(title, publisher, releaseDate, price, pages);
     }
 }

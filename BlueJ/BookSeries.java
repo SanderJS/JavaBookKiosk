@@ -35,4 +35,20 @@ public class BookSeries extends AbnormalPublication {
         returnString += "Series: " + seriesName + "\n";
         return returnString;
     }
+
+    public String getSeriesName() {
+        return seriesName;
+    }
+
+    public String getEdition() {
+        return edition;
+    }
+
+    public String getRefNumber() {
+        return refNumber;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
 }

@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
+import java.util.InputMismatchException;
+
 /**
  * Write a description of class DialogBoxes here.
  *
@@ -99,7 +101,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
         
         // Prevent characters (non-integers) to be added
         // bruker price og ikke numbofIssues
-        /*
+        
         price.textProperty().addListener(new ChangeListener<String>()
         {
             @Override
@@ -114,11 +116,10 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
                     }
                 } catch (NumberFormatException e)
                 {
-                    pages.setText(oldValue);
+                    price.setText(oldValue);
                 }
             }
         });
-        */
         
         pages.textProperty().addListener(new ChangeListener<String>()
         {
@@ -139,7 +140,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
             }
         });
         
-        
+        /*
         TextField totalNoOfIssues = new TextField();
         totalNoOfIssues.setPromptText("Total number of issues");
         
@@ -162,7 +163,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
                 }
             }
         });
-        
+        */
         
         
         // Fill inn data from the provided Newspaper, if not null.
@@ -174,7 +175,7 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
             releaseDate.setText(existingNewspaper.getReleaseDate());
             // samme med numofyearlyissues
             price.setText(Integer.toString(existingNewspaper.getPrice()));
-            // vår pages param
+            // vï¿½r pages param
             pages.setText(Integer.toString(existingNewspaper.getPages()));
             // Set to non-editable if Mode.INFO
             if (mode == Mode.INFO)
@@ -206,24 +207,21 @@ public class DialogBoxNewspaper extends Dialog<Newspaper>
         setResultConverter( new Callback<ButtonType, Newspaper>()
         {
             @Override
-            public Newspaper call(ButtonType button
-            )
-            {
-                if (button == ButtonType.OK)
-                {
-                    int pages = Integer.parseInt(pages.getText());
-                    int price = Integer.parseInt(price.getText());
+            public Newspaper call(ButtonType button) {
+                if (button == ButtonType.OK) {
+                    int pagesNo = Integer.parseInt(pages.getText());
+                    int priceInt = Integer.parseInt(price.getText());
+
                     Newspaper result = null;
-                    if (mode == Mode.NEW)
-                    {
-                        result = new Newspaper(title.getText(), publisher.getText(), releaseDate.getText(), price.getText(), pages.getText());
-                    } else if (mode == Mode.EDIT)
-                    {
+
+                    if (mode == Mode.NEW) {
+                        result = new Newspaper(title.getText(), publisher.getText(), releaseDate.getText(), pagesNo, priceInt);
+                    } else if (mode == Mode.EDIT) {
                         existingNewspaper.setTitle(title.getText());
                         existingNewspaper.setPublisher(publisher.getText());
                         existingNewspaper.setReleaseDate(releaseDate.getText());
-                        existingNewspaper.setPages.;
-                        existingNewspaper.setPrice.setText();
+                        existingNewspaper.setPages(pagesNo);
+                        existingNewspaper.setPrice(priceInt);
                         result = existingNewspaper;
                     }
                     return result;
